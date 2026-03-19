@@ -1,0 +1,21 @@
+packages:
+  "framer-motion": "For premium page transitions, scroll animations, and SaaS-feel micro-interactions"
+  "react-helmet-async": "Required for managing SEO meta tags, titles, and JSON-LD schemas across all pages"
+  "lucide-react": "For consistent, professional iconography throughout the application"
+  "clsx": "For conditional class name merging"
+  "tailwind-merge": "For merging Tailwind CSS classes cleanly"
+
+images:
+  - path: "artifacts/autofixdata/public/images/hero-bg.png"
+    description: "Abstract technical background in dark navy blue (#0D1F30) with subtle glowing data lines, connected nodes, and a hint of yellow (#F5C400) accents, representing an enterprise data network or automotive CAN bus system, highly professional and modern."
+    aspect_ratio: "16:9"
+  - path: "artifacts/autofixdata/public/images/diagnostics-abstract.png"
+    description: "Abstract futuristic interface showing automotive diagnostic codes and engine wireframe in dark navy with bright yellow accents, highly technical, shallow depth of field."
+    aspect_ratio: "16:9"
+  - path: "artifacts/autofixdata/public/images/wiring-abstract.png"
+    description: "Abstract visualization of colorful electrical wiring diagrams overlaid on a dark navy blue background, modern tech aesthetic."
+    aspect_ratio: "16:9"
+
+notes:
+  - Formspree is used for form submissions via a placeholder URL.
+  - No backend is required, this is a purely static front-end marketing site.

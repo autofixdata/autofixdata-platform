@@ -1,0 +1,145 @@
+generates a complete React + Tailwind CSS frontend with no backend required. All content is hardcoded as static data — product descriptions, page content, SEO metadata, multilingual text — making it instantly deployable to any static host (Vercel, Netlify, GitHub Pages).
+Since there is no admin panel or CMS, all content edits are done by re-prompting Lovable. This is actually faster than a CMS for a site of this size.
+
+1.2 Pages that will be generated
+#
+Page
+Route
+Purpose
+1
+Homepage
+/
+Hero, products, features, testimonials, FAQ
+2
+Products — all platforms
+/products
+All 5 reseller products overview
+3
+ALLDATA product page
+/alldata
+Dedicated ALLDATA landing page
+4
+AutoData product page
+/autodata
+Dedicated AutoData landing page
+5
+Haynes Pro product page
+/haynes-pro
+Dedicated Haynes Pro landing page
+6
+Mitchell1 product page
+/mitchell1
+Dedicated Mitchell1 landing page
+7
+Identifix product page
+/identifix
+Dedicated Identifix landing page
+8
+Pricing
+/pricing
+3 subscription plans + comparison table
+9
+Free Trial
+/free-trial
+Conversion page — form (Formspree/Netlify)
+10
+ALLDATA Alternative
+/alldata-alternative
+SEO — 181K impressions target
+11
+AutoData Alternative
+/autodata-alternative
+SEO — 79K impressions target
+12
+Mitchell1 Alternative
+/mitchell1-alternative
+SEO — 40K impressions target
+13
+Haynes Pro Alternative
+/haynespro-alternative
+SEO — 25K impressions target
+14
+Identifix Alternative
+/identifix-alternative
+SEO — 15K impressions
+15
+Repair Manuals hub
+/repair-manuals
+OEM data overview + make grid
+16
+Diagnostics & DTC
+/diagnostics
+DTC code library overview
+17
+Wiring Diagrams
+/wiring-diagrams
+Wiring database overview
+18
+About
+/about
+Company story, markets, values
+19
+Contact
+/contact
+Contact form + office info
+20
+Blog listing
+/blog
+Article grid with category filters
+21
+404 page
+*
+Branded error page
+
+
+1.3 SEO strategy baked into the prompt
+Every page has a unique title tag (55–60 chars) and meta description (148–155 chars)
+H1 on every page contains the primary keyword
+JSON-LD schema: Organization (homepage), FAQPage (alternative pages), Product (pricing)
+Open Graph meta tags for social sharing on all pages
+Hreflang tags for 7 markets (en, fr, de, es, it, pl, es-AR, x-default)
+Semantic HTML: <article>, <section>, <nav>, <main>, <aside> used correctly
+All images use descriptive alt text with keywords
+robots meta tag: index, follow on all public pages
+Canonical URLs on every page
+llms.txt file for AI search engines (ChatGPT, Perplexity, Google AI Overviews)
+
+1.4 Design system baked into the prompt
+Element
+Value
+Notes
+Primary yellow
+#F5C400
+All CTA buttons, logo accent, hover highlights
+Dark navy
+#0D1F30
+Hero bg, dark sections, footer
+Darkest bg
+#060E1A
+Stats bar, makes bar
+Professional blue
+#1A4A7A
+Links, section headings, accents
+Body text
+#444444
+All paragraph text on white
+Light bg
+#F5F5F5
+Alternating section backgrounds
+Font
+Inter (Google Fonts)
+Weights 400, 500, 600, 700, 800
+Code/DTC font
+JetBrains Mono
+DTC codes, URLs, technical strings
+Border radius
+10px cards, 8px buttons
+6px badges/pills
+Max content width
+1200px centred
+All sections max-w-[1200px] mx-auto
+Mobile breakpoint
+768px
+All grids collapse to 1 column
+
+
