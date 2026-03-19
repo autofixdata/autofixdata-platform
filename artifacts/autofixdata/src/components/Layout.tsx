@@ -8,8 +8,31 @@ interface LayoutProps {
 }
 
 const CAR_MAKES = [
-  "BMW", "Ford", "Volkswagen", "Toyota", "Mercedes-Benz", "Vauxhall", "Renault", "Peugeot", 
-  "Audi", "Honda", "Nissan", "Hyundai", "Kia", "Volvo", "Skoda", "Land Rover", "Fiat", "Mazda", "Mini", "Seat"
+  { name: "BMW", slug: "bmw" },
+  { name: "Ford", slug: "ford" },
+  { name: "VW", slug: "volkswagen" },
+  { name: "Toyota", slug: "toyota" },
+  { name: "Mercedes", slug: "mercedes-benz" },
+  { name: "Vauxhall", slug: "vauxhall" },
+  { name: "Renault", slug: "renault" },
+  { name: "Peugeot", slug: "peugeot" },
+  { name: "Audi", slug: "audi" },
+  { name: "Honda", slug: "honda" },
+  { name: "Nissan", slug: "nissan" },
+  { name: "Hyundai", slug: "hyundai" },
+  { name: "Kia", slug: "kia" },
+  { name: "Volvo", slug: "volvo" },
+  { name: "Skoda", slug: "skoda" },
+  { name: "Land Rover", slug: "land-rover" },
+  { name: "Fiat", slug: "fiat" },
+  { name: "Mazda", slug: "mazda" },
+  { name: "Mini", slug: "mini" },
+  { name: "SEAT", slug: "seat" },
+  { name: "Alfa Romeo", slug: "alfa-romeo" },
+  { name: "Citroën", slug: "citroen" },
+  { name: "Porsche", slug: "porsche" },
+  { name: "Subaru", slug: "subaru" },
+  { name: "Mitsubishi", slug: "mitsubishi" },
 ];
 
 export function Layout({ children }: LayoutProps) {
@@ -27,17 +50,28 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen font-sans">
       {/* Makes Secondary Bar (Desktop) */}
-      <div className="hidden md:flex bg-afd-dark h-8 items-center border-b border-white/5">
-        <div className="max-w-[1200px] mx-auto w-full px-6 flex items-center overflow-hidden">
-          <span className="text-[11px] font-bold text-white/50 mr-4 tracking-wider">MAKES:</span>
-          <div className="marquee-container w-full mask-edges">
-            <div className="marquee-content flex gap-6 text-[11px] text-afd-slate font-medium">
+      <div className="hidden md:flex bg-afd-dark h-9 items-center border-b border-white/5 overflow-hidden">
+        <div className="flex items-center w-full">
+          <div className="flex-shrink-0 px-4 flex items-center gap-2 border-r border-white/10 h-9">
+            <span className="text-[10px] font-bold text-white/40 tracking-widest uppercase">MAKES</span>
+          </div>
+          <div className="marquee-container flex-1 overflow-hidden">
+            <div className="marquee-content flex items-center gap-6">
               {[...CAR_MAKES, ...CAR_MAKES].map((make, i) => (
-                <span key={i} className="hover:text-afd-yellow transition-colors cursor-pointer whitespace-nowrap">
-                  {make}
+                <span key={i} className="flex items-center gap-1.5 cursor-pointer group whitespace-nowrap">
+                  <img
+                    src={`/images/logos/${make.slug}.png`}
+                    alt={make.name}
+                    className="h-4 w-auto object-contain opacity-50 group-hover:opacity-100 transition-opacity"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                  />
+                  <span className="text-[11px] text-afd-slate group-hover:text-afd-yellow transition-colors font-medium">{make.name}</span>
                 </span>
               ))}
             </div>
+          </div>
+          <div className="flex-shrink-0 px-4 border-l border-white/10 h-9 flex items-center">
+            <Link href="/repair-manuals" className="text-[10px] text-afd-yellow font-bold tracking-wider hover:underline whitespace-nowrap">+ All 150 makes →</Link>
           </div>
         </div>
       </div>

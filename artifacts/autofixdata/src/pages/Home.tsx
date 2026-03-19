@@ -164,6 +164,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MAKES GRID */}
+      <section className="py-20 bg-afd-dark">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold text-white mb-3">Coverage Across All Major Makes</h2>
+            <p className="text-afd-slate">OEM data for 150+ vehicle manufacturers — 1990 to present</p>
+          </div>
+          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
+            {[
+              { name: "BMW", slug: "bmw" },
+              { name: "Ford", slug: "ford" },
+              { name: "VW", slug: "volkswagen" },
+              { name: "Toyota", slug: "toyota" },
+              { name: "Mercedes", slug: "mercedes-benz" },
+              { name: "Vauxhall", slug: "vauxhall" },
+              { name: "Renault", slug: "renault" },
+              { name: "Peugeot", slug: "peugeot" },
+              { name: "Audi", slug: "audi" },
+              { name: "Honda", slug: "honda" },
+              { name: "Nissan", slug: "nissan" },
+              { name: "Hyundai", slug: "hyundai" },
+              { name: "Kia", slug: "kia" },
+              { name: "Volvo", slug: "volvo" },
+              { name: "Skoda", slug: "skoda" },
+              { name: "Land Rover", slug: "land-rover" },
+              { name: "Fiat", slug: "fiat" },
+              { name: "Mazda", slug: "mazda" },
+              { name: "Mini", slug: "mini" },
+              { name: "SEAT", slug: "seat" },
+              { name: "Alfa Romeo", slug: "alfa-romeo" },
+              { name: "Citroën", slug: "citroen" },
+              { name: "Porsche", slug: "porsche" },
+              { name: "Subaru", slug: "subaru" },
+              { name: "Mitsubishi", slug: "mitsubishi" },
+              { name: "Ferrari", slug: "ferrari" },
+              { name: "Lamborghini", slug: "lamborghini" },
+              { name: "Jaguar", slug: "jaguar" },
+              { name: "Jeep", slug: "jeep" },
+              { name: "+ 120 more", slug: null },
+            ].map((make, i) => (
+              make.slug ? (
+                <div key={i} className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-afd-yellow/30 transition-all cursor-pointer">
+                  <img
+                    src={`/images/logos/${make.slug}.png`}
+                    alt={make.name}
+                    className="h-8 w-auto object-contain filter brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 transition-all"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }}
+                  />
+                  <span className="text-[10px] text-afd-slate group-hover:text-white font-medium text-center leading-tight">{make.name}</span>
+                </div>
+              ) : (
+                <Link href="/repair-manuals" key={i} className="group flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-afd-yellow/10 hover:bg-afd-yellow/20 border border-afd-yellow/20 hover:border-afd-yellow transition-all cursor-pointer">
+                  <span className="text-afd-yellow font-extrabold text-lg">+120</span>
+                  <span className="text-[10px] text-afd-yellow font-bold text-center leading-tight">All Makes →</span>
+                </Link>
+              )
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
       <section className="py-24 bg-afd-light">
         <div className="max-w-[1200px] mx-auto px-6">

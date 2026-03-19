@@ -91,6 +91,13 @@ UK · US · France · Germany · Spain · Italy · Poland · Argentina
 - Free trial form → Formspree (placeholder URL, replace YOUR_ID)
 - Contact form → Formspree (placeholder URL, replace YOUR_ID)
 
+### Car Brand Logos
+- 36 logo PNGs in `artifacts/autofixdata/public/images/logos/`
+- Source: filippofilip95/car-logos-dataset GitHub repo (master branch)
+- URL pattern: `/images/logos/{slug}.png` (e.g., `mercedes-benz.png`, `land-rover.png`)
+- Used in: animated marquee makes bar (Layout.tsx) + homepage makes grid + Repair Manuals coverage grid
+- Slugs follow the GitHub repo filename convention
+
 ### Tech
 - React + TypeScript + Vite
 - Tailwind CSS v4 with custom brand CSS variables

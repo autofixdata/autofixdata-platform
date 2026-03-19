@@ -40,16 +40,41 @@ export default function RepairManuals() {
           </div>
           <div className="bg-afd-light p-8 rounded-2xl border border-gray-100">
              <h3 className="text-xl font-bold text-afd-navy mb-6">Coverage Highlights</h3>
-             <div className="grid grid-cols-2 gap-4">
-                {['Ford', 'BMW', 'Volkswagen', 'Toyota', 'Audi', 'Mercedes', 'Renault', 'Peugeot', 'Honda', 'Nissan'].map(brand => (
-                  <div key={brand} className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-center font-bold text-afd-navy shadow-sm">
-                    {brand}
+             <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
+                {[
+                  { name: "BMW", slug: "bmw" },
+                  { name: "Ford", slug: "ford" },
+                  { name: "VW", slug: "volkswagen" },
+                  { name: "Toyota", slug: "toyota" },
+                  { name: "Audi", slug: "audi" },
+                  { name: "Mercedes", slug: "mercedes-benz" },
+                  { name: "Renault", slug: "renault" },
+                  { name: "Peugeot", slug: "peugeot" },
+                  { name: "Honda", slug: "honda" },
+                  { name: "Nissan", slug: "nissan" },
+                  { name: "Vauxhall", slug: "vauxhall" },
+                  { name: "Kia", slug: "kia" },
+                  { name: "Hyundai", slug: "hyundai" },
+                  { name: "Volvo", slug: "volvo" },
+                  { name: "Skoda", slug: "skoda" },
+                  { name: "Fiat", slug: "fiat" },
+                  { name: "Mazda", slug: "mazda" },
+                  { name: "Mini", slug: "mini" },
+                  { name: "SEAT", slug: "seat" },
+                  { name: "Alfa Romeo", slug: "alfa-romeo" },
+                ].map(brand => (
+                  <div key={brand.slug} className="group bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center gap-1.5 hover:border-afd-yellow/50 hover:shadow-md transition-all">
+                    <img
+                      src={`/images/logos/${brand.slug}.png`}
+                      alt={brand.name}
+                      className="h-7 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }}
+                    />
+                    <span className="text-[10px] font-semibold text-afd-slate group-hover:text-afd-navy text-center leading-tight">{brand.name}</span>
                   </div>
                 ))}
-                <div className="col-span-2 text-center text-sm text-afd-slate mt-2">
-                  + 140 More Global Brands
-                </div>
              </div>
+             <p className="text-center text-sm text-afd-slate mt-4 font-medium">+ 130 more global brands covered</p>
           </div>
         </div>
       </section>
