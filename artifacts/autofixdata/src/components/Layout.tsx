@@ -308,10 +308,11 @@ export function Layout({ children }: LayoutProps) {
             <p className="text-afd-slate text-sm">
               © {new Date().getFullYear()} Auto Fix Data Ltd. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-afd-slate">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">GDPR</a>
+            <div className="flex flex-wrap gap-6 text-sm text-afd-slate">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link href="/gdpr" className="hover:text-white transition-colors">GDPR & Cookies</Link>
+              <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sitemap</a>
             </div>
           </div>
         </div>

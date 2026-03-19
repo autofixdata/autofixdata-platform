@@ -126,6 +126,51 @@ export default function AutodataProduct() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section className="py-20 bg-afd-dark">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl font-extrabold text-white text-center mb-12">What Workshops Say About AutoData</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { quote: "AutoData's service interval data is so accurate and comprehensive. We use it every day for servicing schedules, timing belt data and fluid specs. Having it alongside ALLDATA in one login is brilliant.", name: "Tom H.", role: "Service Manager", garage: "Horizon Automotive, Leeds" },
+              { quote: "The wiring diagrams in AutoData are the best I've seen for European makes. Clear, colour-coded and they actually load fast. Auto Fix Data gave us the full package for less than we expected.", name: "Maria S.", role: "Diagnostic Technician", garage: "Euro Tech Garage" },
+            ].map(({ quote, name, role, garage }) => (
+              <div key={name} className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <p className="text-afd-slate italic leading-relaxed mb-6">"{quote}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-afd-yellow rounded-full flex items-center justify-center text-black font-bold">{name[0]}</div>
+                  <div>
+                    <div className="text-white font-bold text-sm">{name}</div>
+                    <div className="text-afd-slate text-xs">{role} — {garage}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-afd-light px-6">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-3xl font-extrabold text-afd-navy mb-10 text-center">AutoData FAQs</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Is AutoData particularly strong for European vehicles?", a: "Yes. AutoData was originally developed for the European market and has exceptionally deep coverage of UK, German, French, Italian and Spanish vehicles, making it the preferred choice for European specialists." },
+              { q: "Does AutoData include timing belt replacement data?", a: "Yes. AutoData's timing data is industry-leading — including locking tool specifications, tension settings, belt routes and replacement intervals for all supported engines." },
+              { q: "Can AutoData help with ADAS system calibration?", a: "Yes. AutoData includes ADAS calibration procedures and camera/sensor reset data for supported vehicles, an increasingly important feature for modern workshop operations." },
+              { q: "How does AutoData handle EV and hybrid data?", a: "AutoData includes high-voltage system specifications, battery management data and hybrid service procedures for the most popular EV and PHEV platforms." },
+              { q: "Is AutoData included in all Auto Fix Data plans?", a: "Yes. All Auto Fix Data subscription plans include full access to AutoData alongside the other four databases at no extra cost." },
+            ].map(({ q, a }) => (
+              <div key={q} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 className="font-bold text-afd-navy mb-2">{q}</h3>
+                <p className="text-afd-text text-sm leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-white">
         <div className="max-w-[800px] mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-afd-navy mb-6">
@@ -135,7 +180,7 @@ export default function AutodataProduct() {
             Auto Fix Data is an authorised AutoData reseller. Your subscription gives you full access to AutoData alongside ALLDATA, Haynes Pro, Mitchell1 and Identifix. One subscription, five premium databases.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/free-trial">
+            <Link href="/contact">
               <button className="bg-afd-yellow text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-afd-yellow-hover transition-colors">
                 Start Free 7-Day Trial
               </button>

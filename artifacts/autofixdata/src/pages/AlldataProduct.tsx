@@ -126,6 +126,51 @@ export default function AlldataProduct() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section className="py-20 bg-afd-dark">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl font-extrabold text-white text-center mb-12">What Workshops Say About ALLDATA</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { quote: "ALLDATA has been the backbone of our workshop for years. Getting it bundled with four other databases through Auto Fix Data at a lower price than we were paying for ALLDATA alone was a no-brainer.", name: "Paul R.", role: "Workshop Owner", garage: "RPM Autocare, Manchester" },
+              { quote: "The TSB coverage in ALLDATA is second to none. It's saved us hours on recurring faults — we check it now before we even put the car on the ramp. The integration into Auto Fix Data makes it seamless.", name: "Lisa M.", role: "Master Technician", garage: "City Garage Group" },
+            ].map(({ quote, name, role, garage }) => (
+              <div key={name} className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <p className="text-afd-slate italic leading-relaxed mb-6">"{quote}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-afd-yellow rounded-full flex items-center justify-center text-black font-bold">{name[0]}</div>
+                  <div>
+                    <div className="text-white font-bold text-sm">{name}</div>
+                    <div className="text-afd-slate text-xs">{role} — {garage}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-afd-light px-6">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-3xl font-extrabold text-afd-navy mb-10 text-center">ALLDATA FAQs</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Is this the same data as subscribing to ALLDATA directly?", a: "Yes. As an authorised reseller, we provide the exact same OEM-sourced ALLDATA content. There is no difference in data quality or coverage." },
+              { q: "Does ALLDATA cover European vehicles?", a: "Yes. ALLDATA covers both US domestic and global vehicles. European coverage includes UK, German, French, Italian and Spanish market vehicles from major manufacturers." },
+              { q: "How often is ALLDATA updated?", a: "ALLDATA's data feed is updated daily. New TSBs and revised OEM procedures appear in your account automatically — there is no manual update process." },
+              { q: "Does ALLDATA include wiring diagrams?", a: "Yes. ALLDATA includes full wiring schematics, connector pinout tables, and component location diagrams as part of the standard subscription." },
+              { q: "Can I use ALLDATA on my tablet in the workshop bay?", a: "Yes. Auto Fix Data is entirely cloud-based. You can access ALLDATA from any device — PC, Mac, tablet or smartphone — without any additional hardware." },
+            ].map(({ q, a }) => (
+              <div key={q} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 className="font-bold text-afd-navy mb-2">{q}</h3>
+                <p className="text-afd-text text-sm leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-white">
         <div className="max-w-[800px] mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-afd-navy mb-6">
@@ -135,7 +180,7 @@ export default function AlldataProduct() {
             As an authorised ALLDATA reseller, Auto Fix Data gives you access to the full ALLDATA database alongside AutoData, Haynes Pro, Mitchell1 and Identifix — all under a single subscription. One login. Five databases. No switching between platforms.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/free-trial">
+            <Link href="/contact">
               <button className="bg-afd-yellow text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-afd-yellow-hover transition-colors">
                 Start Free 7-Day Trial
               </button>

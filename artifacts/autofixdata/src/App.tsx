@@ -24,6 +24,9 @@ import AutodataProduct from "@/pages/AutodataProduct";
 import HaynesProProduct from "@/pages/HaynesProProduct";
 import Mitchell1Product from "@/pages/Mitchell1Product";
 import IdentifixProduct from "@/pages/IdentifixProduct";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
+import GDPR from "@/pages/GDPR";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -51,6 +54,9 @@ function Router() {
       <Route path="/mitchell1-alternative" component={Mitchell1Alternative} />
       <Route path="/haynespro-alternative" component={HaynesProAlternative} />
       <Route path="/identifix-alternative" component={IdentifixAlternative} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/gdpr" component={GDPR} />
       <Route component={NotFound} />
     </Switch>
   );
