@@ -28,6 +28,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import GDPR from "@/pages/GDPR";
 import ModelDetail from "@/pages/ModelDetail";
+import Login from "@/pages/Login";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/gdpr" component={GDPR} />
       <Route path="/model-detail" component={ModelDetail} />
+      <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
   );
