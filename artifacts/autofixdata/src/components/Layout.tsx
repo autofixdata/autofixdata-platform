@@ -141,6 +141,11 @@ export function Layout({ children }: LayoutProps) {
               Pricing
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-afd-yellow transition-all duration-300 group-hover:w-full"></span>
             </Link>
+
+            <Link href="/login" className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2">
+              Login
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-afd-yellow transition-all duration-300 group-hover:w-full"></span>
+            </Link>
           </nav>
 
           {/* Desktop Right Actions */}
@@ -322,6 +327,7 @@ export function Layout({ children }: LayoutProps) {
               <ul className="space-y-3">
                 <li><Link href="/about" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">About Us</Link></li>
                 <li><Link href="/contact" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Contact Support</Link></li>
+                <li><Link href="/login" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Login</Link></li>
                 <li><a href="#" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Careers</a></li>
                 <li><a href="#" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Partners</a></li>
               </ul>
