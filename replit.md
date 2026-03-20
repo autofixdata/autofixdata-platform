@@ -40,16 +40,17 @@ artifacts-monorepo/
 
 Professional automotive workshop repair data marketing site for autofixdata.com.
 
-### Pages (21 total)
-- `/` — Homepage with hero, products, features, testimonials, FAQ
+### Pages (25 total)
+- `/` — Homepage with hero, products, features, testimonials, FAQ; makes grid clickable → /model-detail
 - `/products` — All 5 reseller products overview
 - `/alldata` — ALLDATA dedicated product page
 - `/autodata` — AutoData dedicated product page
 - `/haynes-pro` — Haynes Pro dedicated product page
 - `/mitchell1` — Mitchell1 dedicated product page
 - `/identifix` — Identifix dedicated product page
-- `/pricing` — Subscription plans (Individual £99/mo, Garage £199/mo, Fleet custom)
+- `/pricing` — Subscription plans; EUR/GBP/USD currency switcher; monthly/yearly toggle (20% annual discount)
 - `/free-trial` — Conversion page with Formspree form
+- `/model-detail` — AutoData-style workshop database demo; vehicle data gated behind upgrade modal → /pricing
 - `/alldata-alternative` — SEO page (181K impressions target)
 - `/autodata-alternative` — SEO page (79K impressions target)
 - `/mitchell1-alternative` — SEO page (40K impressions target)
@@ -61,6 +62,9 @@ Professional automotive workshop repair data marketing site for autofixdata.com.
 - `/about` — Company story, markets, values
 - `/contact` — Contact form + office info
 - `/blog` — Article grid with category filters
+- `/privacy-policy` — Privacy Policy (GDPR compliant)
+- `/terms-of-service` — Terms of Service
+- `/gdpr` — GDPR Rights & Cookie Policy
 - `*` — 404 branded error page
 
 ### Brand System
@@ -78,14 +82,27 @@ ALLDATA (AutoZone) · AutoData (Solera) · Haynes Pro (Haynes Group) · Mitchell
 UK · US · France · Germany · Spain · Italy · Poland · Argentina
 
 ### SEO Features
-- Unique title + meta description per page
-- Open Graph tags on all pages
-- Hreflang tags (en, fr, de, es, it, pl, x-default)
+- Unique title (<60 chars) + meta description (<160 chars) per page
+- Open Graph tags (og:title, og:description, og:image, og:url) on all pages
+- Twitter Card metadata on all pages
+- Hreflang tags (en, en-gb, en-us, fr, de, es, it, pl, x-default) with x-default fallback
+- WebSite schema (SearchAction) + Organization schema on every page
 - FAQPage JSON-LD schema on FAQ pages
-- Organization JSON-LD on homepage
+- BreadcrumbList JSON-LD on model-detail and inner pages
+- Product JSON-LD schema on pricing page
 - react-helmet-async for head management
-- robots: index, follow
-- Canonical URLs
+- robots: index, follow, max-snippet, max-image-preview:large
+- Canonical URLs per page
+- sitemap.xml (25 URLs) with hreflang for 7 locales in public/
+- robots.txt in public/ pointing to sitemap
+- Google Search Console verification meta tag placeholder (REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN)
+- Bing Webmaster Tools verification meta tag placeholder (REPLACE_WITH_BING_WEBMASTER_TOKEN)
+
+### Car Brand Logos
+- 36 logo PNGs in `artifacts/autofixdata/public/images/logos/`
+- Makes bar (Layout.tsx) logos are clickable → `/model-detail?make={slug}`
+- Homepage makes grid logos are clickable → `/model-detail?make={slug}`
+- model-detail page reads `?make=` query param; 27 makes defined with real vehicle data
 
 ### Forms
 - Free trial form → Formspree (placeholder URL, replace YOUR_ID)

@@ -205,7 +205,7 @@ export default function Home() {
               { name: "+ 120 more", slug: null },
             ].map((make, i) => (
               make.slug ? (
-                <div key={i} className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-afd-yellow/30 transition-all cursor-pointer">
+                <Link key={i} href={`/model-detail?make=${make.slug}`} className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-afd-yellow/30 transition-all cursor-pointer">
                   <img
                     src={`/images/logos/${make.slug}.png`}
                     alt={make.name}
@@ -213,7 +213,7 @@ export default function Home() {
                     onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }}
                   />
                   <span className="text-[10px] text-afd-slate group-hover:text-white font-medium text-center leading-tight">{make.name}</span>
-                </div>
+                </Link>
               ) : (
                 <Link href="/repair-manuals" key={i} className="group flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-afd-yellow/10 hover:bg-afd-yellow/20 border border-afd-yellow/20 hover:border-afd-yellow transition-all cursor-pointer">
                   <span className="text-afd-yellow font-extrabold text-lg">+120</span>

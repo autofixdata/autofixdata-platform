@@ -58,7 +58,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="marquee-container flex-1 overflow-hidden">
             <div className="marquee-content flex items-center gap-6">
               {[...CAR_MAKES, ...CAR_MAKES].map((make, i) => (
-                <span key={i} className="flex items-center gap-1.5 cursor-pointer group whitespace-nowrap">
+                <Link key={i} href={`/model-detail?make=${make.slug}`} className="flex items-center gap-1.5 cursor-pointer group whitespace-nowrap">
                   <img
                     src={`/images/logos/${make.slug}.png`}
                     alt={make.name}
@@ -66,7 +66,7 @@ export function Layout({ children }: LayoutProps) {
                     onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                   />
                   <span className="text-[11px] text-afd-slate group-hover:text-afd-yellow transition-colors font-medium">{make.name}</span>
-                </span>
+                </Link>
               ))}
             </div>
           </div>

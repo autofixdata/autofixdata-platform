@@ -27,6 +27,7 @@ import IdentifixProduct from "@/pages/IdentifixProduct";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import GDPR from "@/pages/GDPR";
+import ModelDetail from "@/pages/ModelDetail";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ function Router() {
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/gdpr" component={GDPR} />
+      <Route path="/model-detail" component={ModelDetail} />
       <Route component={NotFound} />
     </Switch>
   );
