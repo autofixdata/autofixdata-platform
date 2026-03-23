@@ -1,4 +1,5 @@
 import { article1Content } from "./articles/article1";
+import { article2Content } from "./articles/article2";
 
 export interface BlogPost {
   id: string;
@@ -28,27 +29,15 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "2",
-    slug: "alldata-vs-autodata",
-    title: "ALLDATA vs AutoData: Head-to-Head Comparison",
-    seoTitle: "ALLDATA vs AutoData: Which Workshop Software is Best?",
-    seoDescription: "Comparing ALLDATA Europe vs AutoData. We break down the pricing, OEM wiring diagrams, and European vehicle coverage gap.",
-    category: "Comparisons",
+    slug: "haynespro-review-2026",
+    title: "HaynesPro Review 2026: Is It the Best Workshop Data Tool for European Garages?",
+    seoTitle: "HaynesPro Review 2026 | Features, Pricing & Alternatives",
+    seoDescription: "An in-depth HaynesPro review for 2026. Discover if HaynesPro WorkshopData is the best diagnostic software for European garages, tracking pricing and features.",
+    category: "Platform Guides",
     publishedAt: "2026-03-20",
     readTime: "7 min read",
     author: "Auto Fix Data Technical Team",
-    content: `
-      <h2>Colliding Empires: ALLDATA vs AutoData</h2>
-      <p>If you run a workshop that services a mix of domestic and imported vehicles, you have likely deliberated between ALLDATA and AutoData. While both command massive market shares, their construction philosophies are entirely different.</p>
-      
-      <h2>ALLDATA: Unfiltered OEM Text</h2>
-      <p>ALLDATA's core selling point is providing unmodified factory information. If Ford writes a TSB, ALLDATA publishes it exactly as Ford wrote it. This is phenomenal for highly specific torque specs and obscure mechanical protocols. However, ALLDATA Europe suffers heavily in its UI. Mechanics constantly report that finding specific <a href="/wiring-diagrams">colour wiring diagrams</a> for European makes (like Peugeot or Renault) is inherently clunky and often leads to missing data.</p>
-      
-      <h2>AutoData: The Simplified Redraw</h2>
-      <p>AutoData takes the opposite approach. They acquire OEM data and have their technical team "redraw" and standardize it across all vehicle makes. While this makes the platform easier to learn, it inherently strips away crucial manufacturer-specific nuances, leading to misdiagnoses on modern CAN-bus architectures.</p>
-      
-      <h2>The Auto Fix Data Solution</h2>
-      <p>By blending the unedited OEM depth of ALLDATA with the standardized speed of AutoData, Auto Fix Data presents the ultimate hybrid platform. You can pull the factory wiring diagram for a <a href="/manuals/ford">Ford</a> or a Fiat while simultaneously viewing cross-referenced Identifix data—all rendered in under 3 seconds in the cloud.</p>
-    `
+    content: article2Content
   },
   {
     id: "3",
