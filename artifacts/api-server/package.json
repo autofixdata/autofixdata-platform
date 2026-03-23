@@ -14,8 +14,7 @@
     "drizzle-orm": "catalog:",
     "express": "^5",
     "cookie-parser": "^1.4.7",
-    "cors": "^2",
-    "resend": "^4.0.0"
+    "cors": "^2"
   },
   "devDependencies": {
     "@types/node": "catalog:",

@@ -1,8 +1,9 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
-import { Link, useLocation } from "wouter";
+import { Link, useRoute } from "wouter";
 import { useState } from "react";
 import { Lock, ChevronRight, Search, AlertTriangle, Clock, Settings, Zap, BookOpen, Shield, X, ArrowRight, CheckCircle2 } from "lucide-react";
+import { unslugify } from "@/lib/carData";
 
 const MAKE_DATA: Record<string, {
   make: string; model: string; variant: string; year: string;
@@ -132,21 +133,33 @@ function LockedItem({ label, icon, onClick }: { label: string; icon?: React.Reac
 }
 
 export default function ModelDetail() {
-  const [location] = useLocation();
+  const [match, routeParams] = useRoute("/manuals/:make/:model");
   const [showModal, setShowModal] = useState(false);
   const [activeNav, setActiveNav] = useState("overview");
 
-  const params = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
-  const makeSlug = params.get("make") || "bmw";
-  const vehicle = MAKE_DATA[makeSlug] || DEFAULT_VEHICLE;
+  const searchParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
+  const makeSlug = routeParams?.make || searchParams.get("make") || "bmw";
+  const modelSlug = routeParams?.model || searchParams.get("model") || "3-series";
+
+  const makeName = unslugify(makeSlug);
+  const modelName = unslugify(modelSlug);
+
+  const baseVehicle = MAKE_DATA[makeSlug] || DEFAULT_VEHICLE;
+  const vehicle = {
+    ...baseVehicle,
+    make: makeName,
+    model: modelName,
+    variant: `${modelName} Standard`,
+  };
 
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://autofixdata.com/" },
-      { "@type": "ListItem", "position": 2, "name": vehicle.make, "item": `https://autofixdata.com/model-detail?make=${makeSlug}` },
-      { "@type": "ListItem", "position": 3, "name": vehicle.model, "item": `https://autofixdata.com/model-detail?make=${makeSlug}` },
+      { "@type": "ListItem", "position": 2, "name": "Repair Manuals", "item": "https://autofixdata.com/repair-manuals" },
+      { "@type": "ListItem", "position": 3, "name": makeName, "item": `https://autofixdata.com/manuals/${makeSlug}` },
+      { "@type": "ListItem", "position": 4, "name": modelName, "item": `https://autofixdata.com/manuals/${makeSlug}/${modelSlug}` }
     ]
   });
 
@@ -155,8 +168,8 @@ export default function ModelDetail() {
   return (
     <Layout>
       <SEO
-        title={`${vehicle.make} ${vehicle.model} Workshop Data | Auto Fix Data`}
-        description={`OEM repair data, wiring diagrams, TSBs and DTC codes for ${vehicle.make} ${vehicle.model} ${vehicle.variant}. Access full workshop data with Auto Fix Data.`}
+        title={`${makeName} ${modelName} OEM Repair Manuals & Wiring Diagrams | Auto Fix Data`}
+        description={`Access complete factory repair manuals, torque specifications, and wiring diagrams for the ${makeName} ${modelName}. Start your free trial today.`}
         schema={schema}
       />
 

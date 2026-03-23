@@ -29,6 +29,9 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import GDPR from "@/pages/GDPR";
 import ModelDetail from "@/pages/ModelDetail";
+import MakeDirectory from "@/pages/MakeDirectory";
+import DtcDirectory from "@/pages/DtcDirectory";
+import DtcDetail from "@/pages/DtcDetail";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/not-found";
 
@@ -62,6 +65,10 @@ function Router() {
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/gdpr" component={GDPR} />
       <Route path="/model-detail" component={ModelDetail} />
+      <Route path="/manuals/:make" component={MakeDirectory} />
+      <Route path="/manuals/:make/:model" component={ModelDetail} />
+      <Route path="/dtc" component={DtcDirectory} />
+      <Route path="/dtc/:code" component={DtcDetail} />
       <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>

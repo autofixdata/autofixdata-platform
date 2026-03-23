@@ -72,7 +72,7 @@ export default function RepairManuals() {
                   { name: "SEAT", slug: "seat" },
                   { name: "Alfa Romeo", slug: "alfa-romeo" },
                 ].map(brand => (
-                  <div key={brand.slug} className="group bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center gap-1.5 hover:border-afd-yellow/50 hover:shadow-md transition-all">
+                  <Link href={`/manuals/${brand.slug}`} key={brand.slug} className="group bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center gap-1.5 hover:border-afd-yellow/50 hover:shadow-md transition-all cursor-pointer">
                     <img
                       src={`/images/logos/${brand.slug}.png`}
                       alt={brand.name}
@@ -80,7 +80,7 @@ export default function RepairManuals() {
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden'; }}
                     />
                     <span className="text-[10px] font-semibold text-afd-slate group-hover:text-afd-navy text-center leading-tight">{brand.name}</span>
-                  </div>
+                  </Link>
                 ))}
              </div>
              <p className="text-center text-sm text-afd-slate mt-4 font-medium">+ 130 more global brands covered</p>

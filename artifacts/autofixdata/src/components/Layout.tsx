@@ -317,6 +317,7 @@ export function Layout({ children }: LayoutProps) {
                 <li><Link href="/repair-manuals" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Repair Manuals</Link></li>
                 <li><Link href="/diagnostics" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Diagnostics & DTC</Link></li>
                 <li><Link href="/wiring-diagrams" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Wiring Diagrams</Link></li>
+                <li><Link href="/dtc" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Fault Code Directory</Link></li>
                 <li><Link href="/glossary" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Terminology Glossary</Link></li>
                 <li><Link href="/blog" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Workshop Blog</Link></li>
                 <li><Link href="/pricing" className="text-afd-slate hover:text-afd-yellow transition-colors text-sm font-medium">Pricing Plans</Link></li>

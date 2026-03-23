@@ -2,22 +2,22 @@ import { AlternativePageTemplate } from "./AlternativePage";
 
 export default function HaynesProAlternative() {
   const tableData = [
-    { feature: "VESA Interactive Wiring", competitor: true },
-    { feature: "Smart Diagnostics", competitor: true },
-    { feature: "Raw Unedited OEM Manuals", competitor: false },
-    { feature: "Direct-Hit / Real World Fixes", competitor: false },
-    { feature: "Heavy US Domestic Coverage", competitor: false },
+    { feature: "Comprehensive Asian/Domestic Coverage", competitor: false, missing_reason: "Heavily skewed towards EU models only" },
+    { feature: "Integrated Original OEM Manuals", competitor: false, missing_reason: "Often provides redraws instead of raw OEM text" },
+    { feature: "Diagnostic Trouble Code Flowcharts", competitor: true },
+    { feature: "Interactive Colour Wiring Diagrams", competitor: true },
+    { feature: "Real-World Technician Fixes", competitor: false, missing_reason: "Lacks Identifix-style mechanic network data" },
   ];
 
   return (
     <AlternativePageTemplate
-      competitorName="Haynes Pro"
-      competitorWeakness="access to raw unedited OEM manuals and a broader database of real-world verified fixes"
-      seoTitle="Best Haynes Pro Alternative for Professional Workshops | AutoFixData"
-      seoDesc="Searching for a Haynes Pro alternative? AutoFixData provides OEM-verified repair data, wiring diagrams and TSBs for 150M+ vehicles. Free trial."
+      competitorName="HaynesPro"
+      competitorWeakness="unfiltered OEM procedures, deep US/Asian market coverage, and real-world verified fixes"
+      competitorPrice="£110+"
+      seoTitle="Top HaynesPro Alternative for Workshops | Auto Fix Data"
+      seoDesc="Need a HaynesPro alternative that actually includes raw OEM data and better global coverage? Auto Fix Data delivers wiring and TSBs for 150M+ vehicles."
       tableData={tableData}
       pageSlug="haynespro-alternative"
     />
   );
 }
-
