@@ -10,7 +10,6 @@ import Pricing from "@/pages/Pricing";
 import FreeTrial from "@/pages/FreeTrial";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
-import Blog from "@/pages/Blog";
 import Glossary from "@/pages/Glossary";
 import RepairManuals from "@/pages/RepairManuals";
 import Diagnostics from "@/pages/Diagnostics";
@@ -32,6 +31,8 @@ import ModelDetail from "@/pages/ModelDetail";
 import MakeDirectory from "@/pages/MakeDirectory";
 import DtcDirectory from "@/pages/DtcDirectory";
 import DtcDetail from "@/pages/DtcDetail";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/not-found";
 
@@ -69,6 +70,8 @@ function Router() {
       <Route path="/manuals/:make/:model" component={ModelDetail} />
       <Route path="/dtc" component={DtcDirectory} />
       <Route path="/dtc/:code" component={DtcDetail} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
