@@ -1,3 +1,5 @@
+import { article1Content } from "./articles/article1";
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -14,33 +16,15 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "1",
-    slug: "autodata-vs-haynespro",
-    title: "AutoData vs HaynesPro: Which Diagnostic Software is Better?",
-    seoTitle: "AutoData vs HaynesPro | Ultimate 2026 Comparison",
-    seoDescription: "An in-depth comparison of AutoData and HaynesPro. Discover which diagnostic software offers better wiring diagrams, OEM coverage, and pricing.",
+    slug: "alldata-vs-prodemand-vs-identifix-2026",
+    title: "AllData vs ProDemand vs Identifix: Which Repair Software Wins in 2026?",
+    seoTitle: "AllData vs ProDemand vs Identifix | Ultimate 2026 Comparison",
+    seoDescription: "An in-depth comparison of AllData, ProDemand, and Identifix. Discover which diagnostic software offers better wiring diagrams, OEM coverage, and pricing.",
     category: "Comparisons",
     publishedAt: "2026-03-21",
     readTime: "8 min read",
     author: "Auto Fix Data Technical Team",
-    content: `
-      <h2>The Heavyweights of Workshop Data</h2>
-      <p>For independent garages across Europe and the UK, choosing the right diagnostic platform is critical. The two largest players historically have been AutoData and HaynesPro. But with the rapid evolution of hybrid and EV drivetrains, which platform actually delivers <strong>unedited OEM repair data</strong>?</p>
-      
-      <h2>AutoData: The Traditional Choice</h2>
-      <p>AutoData has been the industry standard for decades. Its strength lies in its familiar user interface and robust service schedules. However, modern technicians often notice severe limitations when diagnosing complex electrical faults. Instead of providing interactive, full-colour vector wiring diagrams, AutoData frequently relies on redrawn, simplified schematics that omit crucial pin-out variations.</p>
-      
-      <h2>HaynesPro: The Challenger</h2>
-      <p>HaynesPro (now part of Infopro Digital) offers a more modern platform known as WorkshopData. It shines in its Guided Diagnostics (VESA) system, which walks mechanics through step-by-step fault isolation. Yet, much like AutoData, HaynesPro suffers from a critical flaw: <strong>limited Asian and US domestic coverage</strong>.</p>
-      
-      <h2>The Superior Alternative: Auto Fix Data</h2>
-      <p>Why choose between two compromised platforms when you can have a unified solution? <a href="/">Auto Fix Data</a> aggregates raw, unfiltered <a href="https://en.wikipedia.org/wiki/Original_equipment_manufacturer" target="_blank" rel="noopener noreferrer">OEM data</a> directly from the manufacturers. This means:</p>
-      <ul>
-        <li>Interactive, colour-coded, pin-to-pin wiring diagrams.</li>
-        <li>Direct integration of Identifix real-world technician fixes.</li>
-        <li>Aggressive SEO coverage through our <a href="/dtc">Diagnostic Trouble Code library</a> so you can search P-codes natively.</li>
-      </ul>
-      <p>Stop paying premium enterprise costs for legacy platforms. Upgrade your diagnostic bay today.</p>
-    `
+    content: article1Content
   },
   {
     id: "2",
