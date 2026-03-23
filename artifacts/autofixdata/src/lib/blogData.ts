@@ -4,6 +4,7 @@ import { article3Content } from "./articles/article3";
 import { article4Content } from "./articles/article4";
 import { article5Content, article6Content, article7Content, article8Content, article9Content, article10Content, article11Content, article12Content } from "./articles/articlesBatch1";
 import { article13Content, article14Content, article15Content, article16Content, article17Content, article18Content, article19Content, article20Content } from "./articles/articlesBatch2";
+import { article21Content, article22Content, article23Content, article24Content, article25Content } from "./articles/articlesBatch3";
 
 export interface BlogPost {
   id: string;
@@ -94,7 +95,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "ProDemand Review 2026: Features, Pricing & Is It Worth It?",
     seoTitle: "ProDemand Review 2026 | Mitchell 1 Pricing & Features",
     seoDescription: "Read our comprehensive ProDemand Review 2026. Discover Mitchell 1 ProDemand pricing, software features, and if it's genuinely worth it for your garage.",
-    category: "Reviews",
+    category: "Platform Guides",
     publishedAt: "2026-03-24",
     readTime: "8 min read",
     author: "Auto Fix Data Technical Team",
@@ -279,6 +280,66 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "7 min read",
     author: "Auto Fix Data Technical Team",
     content: article20Content
+  },
+  {
+    id: "21",
+    slug: "shopkey-pro-vs-prodemand",
+    title: "ShopKey Pro vs ProDemand: Understanding the Snap-on Ecosystem",
+    seoTitle: "ShopKey Pro vs ProDemand | Mitchell 1 Software Review",
+    seoDescription: "ShopKey Pro vs ProDemand comparison. Learn the difference between Snap-on's rebranded interface and the original Mitchell 1 platform pricing.",
+    category: "Comparisons",
+    publishedAt: "2026-03-25",
+    readTime: "6 min read",
+    author: "Auto Fix Data Technical Team",
+    content: article21Content
+  },
+  {
+    id: "22",
+    slug: "garagehive-vs-carsys",
+    title: "GarageHive vs CarSys: Which UK Management System is Better?",
+    seoTitle: "GarageHive vs CarSys | UK Garage Management Software",
+    seoDescription: "GarageHive vs CarSys. A direct comparison of the two dominant UK garage management systems. Should you choose Microsoft ERP or cloud-native speed?",
+    category: "Comparisons",
+    publishedAt: "2026-03-25",
+    readTime: "7 min read",
+    author: "Auto Fix Data Technical Team",
+    content: article22Content
+  },
+  {
+    id: "23",
+    slug: "techman-vs-garagehive",
+    title: "TechMan vs GarageHive: Enterprise Workshop Control in 2026",
+    seoTitle: "TechMan vs GarageHive | Tracking Mechanic Efficiency",
+    seoDescription: "TechMan vs GarageHive review. Which enterprise software tracks technician efficiency better? Learn how to eliminate idle time in your MOT bay.",
+    category: "Comparisons",
+    publishedAt: "2026-03-25",
+    readTime: "8 min read",
+    author: "Auto Fix Data Technical Team",
+    content: article23Content
+  },
+  {
+    id: "24",
+    slug: "identifix-direct-hit-review-2026",
+    title: "Identifix Direct-Hit Review 2026: Are Confirmed Fixes Obsolete?",
+    seoTitle: "Identifix Direct-Hit Review 2026 | Pros, Cons & Pricing",
+    seoDescription: "Identifix Direct-Hit Review 2026. Why relying on community 'confirmed fixes' is incredibly dangerous on modern CAN-bus architectures.",
+    category: "Platform Guides",
+    publishedAt: "2026-03-25",
+    readTime: "6 min read",
+    author: "Auto Fix Data Technical Team",
+    content: article24Content
+  },
+  {
+    id: "25",
+    slug: "autodata-vs-alldata-vs-prodemand",
+    title: "Autodata vs AllData vs ProDemand: The Ultimate 2026 Showdown",
+    seoTitle: "Autodata vs AllData vs ProDemand | Best Repair Software",
+    seoDescription: "Autodata vs AllData vs ProDemand. The ultimate 2026 head-to-head comparison of the Big Three diagnostic repair data softwares.",
+    category: "Comparisons",
+    publishedAt: "2026-03-25",
+    readTime: "9 min read",
+    author: "Auto Fix Data Technical Team",
+    content: article25Content
   }
 ];
 
