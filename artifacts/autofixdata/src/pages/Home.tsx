@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { TrustBadges, FeatureTile, ProductCard, TestimonialCard } from "@/components/SharedSections";
 import { ChevronRight, Wrench, ShieldAlert, Cpu, Activity, BookOpen, Clock } from "lucide-react";
 import { useState } from "react";
+import { AGGREGATE_RATING, REVIEWS, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const FAQItem = ({ q, a }: { q: string, a: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,9 +32,16 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Auto Fix Data",
-    "url": "https://autofixdata.com",
-    "logo": "https://autofixdata.com/logo.png",
-    "description": "Professional automotive workshop repair database platform providing OEM data, wiring diagrams, and DTC codes."
+    "url": `${SITE_URL}`,
+    "logo": `${SITE_URL}/logo.png`,
+    "description": "Professional automotive workshop repair database platform providing OEM data, wiring diagrams, and DTC codes.",
+    "aggregateRating": AGGREGATE_RATING,
+    "review": REVIEWS,
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Workshop Subscription Plans",
+      "itemListElement": [FREE_TRIAL_OFFER]
+    }
   });
 
   return (

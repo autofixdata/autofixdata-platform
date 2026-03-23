@@ -16,6 +16,8 @@ export default function AutodataAlternative() {
       seoTitle="Best AutoData Alternative for Workshop Technicians | AutoFixData"
       seoDesc="Looking for an AutoData alternative? AutoFixData provides OEM-verified repair data, wiring diagrams and DTC codes for 150M+ vehicles. Trusted by 10,000+ garages."
       tableData={tableData}
+      pageSlug="autodata-alternative"
     />
   );
 }
+

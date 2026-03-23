@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { CheckCircle2, Database, FileText, Zap, Settings, Calendar, ArrowRight } from "lucide-react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const features = [
   { icon: Settings, title: "Technical Specifications", desc: "Comprehensive technical data including engine specs, fuel system settings, torque values and tightening sequences for European and global vehicles." },
@@ -12,12 +13,29 @@ const features = [
   { icon: Settings, title: "Brake & Clutch Data", desc: "Brake disc and pad specifications, caliper torque values, clutch adjustment data and handbrake cable tensions." },
 ];
 
+const faqs = [
+  { q: "Is AutoData particularly strong for European vehicles?", a: "Yes. AutoData was originally developed for the European market and has exceptionally deep coverage of UK, German, French, Italian and Spanish vehicles, making it the preferred choice for European specialists." },
+  { q: "Does AutoData include timing belt replacement data?", a: "Yes. AutoData's timing data is industry-leading — including locking tool specifications, tension settings, belt routes and replacement intervals for all supported engines." },
+  { q: "Can AutoData help with ADAS system calibration?", a: "Yes. AutoData includes ADAS calibration procedures and camera/sensor reset data for supported vehicles, an increasingly important feature for modern workshop operations." },
+  { q: "How does AutoData handle EV and hybrid data?", a: "AutoData includes high-voltage system specifications, battery management data and hybrid service procedures for the most popular EV and PHEV platforms." },
+  { q: "Is AutoData included in all Auto Fix Data plans?", a: "Yes. All Auto Fix Data subscription plans include full access to AutoData alongside the other four databases at no extra cost." },
+];
+
 export default function AutodataProduct() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "AutoData Workshop Database — via Auto Fix Data",
+    description: "Access AutoData's technical specifications, service intervals, wiring diagrams and DTC codes through Auto Fix Data. Trusted by European workshops. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/autodata`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
+
   return (
     <Layout>
       <SEO
         title="AutoData Workshop Database via Auto Fix Data | Authorised Reseller"
         description="Access AutoData's technical specifications, service intervals, wiring diagrams and DTC codes through Auto Fix Data. Trusted by European workshops. Free trial available."
+        schema={schema + faqSchema}
       />
 
       <section className="bg-afd-navy pt-24 pb-20 dark-section">

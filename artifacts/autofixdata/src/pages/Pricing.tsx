@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { CheckCircle2, Check, X, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 type Currency = "GBP" | "EUR" | "USD";
 type Billing = "monthly" | "yearly";
@@ -93,20 +94,34 @@ export default function Pricing() {
   const indAnnual = Math.round(prices.individual * discount * 12);
   const garAnnual = Math.round(prices.garage * discount * 12);
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "Auto Fix Data Workshop Subscription",
-    "description": "Professional automotive workshop repair database — access ALLDATA, AutoData, Haynes Pro, Mitchell1 and Identifix in one subscription.",
-    "brand": { "@type": "Brand", "name": "Auto Fix Data" },
-    "offers": { "@type": "AggregateOffer", "offerCount": "3", "lowPrice": "99", "highPrice": "199", "priceCurrency": "GBP" }
-  });
+  const schema = JSON.stringify(buildProductSchema({
+    name: "Auto Fix Data Workshop Subscription",
+    description: "Professional automotive workshop repair database — access ALLDATA, AutoData, Haynes Pro, Mitchell1 and Identifix in one subscription. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/pricing`,
+    offers: [
+      {
+        "@type": "AggregateOffer",
+        lowPrice: "99",
+        highPrice: "199",
+        priceCurrency: "GBP",
+        offerCount: "2",
+        availability: "https://schema.org/InStock",
+        priceValidUntil: "2026-12-31",
+        url: `${SITE_URL}/pricing`,
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "GB",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 7,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn",
+        },
+      },
+      FREE_TRIAL_OFFER,
+    ],
+  }));
 
-  const faqSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
-  });
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
 
   return (
     <Layout>

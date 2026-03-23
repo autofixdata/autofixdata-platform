@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { CheckCircle2, BookOpen, FileText, Zap, Settings, Camera, ArrowRight } from "lucide-react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const features = [
   { icon: BookOpen, title: "Workshop Manuals", desc: "Professional-grade workshop manuals derived from OEM documentation, covering step-by-step procedures for all major repair tasks." },
@@ -12,12 +13,29 @@ const features = [
   { icon: Settings, title: "Engine Overhaul Data", desc: "Detailed engine rebuild specifications including bearing clearances, piston ring gaps and valve timing data." },
 ];
 
+const faqs = [
+  { q: "Is Haynes Pro the same as the consumer Haynes manual?", a: "No. Haynes Pro is the professional-grade platform built for workshops. It uses the Haynes methodology but accesses OEM-level data not available in the consumer manuals, with deeper technical specifications and illustrated procedures." },
+  { q: "Does Haynes Pro include wiring diagrams?", a: "Yes. Haynes Pro includes full-colour wiring diagrams and electrical schematics with component identification and connector pinout information." },
+  { q: "What vehicles does Haynes Pro cover?", a: "Haynes Pro covers 150M+ vehicles from 1990 to present, including all major UK, European, Asian and American makes. It is particularly strong for the most common European and UK domestic vehicles." },
+  { q: "Is Haynes Pro included in all Auto Fix Data plans?", a: "Yes. Full access to Haynes Pro is included in every Auto Fix Data subscription alongside the four other databases — ALLDATA, AutoData, Mitchell1 and Identifix." },
+  { q: "Can I use it on a mobile device in the workshop?", a: "Yes. Auto Fix Data is fully cloud-based and works on any device — PC, Mac, tablet or smartphone. No special hardware or software installation is required." },
+];
+
 export default function HaynesProProduct() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "Haynes Pro Workshop Manuals — via Auto Fix Data",
+    description: "Access Haynes Pro's professional workshop manuals and repair data through Auto Fix Data. OEM-level procedures for 150M+ vehicles. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/haynes-pro`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
+
   return (
     <Layout>
       <SEO
         title="Haynes Pro Workshop Manuals via Auto Fix Data | Reseller"
         description="Access Haynes Pro's professional workshop manuals and repair data through Auto Fix Data. OEM-level procedures for 150M+ vehicles. Start your free trial."
+        schema={schema + faqSchema}
       />
 
       <section className="bg-afd-navy pt-24 pb-20 dark-section">

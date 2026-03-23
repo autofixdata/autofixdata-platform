@@ -3,16 +3,7 @@ import { SEO } from "@/components/SEO";
 import { Link } from "wouter";
 import { ShieldAlert, Activity, Search, Database, Zap, BookOpen, CheckCircle2, ArrowRight } from "lucide-react";
 import { useState } from "react";
-
-const faqSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What DTC codes are covered?", "acceptedAnswer": { "@type": "Answer", "text": "Auto Fix Data covers all OBD2 P-codes (P0000–P3999), B-codes (Body), C-codes (Chassis), U-codes (Network), and thousands of manufacturer-specific codes from all major OEMs." } },
-    { "@type": "Question", "name": "Do you provide real-world fix data alongside DTC codes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Through our Identifix Direct-Hit integration, each DTC is cross-referenced with real-world confirmed repairs submitted by professional technicians." } },
-    { "@type": "Question", "name": "How current is the DTC database?", "acceptedAnswer": { "@type": "Answer", "text": "The database is updated daily from ALLDATA, AutoData, Haynes Pro, Mitchell1 and Identifix. New manufacturer-specific codes are added as they are issued." } },
-  ]
-});
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const codeTypes = [
   { code: "P-Codes", range: "P0000–P3999", name: "Powertrain", desc: "Engine, transmission, fuel system and emissions. The most commonly retrieved codes in workshop use.", color: "bg-red-500/20 text-red-400 border-red-500/30" },
@@ -45,12 +36,19 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
 };
 
 export default function Diagnostics() {
+  const productSchema = JSON.stringify(buildProductSchema({
+    name: "DTC Code Library & Diagnostic Data — Auto Fix Data",
+    description: "Access the complete OBD2 and OEM-specific DTC library — P, B, C and U codes with diagnostic flowcharts, freeze frame data and real-world confirmed fixes. 7-day free trial.",
+    url: `${SITE_URL}/diagnostics`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
   const breadcrumb = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://autofixdata.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Diagnostics & DTC Library", "item": "https://autofixdata.com/diagnostics" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Diagnostics & DTC Library", "item": `${SITE_URL}/diagnostics` }
     ]
   });
 
@@ -59,7 +57,7 @@ export default function Diagnostics() {
       <SEO
         title="Professional DTC Code Library & Diagnostic Data | Auto Fix Data"
         description="Access the complete OBD2 and OEM-specific DTC library — P, B, C and U codes with diagnostic flowcharts, freeze frame data, live PIDs and real-world confirmed fixes. Free 7-day trial."
-        schema={faqSchema + breadcrumb}
+        schema={productSchema + faqSchema + breadcrumb}
       />
 
       {/* HERO */}
@@ -203,6 +201,36 @@ export default function Diagnostics() {
                     <span className="text-afd-yellow font-extrabold text-xl">{value}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GEO: Cause & Effect Flowcharts */}
+      <section className="py-20 bg-white px-6">
+        <div className="max-w-[1000px] mx-auto">
+          <div className="bg-afd-navy rounded-2xl p-8 md:p-12 text-white shadow-2xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
+              <Activity className="w-96 h-96 -translate-y-20 translate-x-20" />
+            </div>
+            <div className="relative z-10 max-w-2xl">
+              <h2 className="text-3xl font-extrabold text-afd-yellow mb-6">How Diagnostic Flowcharts Dictate Cause & Effect</h2>
+              <p className="text-lg text-afd-slate leading-relaxed mb-6">
+                A basic code reader only provides the symptom (the effect), but professional diagnostics requires finding the root failure (the cause). Our OEM-sourced flowcharts provide the exact cause-and-effect logic used by dealership master technicians.
+              </p>
+              <div className="space-y-6">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-white mb-2">Example: Diagnosing a P0420 (Catalyst Efficiency)</h3>
+                  <p className="text-afd-slate leading-relaxed mb-4">
+                    If code P0420 is triggered, a generic scanner implies replacing the catalytic converter. However, the OEM flowchart dictates checking the upstream and downstream O2 sensors first to verify the cause. 
+                  </p>
+                  <ul className="text-sm font-medium space-y-2 text-afd-yellow">
+                    <li className="flex items-start gap-2"><span className="mt-0.5">→</span> <strong>Effect:</strong> The PCM sees voltage fluctuations from the downstream O2 sensor matching the upstream sensor.</li>
+                    <li className="flex items-start gap-2"><span className="mt-0.5">→</span> <strong>Action:</strong> Check for exhaust leaks before the catalyst, then monitor live O2 sensor PIDs (voltage).</li>
+                    <li className="flex items-start gap-2"><span className="mt-0.5">→</span> <strong>Root Cause Identified:</strong> If sensors fall out of the 0.1V - 0.9V range, sensor failure is the cause, not the catalyst.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

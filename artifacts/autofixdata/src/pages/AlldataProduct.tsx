@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { CheckCircle2, Database, FileText, Zap, Shield, Clock, ArrowRight } from "lucide-react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const features = [
   { icon: Database, title: "OEM Repair Procedures", desc: "Full factory-level repair procedures for 100M+ vehicles covering all US and global makes from 1982 to present." },
@@ -12,12 +13,29 @@ const features = [
   { icon: FileText, title: "Parts & Labour", desc: "Parts catalogue integration and flat-rate labour times to support accurate job estimating." },
 ];
 
+const faqs = [
+  { q: "Is this the same data as subscribing to ALLDATA directly?", a: "Yes. As an authorised reseller, we provide the exact same OEM-sourced ALLDATA content. There is no difference in data quality or coverage." },
+  { q: "Does ALLDATA cover European vehicles?", a: "Yes. ALLDATA covers both US domestic and global vehicles. European coverage includes UK, German, French, Italian and Spanish market vehicles from major manufacturers." },
+  { q: "How often is ALLDATA updated?", a: "ALLDATA's data feed is updated daily. New TSBs and revised OEM procedures appear in your account automatically — there is no manual update process." },
+  { q: "Does ALLDATA include wiring diagrams?", a: "Yes. ALLDATA includes full wiring schematics, connector pinout tables, and component location diagrams as part of the standard subscription." },
+  { q: "Can I use ALLDATA on my tablet in the workshop bay?", a: "Yes. Auto Fix Data is entirely cloud-based. You can access ALLDATA from any device — PC, Mac, tablet or smartphone — without any additional hardware." },
+];
+
 export default function AlldataProduct() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "ALLDATA Repair Data — via Auto Fix Data",
+    description: "Access ALLDATA's OEM-verified repair procedures, wiring diagrams, DTC codes and TSBs through Auto Fix Data. Authorised reseller. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/alldata`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
+
   return (
     <Layout>
       <SEO
         title="ALLDATA Repair Data for Professional Workshops | Auto Fix Data"
         description="Access ALLDATA's OEM-verified repair procedures, wiring diagrams, DTC codes and TSBs through Auto Fix Data. Authorised reseller. Start free trial today."
+        schema={schema + faqSchema}
       />
 
       <section className="bg-afd-navy pt-24 pb-20 dark-section">

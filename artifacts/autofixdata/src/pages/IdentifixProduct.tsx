@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { CheckCircle2, Activity, Database, Zap, AlertCircle, Search, ArrowRight } from "lucide-react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const features = [
   { icon: Activity, title: "Direct-Hit Diagnostic Data", desc: "Identifix's signature Direct-Hit feature delivers confirmed fixes for specific vehicle/DTC combinations from real technician repair data." },
@@ -12,12 +13,29 @@ const features = [
   { icon: Database, title: "TSBs & Service Campaigns", desc: "Technical Service Bulletins and manufacturer service campaigns linked directly to relevant repair procedures and OEM documentation." },
 ];
 
+const faqs = [
+  { q: "What is Identifix Direct-Hit?", a: "Direct-Hit is Identifix's core feature — a database of confirmed repair fixes sourced from real technician submissions, covering millions of vehicle/DTC combinations ranked by success rate." },
+  { q: "How does Identifix differ from ALLDATA or AutoData?", a: "While ALLDATA and AutoData provide OEM-sourced procedures, Identifix adds real-world diagnostic intelligence. It tells you what technicians actually fixed, not just what the OEM recommends — making it uniquely powerful for complex or intermittent faults." },
+  { q: "Does Identifix include wiring diagrams?", a: "Identifix includes OEM repair information and some wiring data, but the platform is primarily focused on diagnostic intelligence and real-world fix data. For full wiring schematics, the ALLDATA, AutoData, Haynes Pro or Mitchell1 components of your subscription provide comprehensive coverage." },
+  { q: "What vehicles does Identifix cover?", a: "Identifix has particularly strong coverage of post-2000 vehicles where electronic systems are most complex. It covers all major US domestic and import makes, with growing European coverage." },
+  { q: "Is Identifix included in all Auto Fix Data plans?", a: "Yes. Access to Identifix Direct-Hit is included in every Auto Fix Data subscription alongside ALLDATA, AutoData, Haynes Pro and Mitchell1 at no extra cost." },
+];
+
 export default function IdentifixProduct() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "Identifix Direct-Hit Repair Data — via Auto Fix Data",
+    description: "Access Identifix Direct-Hit diagnostic data through Auto Fix Data. Real-world fix data from 70M+ repairs. Authorised reseller. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/identifix`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
+
   return (
     <Layout>
       <SEO
         title="Identifix Direct-Hit Repair Data | Auto Fix Data Reseller"
         description="Access Identifix Direct-Hit diagnostic data through Auto Fix Data. Real-world fix data from 70M+ repairs. Authorised reseller. Free trial available."
+        schema={schema + faqSchema}
       />
 
       <section className="bg-afd-navy pt-24 pb-20 dark-section">

@@ -16,6 +16,8 @@ export default function AlldataAlternative() {
       seoTitle="Best ALLDATA Alternative for Professional Workshops | AutoFixData"
       seoDesc="Searching for an ALLDATA alternative? AutoFixData delivers OEM-verified repair data, wiring diagrams, DTC codes and TSBs for 150M+ vehicles. Instant access. Start free."
       tableData={tableData}
+      pageSlug="alldata-alternative"
     />
   );
 }
+

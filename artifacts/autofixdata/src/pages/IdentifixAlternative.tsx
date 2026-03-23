@@ -16,6 +16,8 @@ export default function IdentifixAlternative() {
       seoTitle="Best Identifix Alternative for Diagnostic Workshops | AutoFixData"
       seoDesc="Looking for an Identifix Direct-Hit alternative? AutoFixData provides OEM repair data, DTC codes and real-world diagnostic data for 150M+ vehicles."
       tableData={tableData}
+      pageSlug="identifix-alternative"
     />
   );
 }
+

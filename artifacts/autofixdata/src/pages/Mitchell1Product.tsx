@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { CheckCircle2, Database, FileText, Zap, Activity, Clock, ArrowRight } from "lucide-react";
+import { buildProductSchema, buildFaqSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 const features = [
   { icon: Database, title: "ProDemand Repair Data", desc: "OEM-sourced repair procedures from Mitchell1's industry-leading ProDemand platform, covering domestic and import vehicles from 1983 to present." },
@@ -12,12 +13,29 @@ const features = [
   { icon: Database, title: "Parts Lookup", desc: "Integrated parts catalogue with OEM part numbers, aftermarket cross-references and current pricing guidance." },
 ];
 
+const faqs = [
+  { q: "What is Mitchell1 ProDemand?", a: "ProDemand is Mitchell1's professional repair information platform combining OEM-sourced data with SureTrack real-world fix information from millions of technician repairs." },
+  { q: "What is SureTrack?", a: "SureTrack aggregates confirmed repair data from 70M+ professional technician submissions, identifying the most likely fix for specific vehicle and DTC combinations — dramatically speeding up difficult diagnostics." },
+  { q: "Does Mitchell1 include wiring diagrams?", a: "Yes. Mitchell1 includes full-colour interactive wiring diagrams with component locators, connector views and circuit descriptions." },
+  { q: "Is Mitchell1 particularly strong for North American vehicles?", a: "Yes. Mitchell1 originated in North America and has exceptional coverage of US domestic and import vehicles from 1983 to present, though it also covers major European and global makes." },
+  { q: "Is Mitchell1 included in all Auto Fix Data plans?", a: "Yes. Full access to Mitchell1 ProDemand and SureTrack is included in every Auto Fix Data subscription alongside ALLDATA, AutoData, Haynes Pro and Identifix." },
+];
+
 export default function Mitchell1Product() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "Mitchell1 ProDemand Repair Data — via Auto Fix Data",
+    description: "Access Mitchell1 ProDemand repair data, wiring diagrams and TSBs through Auto Fix Data. Authorised Mitchell1 reseller. Full OEM data. 7-day free trial, no credit card required.",
+    url: `${SITE_URL}/mitchell1`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+  const faqSchema = JSON.stringify(buildFaqSchema(faqs));
+
   return (
     <Layout>
       <SEO
         title="Mitchell1 ProDemand Repair Data | Auto Fix Data Reseller"
         description="Access Mitchell1 ProDemand repair data, wiring diagrams and TSBs through Auto Fix Data. Authorised Mitchell1 reseller. Full OEM data. Start free today."
+        schema={schema + faqSchema}
       />
 
       <section className="bg-afd-navy pt-24 pb-20 dark-section">

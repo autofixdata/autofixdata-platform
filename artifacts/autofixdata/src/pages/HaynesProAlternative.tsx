@@ -16,6 +16,8 @@ export default function HaynesProAlternative() {
       seoTitle="Best Haynes Pro Alternative for Professional Workshops | AutoFixData"
       seoDesc="Searching for a Haynes Pro alternative? AutoFixData provides OEM-verified repair data, wiring diagrams and TSBs for 150M+ vehicles. Free trial."
       tableData={tableData}
+      pageSlug="haynespro-alternative"
     />
   );
 }
+

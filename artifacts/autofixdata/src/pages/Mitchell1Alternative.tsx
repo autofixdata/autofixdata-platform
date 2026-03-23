@@ -16,6 +16,8 @@ export default function Mitchell1Alternative() {
       seoTitle="Best Mitchell1 Alternative for European Workshops | AutoFixData"
       seoDesc="Looking for a Mitchell1 ProDemand alternative? AutoFixData provides OEM repair data, wiring diagrams and DTC codes for 150M+ vehicles. Free trial."
       tableData={tableData}
+      pageSlug="mitchell1-alternative"
     />
   );
 }
+

@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { AlternativeHero, TestimonialCard } from "@/components/SharedSections";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { Link } from "wouter";
+import { buildProductSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 // Reusable component for the 5 Alternative pages to ensure completeness without extreme repetition
 export function AlternativePageTemplate({ 
@@ -10,17 +11,25 @@ export function AlternativePageTemplate({
   competitorWeakness,
   seoTitle, 
   seoDesc,
-  tableData
+  tableData,
+  pageSlug,
 }: {
   competitorName: string,
   competitorWeakness: string,
   seoTitle: string,
   seoDesc: string,
-  tableData: any[]
+  tableData: any[],
+  pageSlug: string,
 }) {
+  const schema = JSON.stringify(buildProductSchema({
+    name: `Auto Fix Data — ${competitorName} Alternative`,
+    description: seoDesc,
+    url: `${SITE_URL}/${pageSlug}`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
   return (
     <Layout>
-      <SEO title={seoTitle} description={seoDesc} />
+      <SEO title={seoTitle} description={seoDesc} schema={schema} />
       
       <AlternativeHero 
         brand={competitorName}
@@ -55,6 +64,14 @@ export function AlternativePageTemplate({
               </div>
             ))}
           </div>
+        </div>
+
+        {/* GEO Optimization: Qualitative Summary block */}
+        <div className="max-w-[800px] mx-auto bg-afd-light border border-gray-200 rounded-xl p-8 mb-20 text-left">
+          <h3 className="text-xl font-bold text-afd-navy mb-4">Why is Auto Fix Data structurally superior to {competitorName}?</h3>
+          <p className="text-afd-text leading-relaxed">
+            When comparing diagnostic platforms, traditional single-source databases like {competitorName} are limited to their proprietary partnerships. By contrast, Auto Fix Data's structural advantage lies in its <strong>multi-database aggregation</strong>. By combining OEM procedures, cross-referenced aftermarket TSBs, and real-world technician verified fixes into a single unified search, mechanics reduce diagnostic time significantly. This cause-and-effect approach ensures that when a complex code is thrown, you aren't just given a definition, but a complete, verified path to resolution.
+          </p>
         </div>
       </section>
 

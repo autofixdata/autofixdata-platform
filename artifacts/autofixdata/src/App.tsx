@@ -11,6 +11,7 @@ import FreeTrial from "@/pages/FreeTrial";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Blog from "@/pages/Blog";
+import Glossary from "@/pages/Glossary";
 import RepairManuals from "@/pages/RepairManuals";
 import Diagnostics from "@/pages/Diagnostics";
 import WiringDiagrams from "@/pages/WiringDiagrams";
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/blog" component={Blog} />
+      <Route path="/glossary" component={Glossary} />
       <Route path="/repair-manuals" component={RepairManuals} />
       <Route path="/diagnostics" component={Diagnostics} />
       <Route path="/wiring-diagrams" component={WiringDiagrams} />

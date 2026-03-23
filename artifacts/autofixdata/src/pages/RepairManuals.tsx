@@ -2,13 +2,22 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { Link } from "wouter";
 import { BookOpen, CheckCircle2 } from "lucide-react";
+import { buildProductSchema, FREE_TRIAL_OFFER, SITE_URL } from "@/lib/richSnippets";
 
 export default function RepairManuals() {
+  const schema = JSON.stringify(buildProductSchema({
+    name: "OEM Repair Manuals — Auto Fix Data",
+    description: "Access OEM-level repair manuals for 150M+ vehicles — torque specs, wiring diagrams, TSBs, service procedures. All makes 1990–2026. 7-day free trial.",
+    url: `${SITE_URL}/repair-manuals`,
+    offers: [FREE_TRIAL_OFFER],
+  }));
+
   return (
     <Layout>
       <SEO 
         title="OEM Repair Manuals for Professional Workshops | Auto Fix Data"
         description="Access OEM-level repair manuals for 150M+ vehicles — torque specs, wiring diagrams, TSBs, service procedures. All makes 1990–2026. Updated daily. Free trial."
+        schema={schema}
       />
       
       <section className="bg-afd-navy py-20 px-6 dark-section">
