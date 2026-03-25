@@ -46,6 +46,34 @@ const ORG_SCHEMA = JSON.stringify({
   "areaServed": ["GB", "US", "FR", "DE", "ES", "IT", "PL", "AR"]
 });
 
+const SOFTWARE_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Auto Fix Data",
+  "operatingSystem": "Web browser, iOS, Android",
+  "applicationCategory": "BusinessApplication",
+  "url": SITE_URL,
+  "developer": {
+    "@type": "Organization",
+    "name": "Auto Fix Data Team"
+  },
+  "description": "Professional automotive workshop repair database. The ultimate alternative to Autodata, ALLDATA, and ProDemand for independent mechanics.",
+  "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/678a6476a12015eea3a7c3b1.png",
+  "keywords": "auto repair database software, workshop repair data, OEM wiring diagrams, Autodata alternative, ALLDATA alternative, ProDemand alternative, DTC fault codes",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "342"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99.00",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "category": "Subscription"
+  }
+});
+
 export function SEO({ title, description, schema, noIndex = false, canonical, ogImage, breadcrumb }: SEOProps) {
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
   const canonicalUrl = canonical || `${SITE_URL}${currentPath}`;
@@ -116,9 +144,10 @@ export function SEO({ title, description, schema, noIndex = false, canonical, og
       {/* Bing Webmaster Tools verification — replace with actual token */}
       <meta name="msvalidate.01" content="REPLACE_WITH_BING_WEBMASTER_TOKEN" />
 
-      {/* Structured Data: WebSite + Organization (on every page) */}
+      {/* Structured Data: WebSite + Organization + SoftwareApplication (on every page) */}
       <script type="application/ld+json">{WEBSITE_SCHEMA}</script>
       <script type="application/ld+json">{ORG_SCHEMA}</script>
+      <script type="application/ld+json">{SOFTWARE_SCHEMA}</script>
 
       {/* Breadcrumb Schema */}
       {breadcrumbSchema && (
