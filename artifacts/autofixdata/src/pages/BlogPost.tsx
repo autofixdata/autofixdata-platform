@@ -31,8 +31,8 @@ export default function BlogPost() {
         description={post.seoDescription}
         schema={schema}
         breadcrumb={[
-          { name: "Blog", url: "https://autofixdata.com/blog" },
-          { name: post.title, url: `https://autofixdata.com/blog/${post.slug}` }
+          { name: "Blog", url: "https://autofixdata.net/blog" },
+          { name: post.title, url: `https://autofixdata.net/blog/${post.slug}` }
         ]}
       />
 

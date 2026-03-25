@@ -156,10 +156,10 @@ export default function ModelDetail() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://autofixdata.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Repair Manuals", "item": "https://autofixdata.com/repair-manuals" },
-      { "@type": "ListItem", "position": 3, "name": makeName, "item": `https://autofixdata.com/manuals/${makeSlug}` },
-      { "@type": "ListItem", "position": 4, "name": modelName, "item": `https://autofixdata.com/manuals/${makeSlug}/${modelSlug}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://autofixdata.net/" },
+      { "@type": "ListItem", "position": 2, "name": "Repair Manuals", "item": "https://autofixdata.net/repair-manuals" },
+      { "@type": "ListItem", "position": 3, "name": makeName, "item": `https://autofixdata.net/manuals/${makeSlug}` },
+      { "@type": "ListItem", "position": 4, "name": modelName, "item": `https://autofixdata.net/manuals/${makeSlug}/${modelSlug}` }
     ]
   });
 
@@ -219,9 +219,8 @@ export default function ModelDetail() {
               <button
                 key={id}
                 onClick={() => { setActiveNav(id); if (id !== "overview") openModal(); }}
-                className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors text-left relative ${
-                  activeNav === id ? 'bg-afd-yellow text-black' : 'text-gray-300 hover:bg-white/10'
-                }`}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors text-left relative ${activeNav === id ? 'bg-afd-yellow text-black' : 'text-gray-300 hover:bg-white/10'
+                  }`}
               >
                 {badge && (
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 bg-afd-yellow text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">

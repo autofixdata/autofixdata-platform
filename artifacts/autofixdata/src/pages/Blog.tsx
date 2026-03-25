@@ -9,14 +9,14 @@ export default function Blog() {
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         title="Diagnostic Data & Workshop Software Blog | Auto Fix Data"
         description="The ultimate resource for independent workshops. Read our comparisons of AutoData, HaynesPro, ALLDATA, Mitchell1, and deep technical diagnostic guides."
         breadcrumb={[
-          { name: "Workshop Blog", url: "https://autofixdata.com/blog" }
+          { name: "Workshop Blog", url: "https://autofixdata.net/blog" }
         ]}
       />
-      
+
       {/* Hero */}
       <div className="bg-afd-navy py-20 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-afd-blue/5 rounded-full blur-3xl -mr-40 -mt-40 pointer-events-none"></div>
@@ -36,18 +36,18 @@ export default function Blog() {
           {categories.map((category) => {
             const posts = BLOG_POSTS.filter(p => p.category === category);
             if (posts.length === 0) return null;
-            
+
             return (
               <div key={category}>
                 <h2 className="text-3xl font-extrabold text-afd-navy mb-10 flex items-center gap-4">
                   <span className="bg-afd-yellow w-2 h-8 rounded-full inline-block"></span>
                   {category}
                 </h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {posts.map((post) => (
-                    <Link 
-                      key={post.id} 
+                    <Link
+                      key={post.id}
                       href={`/blog/${post.slug}`}
                       className="bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full shadow-sm"
                     >
@@ -62,7 +62,7 @@ export default function Blog() {
                         <p className="text-gray-600 mb-8 text-sm leading-relaxed flex-1 font-medium">
                           {post.seoDescription}
                         </p>
-                        
+
                         <div className="pt-6 border-t border-gray-100 flex items-center justify-between mt-auto">
                           <div className="flex items-center gap-2 text-xs text-gray-400 font-bold uppercase tracking-wider">
                             <Clock className="w-4 h-4" /> {post.readTime}
@@ -80,14 +80,14 @@ export default function Blog() {
           })}
         </div>
       </section>
-      
+
       {/* Bottom CTA Hook */}
       <section className="bg-white py-20 px-6 border-t border-gray-100 text-center">
         <div className="max-w-[800px] mx-auto">
           <h2 className="text-3xl font-black text-afd-navy mb-6">Tired of paying £150+ for legacy software?</h2>
           <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">Access the interactive OEM data you just read about instantly. Start your trial with absolutely zero obligation.</p>
           <Link href="/free-trial" className="inline-block bg-afd-yellow text-black px-8 py-4 rounded-xl font-bold hover:bg-afd-navy hover:text-white transition-colors shadow-lg">
-             Create Your Free Account
+            Create Your Free Account
           </Link>
         </div>
       </section>

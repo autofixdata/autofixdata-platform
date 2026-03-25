@@ -71,7 +71,7 @@ export default function Login() {
     "@type": "WebPage",
     "name": "Database Login | Auto Fix Data",
     "description": "Access your automotive workshop database — ALLDATA, AutoData, Haynes Pro, Mitchell1 (ProDemand) or Identifix login portals.",
-    "url": "https://autofixdata.com/login"
+    "url": "https://autofixdata.net/login"
   });
 
   return (
@@ -81,7 +81,7 @@ export default function Login() {
         description="Sign in to your automotive workshop database — ALLDATA, AutoData, Haynes Pro, ProDemand (Mitchell1) or Identifix. Select your platform below."
         schema={schema}
         noIndex={false}
-        breadcrumb={[{ name: "Login", url: "https://autofixdata.com/login" }]}
+        breadcrumb={[{ name: "Login", url: "https://autofixdata.net/login" }]}
       />
 
       {/* Hero */}

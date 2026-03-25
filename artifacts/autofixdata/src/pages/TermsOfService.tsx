@@ -27,7 +27,7 @@ export default function TermsOfService() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <Section title="1. Agreement to Terms">
-            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", "your") and Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our"). By accessing or using our website (autofixdata.com) or subscribing to our services, you agree to be bound by these Terms.</p>
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", "your") and Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our"). By accessing or using our website (autofixdata.net) or subscribing to our services, you agree to be bound by these Terms.</p>
             <p>If you are accessing the service on behalf of an organisation, you represent that you have authority to bind that organisation to these Terms.</p>
           </Section>
 
@@ -99,7 +99,7 @@ export default function TermsOfService() {
           </Section>
 
           <Section title="12. Contact">
-            <p>For questions regarding these Terms, contact us at <a href="mailto:legal@autofixdata.com" className="text-afd-blue underline">legal@autofixdata.com</a> or via our <a href="/contact" className="text-afd-blue underline">contact page</a>.</p>
+            <p>For questions regarding these Terms, contact us at <a href="mailto:legal@autofixdata.net" className="text-afd-blue underline">legal@autofixdata.net</a> or via our <a href="/contact" className="text-afd-blue underline">contact page</a>.</p>
           </Section>
         </div>
       </section>

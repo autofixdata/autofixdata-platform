@@ -10,7 +10,7 @@ interface SEOProps {
   breadcrumb?: Array<{ name: string; url: string }>;
 }
 
-const SITE_URL = "https://autofixdata.com";
+const SITE_URL = "https://autofixdata.net";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 const WEBSITE_SCHEMA = JSON.stringify({
@@ -40,7 +40,7 @@ const ORG_SCHEMA = JSON.stringify({
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
-    "email": "support@autofixdata.com",
+    "email": "support@autofixdata.net",
     "availableLanguage": ["English", "French", "German", "Spanish", "Italian", "Polish"]
   },
   "areaServed": ["GB", "US", "FR", "DE", "ES", "IT", "PL", "AR"]

@@ -8,22 +8,22 @@ export default function MakeDirectory() {
   const [match, params] = useRoute("/manuals/:make");
   const makeSlug = params?.make || "";
   const makeName = unslugify(makeSlug);
-  
+
   // Find if we have popular models for this make
   const makeData = POPULAR_MAKES.find(m => m.slug === makeSlug?.toLowerCase());
   const models = makeData?.popularModels || ["Standard Model", "Base Model", "Premium Model"]; // Fallback if not found
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         title={`${makeName} OEM Repair Manuals & Wiring Diagrams | Auto Fix Data`}
         description={`Access complete factory repair manuals, torque specifications, and wiring diagrams for all ${makeName} models. Start your free trial today.`}
         breadcrumb={[
-          { name: "Repair Manuals", url: "https://autofixdata.com/repair-manuals" },
-          { name: makeName, url: `https://autofixdata.com/manuals/${makeSlug}` }
+          { name: "Repair Manuals", url: "https://autofixdata.net/repair-manuals" },
+          { name: makeName, url: `https://autofixdata.net/manuals/${makeSlug}` }
         ]}
       />
-      
+
       <div className="bg-afd-navy py-16 px-6 relative overflow-hidden border-b border-white/5">
         <div className="max-w-[1000px] mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
@@ -39,15 +39,15 @@ export default function MakeDirectory() {
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
             <h2 className="text-2xl font-bold text-afd-navy mb-8 flex items-center gap-3">
-               <Car className="w-6 h-6 text-afd-blue" />
-               Select your {makeName} Model
+              <Car className="w-6 h-6 text-afd-blue" />
+              Select your {makeName} Model
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {models.map(model => {
                 const modelSlug = model.toLowerCase().replace(/\s+/g, '-');
                 return (
-                  <Link 
-                    key={model} 
+                  <Link
+                    key={model}
                     href={`/manuals/${makeSlug}/${modelSlug}`}
                     className="p-4 rounded-xl border border-gray-200 hover:border-afd-blue hover:shadow-md transition-all group flex items-center justify-between bg-white text-afd-navy font-semibold text-lg"
                   >
