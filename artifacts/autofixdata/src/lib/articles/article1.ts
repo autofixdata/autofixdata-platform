@@ -4,7 +4,7 @@ export const article1Content = `
 
 <h1>AllData vs ProDemand vs Identifix: Which Repair Software Wins in 2026?</h1>
 
-<img src="/images/wiring-bg.png" alt="Mechanic using AllData and ProDemand on tablet" style="width: 100%; border-radius: 1rem; margin-bottom: 2rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" />
+<img src="/images/diagnostics-abstract.png" alt="Mechanic using AllData and ProDemand on tablet" style="width: 100%; border-radius: 1rem; margin-bottom: 2rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" />
 
 <p>Picture this in your workshop: It's 3:00 PM on a Friday. A 2024 Ford F-150 Hybrid is taking up your most profitable service bay with a massive parasitic battery drain. Your top technician has been hunting for the correct power distribution module wiring diagram for over an hour. Every minute that truck sits on the lift, your auto repair shop is hemorrhaging potential profit. You load up your legacy repair software, hoping to meticulously trace the CAN-bus network, only to find redrawn, low-quality diagrams that simply do not match the physical pins on the vehicle. Sound familiar? This is the frustrating daily reality for independent mechanics relying on outdated automotive repair data software platforms that haven't innovated in a decade.</p>
 
