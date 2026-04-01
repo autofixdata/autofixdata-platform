@@ -1,0 +1,1288 @@
+{
+  "nav": {
+    "repairData": "Dati di riparazione",
+    "products": "Prodotti",
+    "diagnostics": "Diagnostica",
+    "wiring": "Schemi elettrici",
+    "pricing": "Listino prezzi",
+    "login": "Accedi",
+    "signIn": "Registrati",
+    "viewAll": "Tutti i prodotti",
+    "freeTrial": "Prova gratuita",
+    "home": "Home",
+    "about": "Chi siamo",
+    "contact": "Contatti"
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati",
+    "privacy": "Informativa sulla privacy",
+    "terms": "Termini di servizio",
+    "gdpr": "Conformità GDPR",
+    "ctaHeading": "Inizia la tua prova gratuita oggi",
+    "ctaSubheading": "Accesso completo alla piattaforma. Nessuna carta di credito. Nessun impegno.",
+    "ctaButton": "Inizia la prova gratuita ora",
+    "noCard": "Nessuna carta di credito",
+    "noContract": "Nessun contratto",
+    "cancelAnytime": "Annulla in qualsiasi momento",
+    "workshops": "Oltre 10.000 officine"
+  },
+  "common": {
+    "startFreeTrial": "Prova gratuita di 7 giorni",
+    "viewPlans": "Vedi i piani tariffari",
+    "learnMore": "Scopri di più",
+    "readMore": "Leggi tutto",
+    "getStarted": "Inizia ora",
+    "contactUs": "Contattaci",
+    "compareAlternatives": "Confronta alternative",
+    "noCreditCard": "Nessuna carta di credito richiesta",
+    "freeTrial": "Prova gratuita",
+    "perMonth": "al mese",
+    "perYear": "all'anno",
+    "mostPopular": "Più popolare",
+    "allPlansInclude": "Tutti i piani includono",
+    "faqTitle": "Domande frequenti (FAQ)",
+    "meta": {
+      "keywords": "dati riparazione auto, manuali OEM, schemi elettrici, codici DTC, TSB, alternativa ALLDATA, software officina",
+      "defaultTitle": "Auto Fix Data | Dati Riparazione OEM Premium per Officine Moderne",
+      "defaultDesc": "Ottieni accesso immediato a procedure OEM verificate, schemi elettrici a colori, soluzioni reali e TSB per oltre 150 milioni di veicoli in 7 mercati globali."
+    },
+    "coverageHeading": "Copertura di Tutti i Principali Marchi",
+    "coverageSub": "Dati OEM per oltre 150 produttori di veicoli — dal 1990 ad oggi"
+  },
+  "home": {
+    "meta": {
+      "title": "Database riparazioni per officine pro | Auto Fix Data",
+      "description": "Accedi a dati OEM, schemi elettrici, codici DTC e TSB per oltre 150 mln di veicoli. Un solo abbonamento. Cinque database professionali."
+    },
+    "hero": {
+      "headline1": "Il database per le",
+      "headline2": "officine professionali",
+      "subheadline": "Dati di riparazione OEM, schemi elettrici a colori, codici DTC e bollettini tecnici (TSB) per oltre 150 milioni di veicoli — tutto in un unico abbonamento.",
+      "cta1": "Inizia la prova gratuita di 7 giorni",
+      "cta2": "Vedi tutti i prodotti"
+    },
+    "stats": {
+      "vehicles": "Veicoli coperti",
+      "workshops": "Officine partner",
+      "databases": "Database principali",
+      "markets": "Mercati globali"
+    },
+    "products": {
+      "heading": "Cinque database.",
+      "headingHighlight": "Un unico abbonamento.",
+      "subheading": "Smetti di pagare per più abbonamenti separati. Auto Fix Data offre alla tua officina l'accesso alle piattaforme OEM leader del settore.",
+      "alldata": {
+        "tagline": "Dati di riparazione OEM",
+        "desc": "Lo standard del settore per procedure di riparazione OEM originali, TSB e specifiche fornite direttamente dai costruttori."
+      },
+      "autodata": {
+        "tagline": "Specifiche tecniche",
+        "desc": "Intervalli di manutenzione completi, schede tecniche e posizionamento componenti interattivo, il punto di riferimento in Europa."
+      },
+      "haynesPro": {
+        "tagline": "Manuali d'officina",
+        "desc": "Manuali elettronici professionali che uniscono dati OEM a diagnostica intelligente e schemi elettrici VESA."
+      },
+      "mitchell1": {
+        "tagline": "ProDemand",
+        "desc": "Dati di riparazione avanzati basati su casi reali con diagnostica SureTrack®, schemi a colori e test dei componenti."
+      },
+      "identifix": {
+        "tagline": "Direct-Hit",
+        "desc": "Il più grande database di soluzioni reali confermate, inviate da tecnici professionisti e verificate da esperti."
+      }
+    },
+    "features": {
+      "heading": "Tutto ciò di cui un'officina professionale ha bisogno",
+      "subheading": "I dati tecnici necessari per diagnosticare con precisione e riparare con profitto, direttamente in officina.",
+      "oem": {
+        "title": "Procedure di riparazione OEM",
+        "desc": "Manuali di riparazione ufficiali passo-passo. Elimina ogni dubbio con coppie e sequenze di serraggio ufficiali."
+      },
+      "wiring": {
+        "title": "Schemi elettrici e Pinout",
+        "desc": "Schemi elettrici interattivi ad alta risoluzione a colori con dettagli dei pin dei connettori ECU."
+      },
+      "dtc": {
+        "title": "Libreria codici DTC",
+        "desc": "Libreria completa di codici OBD2 (P-codes) e codici specifici del costruttore con fasi di test."
+      },
+      "tsb": {
+        "title": "Bollettini tecnici (TSB)",
+        "desc": "Accedi agli ultimi bollettini tecnici e richiami ufficiali prima di iniziare a diagnosticare guasti comuni."
+      },
+      "maintenance": {
+        "title": "Piani di manutenzione",
+        "desc": "Intervalli di manutenzione OEM precisi e programmi di sostituzione cinghia/catena per preventivi accurati."
+      },
+      "diagnostic": {
+        "title": "Supporto diagnostico live",
+        "desc": "Si integra nel tuo flusso di lavoro per fornire soluzioni reali a guasti elettronici complessi."
+      }
+    },
+    "testimonials": {
+      "heading": "Scelto da oltre 10.000 officine",
+      "t1": {
+        "quote": "Passare ad Auto Fix Data ha dimezzato i nostri tempi di diagnosi. Avere ALLDATA e AutoData in un unico posto è fondamentale.",
+        "name": "Davide M.",
+        "role": "Responsabile d'officina",
+        "garage": "Elite Motors"
+      },
+      "t2": {
+        "quote": "Gli schemi elettrici sono incredibilmente dettagliati. Per le auto europee moderne, l'integrazione con Haynes Pro è stata la nostra salvezza.",
+        "name": "Sara T.",
+        "role": "Tecnico Diagnostico",
+        "garage": "TechTune Auto"
+      },
+      "t3": {
+        "quote": "Prima pagavo il doppio per abbonamenti singoli. Il valore qui è imbattibile e i dati sono identici ai portali ufficiali dei concessionari.",
+        "name": "Giacomo L.",
+        "role": "Titolare",
+        "garage": "L&S Independent Auto"
+      }
+    },
+    "faq": {
+      "q1": "I dati sono esattamente gli stessi dell'acquisto diretto?",
+      "a1": "Sì. In qualità di partner autorizzato, forniamo gli stessi dati OEM originali, TSB e schemi che otterresti abbonandoti direttamente ad ALLDATA, AutoData o Haynes Pro.",
+      "q2": "Serve hardware speciale?",
+      "a2": "No. Auto Fix Data è interamente basato su cloud. Puoi accedervi da PC, Mac, tablet o smartphone. Consigliamo un tablet per l'uso diretto sul veicolo.",
+      "q3": "Ogni quanto vengono aggiornati i dati?",
+      "a3": "I nostri database vengono aggiornati quotidianamente. Quando un costruttore pubblica un nuovo TSB o una procedura, appare automaticamente nel sistema.",
+      "q4": "Le auto d'importazione americane e asiatiche sono coperte?",
+      "a4": "Sì. Il nostro approccio combinato garantisce una copertura del 99% del parco circolante, inclusi veicoli europei, asiatici e americani dal 1990 ad oggi.",
+      "q5": "Posso annullare la prova senza addebiti?",
+      "a5": "Certamente. La prova di 7 giorni non richiede carta di credito. Se decidi che la piattaforma non fa per te, l'accesso scadrà semplicemente."
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Prezzi — Database riparazioni officina | Auto Fix Data",
+      "description": "Prezzi semplici e trasparenti. Accedi a ALLDATA, AutoData, Haynes Pro e altri da 99€/mese. Prova gratuita di 7 giorni."
+    },
+    "hero": {
+      "heading": "Prezzi semplici e trasparenti",
+      "subheading": "Un unico abbonamento. Cinque database professionali. Nessun costo nascosto, nessun contratto a lungo termine."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Per tecnici indipendenti",
+        "cta": "Inizia la prova gratuita"
+      },
+      "professional": {
+        "name": "Professional",
+        "tagline": "Per officine in crescita",
+        "cta": "Inizia la prova gratuita",
+        "badge": "Più popolare"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "tagline": "Per gruppi di officine",
+        "cta": "Contatta l'ufficio vendite"
+      }
+    },
+    "faq": {
+      "q1": "Posso cambiare piano in qualsiasi momento?",
+      "a1": "Sì. Puoi effettuare l'upgrade o il downgrade del piano in ogni momento dal tuo pannello di controllo. Le modifiche avranno effetto dal ciclo di fatturazione successivo.",
+      "q2": "C'è una durata minima del contratto?",
+      "a2": "No. Tutti i piani sono mensili senza vincoli. Puoi disdire in qualsiasi momento senza penali.",
+      "q3": "La prova richiede una carta di credito?",
+      "a3": "No. La prova gratuita di 7 giorni non richiede dati di pagamento. Ti verranno chiesti solo se deciderai di abbonarti.",
+      "q4": "Gli aggiornamenti software sono inclusi?",
+      "a4": "Sì. Tutti gli aggiornamenti della piattaforma, le integrazioni di nuovi dati e le nuove funzionalità sono inclusi senza costi aggiuntivi."
+    }
+  },
+  "freeTrial": {
+    "meta": {
+      "title": "Inizia la tua prova gratuita di 7 giorni | Auto Fix Data",
+      "description": "Accesso istantaneo a ALLDATA, AutoData, Haynes Pro e altri. Senza carta di credito. Inizia oggi stesso."
+    },
+    "hero": {
+      "heading": "Inizia la tua prova gratuita",
+      "subheadingHighlight": "Nessuna carta di credito richiesta.",
+      "subheading": "Ottieni l'accesso istantaneo a tutti e cinque i database professionali per 7 giorni, completamente gratis.",
+      "cta": "Crea un account gratuito"
+    },
+    "benefits": {
+      "b1": "Accesso completo a ALLDATA, AutoData, Haynes Pro, Mitchell1 e Identifix",
+      "b2": "Schemi elettrici interattivi a colori per oltre 150 mln di veicoli",
+      "b3": "Diagrammi di flusso diagnostici OEM e libreria codici DTC",
+      "b4": "Soluzioni reali confermate tramite Identifix Direct-Hit",
+      "b5": "Disdici quando vuoi — nessun obbligo"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Chi siamo - Auto Fix Data — Piattaforma dati tecnici pro",
+      "description": "Rivenditore autorizzato di ALLDATA, AutoData e Haynes Pro. Creato da meccanici, per i meccanici."
+    },
+    "hero": {
+      "heading": "Creato dai meccanici, per i meccanici",
+      "subheading": "Auto Fix Data è nata per risolvere un problema reale: i dati tecnici per le officine erano frammentati, costosi e difficili da reperire."
+    },
+    "mission": {
+      "heading": "La nostra missione",
+      "body": "Crediamo che ogni tecnico meriti l'accesso alla stessa qualità di dati dei concessionari ufficiali — senza contratti complessi e senza prezzi gonfiati."
+    },
+    "values": {
+      "heading": "I nostri valori",
+      "v1": {
+        "title": "Accuratezza OEM",
+        "desc": "Collaboriamo solo con fornitori che offrono dati originali dei costruttori. Niente riassunti o approssimazioni."
+      },
+      "v2": {
+        "title": "Prima le officine indipendenti",
+        "desc": "Ogni funzionalità è progettata per le esigenze dei riparatori indipendenti, non per le reti ufficiali."
+      },
+      "v3": {
+        "title": "Prezzi trasparenti",
+        "desc": "Nessun contratto vincolante, nessun costo nascosto. Il prezzo che vedi è quello che paghi."
+      },
+      "v4": {
+        "title": "Copertura globale",
+        "desc": "Supportiamo le officine in 7 lingue in tutta Europa e oltre."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contatta Auto Fix Data — Supporto e Vendite",
+      "description": "Mettiti in contatto con il team di Auto Fix Data. Supporto tecnico e richieste commerciali con risposta entro 24 ore."
+    },
+    "hero": {
+      "heading": "Mettiti in contatto",
+      "subheading": "Il nostro team risponde a tutte le richieste entro 24 ore nei giorni lavorativi."
+    },
+    "form": {
+      "name": "Nome completo",
+      "email": "Indirizzo e-mail",
+      "subject": "Oggetto",
+      "message": "Messaggio",
+      "submit": "Invia messaggio",
+      "namePlaceholder": "Mario Rossi",
+      "emailPlaceholder": "mario@tuaofficina.it",
+      "messagePlaceholder": "Dicci come possiamo aiutarti..."
+    },
+    "info": {
+      "salesHeading": "Richieste commerciali",
+      "supportHeading": "Supporto tecnico",
+      "hoursHeading": "Orari d'ufficio",
+      "hours": "Lunedì – Venerdì, 9:00 – 17:00 GMT"
+    }
+  },
+  "repairManuals": {
+    "meta": {
+      "title": "Manuali riparazione OEM tutte le marche | Auto Fix Data",
+      "description": "Accedi a manuali originali, coppie di serraggio, procedure e schemi elettrici per oltre 150 mln di veicoli."
+    },
+    "hero": {
+      "badge": "DATI DI RIPARAZIONE",
+      "heading1": "Dati di riparazione ufficiali.",
+      "heading2": "Esattamente come scritti dal costruttore.",
+      "subheading": "Accedi agli stessi manuali d'officina originali e specifiche tecniche che usano i concessionari autorizzati — senza i prezzi del concessionario.",
+      "cta1": "Inizia la prova gratuita",
+      "cta2": "Sfoglia per marca"
+    },
+    "features": {
+      "heading": "Cosa è incluso in ogni manuale",
+      "subheading": "Documentazione OEM completa — non un riassunto. I dati esatti pubblicati dal produttore.",
+      "f1": {
+        "title": "Procedure passo-passo",
+        "desc": "Sequenze di riparazione numerate con dettagli a livello di componente come documentato dal costruttore."
+      },
+      "f2": {
+        "title": "Coppie di serraggio",
+        "desc": "Ogni valore di coppia, sequenza di serraggio e specifica delle filettature per un riassemblaggio sicuro."
+      },
+      "f3": {
+        "title": "Capacità e tipi di fluidi",
+        "desc": "Volumi esatti di olio, tipi di refrigerante, fluidi per trasmissioni e specifiche gas climatizzazione."
+      },
+      "f4": {
+        "title": "Posizionamento componenti",
+        "desc": "Localizzatori interattivi per trovare la posizione fisica di sensori, relè, fusibili e centraline."
+      },
+      "f5": {
+        "title": "Bollettini tecnici (TSB)",
+        "desc": "Ogni TSB del costruttore associato al veicolo — conosci i problemi noti prima di iniziare."
+      },
+      "f6": {
+        "title": "Dati distribuzione e cinghie",
+        "desc": "Intervalli di sostituzione cinghie e catene con riferimenti agli attrezzi di messa in fase."
+      }
+    },
+    "browseMakes": "Sfoglia per marca veicolo",
+    "allMakes": "+ Vedi tutte le 150 marche →"
+  },
+  "wiring": {
+    "meta": {
+      "title": "Schemi elettrici auto interattivi | Auto Fix Data",
+      "description": "Accedi a schemi elettrici OEM a colori interattivi. Segui i circuiti, trova i pinout e diagnostica più velocemente."
+    },
+    "hero": {
+      "badge": "SCHEMI ELETTRICI",
+      "heading1": "Segui ogni circuito.",
+      "heading2": "Ripara al primo colpo.",
+      "subheading": "Schemi elettrici interattivi a colori ad alta risoluzione con pinout connettori ECU e logica dei circuiti per ogni modello.",
+      "cta1": "Inizia la prova gratuita",
+      "cta2": "Vedi i piani"
+    },
+    "features": {
+      "heading": "Perché i nostri schemi sono diversi",
+      "subheading": "I PDF generici fanno perdere ore. I nostri schemi interattivi sono creati per la ricerca guasti reale.",
+      "f1": {
+        "title": "Schemi interattivi a colori",
+        "desc": "Naviga in circuiti complessi con percorsi codificati per colore. Clicca su un componente per saltare al relativo circuito."
+      },
+      "f2": {
+        "title": "Pinout ECU e connettori",
+        "desc": "Ogni connettore mappato con numeri pin, colori fili e valori attesi di tensione o resistenza."
+      },
+      "f3": {
+        "title": "Diagrammi rete CAN Bus",
+        "desc": "Viste topologiche complete delle reti CAN-H/CAN-L, moduli gateway e percorsi di comunicazione."
+      },
+      "f4": {
+        "title": "Valori di test circuito",
+        "desc": "Valori di riferimento per tensione e resistenza su ogni punto di test per eliminare incertezze."
+      },
+      "f5": {
+        "title": "Cablaggio sensori ADAS",
+        "desc": "Schemi dedicati per radar, telecamere, LiDAR e sensori a ultrasuoni con note per la calibrazione."
+      },
+      "f6": {
+        "title": "Esportazione per l'officina",
+        "desc": "Esporta ogni schema in un PDF pulito da stampare o portare sul veicolo senza necessità di un secondo dispositivo."
+      }
+    }
+  },
+  "diagnostics": {
+    "meta": {
+      "title": "Libreria codici DTC professionale | Auto Fix Data",
+      "description": "Accedi alla libreria completa DTC OBD2 e specifica — codici P, B, C e U con diagrammi di flusso e soluzioni reali."
+    },
+    "hero": {
+      "badge": "DATI DIAGNOSTICI",
+      "heading1": "Domina il codice.",
+      "heading2": "Risolvi il guasto.",
+      "subheading": "Non limitarti a leggere il codice: comprendilo. Accedi alla libreria più completa del settore con diagrammi di flusso passo-passo.",
+      "cta1": "Accedi gratis alla libreria DTC",
+      "cta2": "Vedi i piani",
+      "stat1": "Record DTC",
+      "stat2": "Marche OEM",
+      "stat3": "Aggiornamenti"
+    },
+    "codeTypes": {
+      "heading": "Copertura completa di tutti i codici",
+      "subheading": "Copriamo ogni categoria OBD2 comprese migliaia di codici specifici non disponibili negli scanner generici.",
+      "powertrain": {
+        "name": "Motore e Trasmissione",
+        "desc": "Motore, cambio, alimentazione ed emissioni."
+      },
+      "body": {
+        "name": "Carrozzeria",
+        "desc": "Moduli comfort, airbag, climatizzazione e sistemi di sicurezza."
+      },
+      "chassis": {
+        "name": "Telaio",
+        "desc": "ABS, controllo trazione, ESC, sterzo e sospensioni."
+      },
+      "network": {
+        "name": "Rete / CAN Bus",
+        "desc": "Guasti rete CAN, errori di comunicazione moduli e gateway."
+      }
+    },
+    "features": {
+      "heading": "Oltre gli scanner generici",
+      "subheading": "Un lettore generico ti dà un numero. Auto Fix Data ti dà la strategia diagnostica completa.",
+      "f1": {
+        "title": "Codici specifici costruttore",
+        "desc": "Vai oltre i codici P0xxx. Analisi dettagliate per codici P1xxx, U, B e C di tutti i principali costruttori."
+      },
+      "f2": {
+        "title": "Diagrammi di flusso diagnostici",
+        "desc": "Alberi decisionali esattamente come li vedono i tecnici ufficiali. Saprai esattamente quale filo testare."
+      },
+      "f3": {
+        "title": "Soluzioni reali confermate",
+        "desc": "Tramite Identifix Direct-Hit, vedi le riparazioni più comuni per codici specifici su modelli esatti."
+      },
+      "f4": {
+        "title": "Dati Freeze Frame",
+        "desc": "Visualizza i valori dei sensori catturati al momento del guasto, fondamentali per i difetti intermittenti."
+      },
+      "f5": {
+        "title": "Live Data PIDs",
+        "desc": "Scopri quali parametri monitorare in tempo reale e quali valori indicano il corretto funzionamento."
+      },
+      "f6": {
+        "title": "Riferimento TSB",
+        "desc": "Controlla automaticamente se un codice è legato a bollettini tecnici ufficiali per problemi di serie."
+      }
+    },
+    "faq": {
+      "q1": "Quali codici DTC sono coperti?",
+      "a1": "Tutti i codici OBD2 P (P0000–P3999), B (Body), C (Chassis), U (Network) e migliaia di codici specifici costruttore.",
+      "q2": "Fornite soluzioni reali insieme ai codici?",
+      "a2": "Sì. Tramite l'integrazione Identifix, ogni DTC è associato a riparazioni reali verificate inviate da altri riparatori.",
+      "q3": "Quanto è aggiornato il database?",
+      "a3": "Aggiornamento quotidiano da ALLDATA, AutoData e altri. I nuovi codici vengono aggiunti non appena rilasciati.",
+      "q4": "Posso cercare i dati Freeze Frame?",
+      "a4": "Sì. Dove forniti dal costruttore, mostriamo i parametri dei sensori registrati nel momento in cui è scattato il codice guasto.",
+      "q5": "I diagrammi di flusso sono ufficiali?",
+      "a5": "Sì. Tutti i diagrammi di flusso provengono direttamente dai feed dati originali OEM."
+    },
+    "coverage": {
+      "heading": "Dati da 5 database leader",
+      "body": "La nostra libreria aggrega i dati di ALLDATA, AutoData, Haynes Pro, Mitchell1 e Identifix.",
+      "s1": "ALLDATA: Diagrammi di flusso OEM e TSB",
+      "s2": "AutoData: Valori tecnici di test e specifiche",
+      "s3": "Haynes Pro: Guide diagnostiche visive passo-passo",
+      "s4": "Mitchell1: Dati reali SureTrack e oscillogrammi",
+      "s5": "Identifix: Oltre 50 mln di riparazioni verificate per VIN",
+      "stat1label": "Record DTC OBD2",
+      "stat1value": "50M+",
+      "stat2label": "Codici specifici",
+      "stat2value": "500K+",
+      "stat3label": "Diagrammi di flusso",
+      "stat3value": "2M+",
+      "stat4label": "Soluzioni confermate",
+      "stat4value": "40M+",
+      "stat5label": "Copertura veicoli",
+      "stat5value": "1982–2026"
+    },
+    "cta": {
+      "heading": "Smetti di tirare a indovinare. Inizia a diagnosticare.",
+      "subheading": "Accedi alla libreria DTC completa con diagrammi e soluzioni — gratis per 7 giorni.",
+      "button": "Inizia la prova gratuita"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog software d'officina e diagnostica | Auto Fix Data",
+      "description": "La risorsa definitiva per le officine indipendenti. Leggi i confronti tra AutoData, HaynesPro e guide tecniche."
+    },
+    "hero": {
+      "heading": "Intelligence",
+      "headingHighlight": "per l'Officina",
+      "subheading": "Approfondimenti tecnici, confronti tra software e guide alla diagnosi per far crescere i riparatori indipendenti."
+    },
+    "cta": {
+      "heading": "Stanco di pagare troppo per software obsoleti?",
+      "subheading": "Accedi istantaneamente ai dati OEM interattivi. Inizia la prova senza alcun impegno.",
+      "button": "Crea il tuo account gratuito"
+    },
+    "readPost": "Leggi post"
+  },
+  "glossary": {
+    "meta": {
+      "title": "Glossario diagnostica auto e termini OBD2 | Auto Fix Data",
+      "description": "Glossario completo della diagnostica: terminologia OBD2, definizioni DTC, acronimi ADAS, CAN Bus ed elettronica auto."
+    },
+    "hero": {
+      "badge": "GLOSSARIO DI RIFERIMENTO",
+      "heading1": "Diagnostica Auto",
+      "heading2": "Glossario e Terminologia",
+      "subheading": "La diagnostica è un campo in continua evoluzione. Questo glossario copre ogni acronimo OBD2 e concetto tecnico professionale.",
+      "stat1": "80+ Acronimi",
+      "stat2": "35+ Termini tecnici",
+      "stat3": "OBD2 / CAN / ADAS"
+    },
+    "acronymsHeading": "Glossario Diagnostica",
+    "acronymsSubheading": "Tutti i principali acronimi OBD2, SAE e specifici utilizzati nella riparazione.",
+    "technicalHeading": "Terminologia Tecnica",
+    "technicalSubheading": "Concetti diagnostici e standard spiegati in modo semplice per i tecnici d'officina.",
+    "cta": {
+      "heading": "Accedi al database completo",
+      "subheading": "Cerca tra 50 milioni di record DTC, schemi OEM e soluzioni reali.",
+      "button1": "Cerca codici DTC",
+      "button2": "Inizia la prova gratuita"
+    }
+  },
+  "products": {
+    "meta": {
+      "title": "Database riparazioni professionali | Auto Fix Data",
+      "description": "Confronta ALLDATA, AutoData, Haynes Pro e altri — tutti disponibili con un unico abbonamento."
+    },
+    "hero": {
+      "heading1": "Cinque database professionali.",
+      "heading2": "Un unico abbonamento.",
+      "subheading": "Abbiamo collaborato con i principali fornitori per offrirti una copertura senza precedenti senza i costi di contratti multipli."
+    },
+    "comparison": {
+      "heading": "Confronto funzionalità",
+      "subheading": "Tutte le funzionalità incluse nel tuo abbonamento Auto Fix Data.",
+      "col1": "Area funzionale",
+      "col2": "Fornitore principale",
+      "col3": "Incluso"
+    }
+  },
+  "alldata": {
+    "meta": {
+      "title": "ALLDATA tramite Auto Fix Data | Dati di riparazione OEM e TSB",
+      "description": "Accedi alla libreria completa ALLDATA con procedure OEM originali, bollettini tecnici (TSB), schemi elettrici e dati diagnostici. Prova gratuita 7 giorni."
+    },
+    "hero": {
+      "badge": "Rivenditore ALLDATA autorizzato",
+      "heading": "ALLDATA — Dati di riparazione OEM originali da AutoZone",
+      "subheading": "La fonte più affidabile del settore per dati tecnici diretti dal costruttore. ALLDATA fornisce ai tecnici procedure OEM non modificate, la più grande libreria di TSB e schemi elettrici accurati — ora disponibili tramite il tuo abbonamento Auto Fix Data."
+    },
+    "featuresHeading": "Cosa include ALLDATA nel tuo abbonamento",
+    "featuresSubheading": "ALLDATA è il gold standard mondiale per i dati di riparazione originali (OEM), utilizzato da meccanici professionisti e centri autorizzati: tutte le schede provengono direttamente dalle case madri senza omissioni.",
+    "whyHeading": "Lo standard per l'informazione di base originale OEM",
+    "whyBody": "Quasi 400.000 autofficine non possono sbagliare. ALLDATA offre i migliori portafogli originali in commercio per quasi ogni vettura moderna dalla fine degli anni sessanta fino al nuovo secolo senza limitazioni nei manuali PDF forniti.",
+    "ctaHeading": "Abbonati ad ALLDATA ed alle altre Banche Dati",
+    "ctaBody": "Acquistando un solo piano potrai avviare 5 differenti prodotti leader a livello globale dalla prima schermata, tra cui ALLDATA.",
+    "statsBar": [
+      {
+        "value": "44.000+",
+        "label": "Veicoli Coperti"
+      },
+      {
+        "value": "Diretto-OEM",
+        "label": "Dati Intatti"
+      },
+      {
+        "value": "Il più ampio",
+        "label": "Archivio TSB"
+      },
+      {
+        "value": "Da AutoZone",
+        "label": "Standard di settore"
+      }
+    ],
+    "features": [
+      {
+        "title": "Procedure OEM originali al 100%",
+        "desc": "Riparate con gli stessi schemi di cui dispongono in concessionaria. Niente è stato omesso, riassunto o ricreato artificialmente."
+      },
+      {
+        "title": "Archivio TSB e richiami completi",
+        "desc": "Controlla difetti noti dal produttore ufficiale prima ancora di collegare lo scanner diagnostico per evitare inutili perdite di tempo."
+      },
+      {
+        "title": "Schemi Elettrici Ufficiali",
+        "desc": "Tracciate circuiti integrati del veicolo, rete CAN, moduli ABS, airbag (SRS) e pin della centralina motore con una chiarezza eccezionale e schema originale."
+      },
+      {
+        "title": "Alert di sicurezza (NHTSA e richiami)",
+        "desc": "Accesso ai dati sui richiami di sicurezza per una visione chiara dei problemi costruttivi emersi nel corso degli anni sui singoli telai."
+      },
+      {
+        "title": "Diagrammi di flusso per diagnosi (DTC)",
+        "desc": "Le sequenze esatte per isolare un codice errore utilizzate dai meccanici della casa madre: mai più componenti cambiati a caso."
+      },
+      {
+        "title": "Tempi e Temparari della Casa",
+        "desc": "Tariffari ufficiali per preventivi perfetti per ogni singola lavorazione, rispettando con estrema precisione le ore fatturabili in officina."
+      }
+    ],
+    "whyList": [
+      "Dati OEM scaricati dai portali della concessionaria",
+      "Database immenso dei Bollettini Tecnici di Servizio",
+      "Database ufficiale e avvisi di sicurezza del governo americano",
+      "L'approccio logico esatto step-by-step alle vetture recenti per ogni errore",
+      "Gestione temparari garantendo fatturazioni coerenti e sicure al minuto"
+    ],
+    "keyStatsHeading": "Statistiche ALLDATA",
+    "keyStats": [
+      {
+        "label": "Varianti Coperte",
+        "value": "44.000"
+      },
+      {
+        "label": "Documenti e PDF (TSB)",
+        "value": "Oltre 6 Milioni"
+      },
+      {
+        "label": "Meccanici aderenti",
+        "value": "400.000"
+      },
+      {
+        "label": "Aggiornamento base",
+        "value": "Costante (Cloud)"
+      },
+      {
+        "label": "Range Anni Auto",
+        "value": "1982–2026"
+      }
+    ],
+    "faqHeading": "Domande Frequenti su ALLDATA",
+    "faqs": [
+      {
+        "q": "Cosa è ALLDATA ed è l'ufficiale?",
+        "a": "Sì. Viene edito dall'americana AutoZone ed è composto dai medesimi dati reperibili in concessionario OEM."
+      },
+      {
+        "q": "È compreso nell'abbonamento unico?",
+        "a": "Incluso senza limiti massimi nel piano auto, insieme a Mitchell1, Haynes, Identifix e AutoData per completarsi a vicenda."
+      },
+      {
+        "q": "Ci sono veicoli del mercato europeo e nord americano?",
+        "a": "Fornisce un'ampia visione sui prodotti europei d'esportazione ma per i veicoli esclusivi in Europa AutoData colmerà il resto."
+      },
+      {
+        "q": "Aiuta concretamente l'installatore a cancellare le spie di guasto (DTC)?",
+        "a": "Certo, per tutti i principali guasti vi illustra la struttura ad albero sequenziale diagnostica."
+      },
+      {
+        "q": "ALLDATA si aggiorna?",
+        "a": "I nuovi manuali dei veicoli 2025/2026 vengono resi pubblici appena passano nei database OEM."
+      }
+    ],
+    "ctaCompare": "Valuta le alternative ed i prezzi"
+  },
+  "autodata": {
+    "meta": {
+      "title": "AutoData tramite Auto Fix Data | Rivenditore ufficiale per officine",
+      "description": "Accedi alle specifiche tecniche AutoData, intervalli di manutenzione, schemi elettrici e codici DTC via Auto Fix Data. Prova gratuita disponibile."
+    },
+    "hero": {
+      "badge": "Rivenditore AutoData autorizzato",
+      "heading": "AutoData — Lo standard europeo per le officine",
+      "subheading": "AutoData è il database di riferimento per i dati tecnici dei veicoli europei — specifiche complete, intervalli di manutenzione, valori di coppia e dati componenti per 150M+ veicoli, tutto in un unico abbonamento."
+    },
+    "featuresHeading": "Scopri le capacità fornite da AutoData",
+    "featuresSubheading": "Per risolvere problemi, localizzare moduli fusi sottoscocca o fasare il motore prima della cinghia: AutoData è la banca dati ufficiale di meccanica che non può mancare dal cruscotto informatico.",
+    "whyHeading": "L'eccellenza per la zona Euro e non solo",
+    "ctaHeading": "Fornitura di AutoData da parte nostra",
+    "ctaBody": "Auto Fix Data porta comodamente sui vostri tablet AutoData, unito senza limitazioni agli altri leader meccanici.",
+    "statsBar": [
+      {
+        "value": "35+ Anni",
+        "label": "Specialista Europeo"
+      },
+      {
+        "value": "150M+",
+        "label": "Veicoli nel DB"
+      },
+      {
+        "value": "OEM",
+        "label": "Specifiche Ufficiali"
+      },
+      {
+        "value": "Standard",
+        "label": "Supporto Globale"
+      }
+    ],
+    "features": [
+      {
+        "title": "Schede di Manutenzione programmata",
+        "desc": "Riepiloga accuratamente gli step indicati dai brand (BMW, Fiat, Renault, etc) per i tagliandi dei principali veicoli, compresi i liquidi raccomandati."
+      },
+      {
+        "title": "Riparazione e Timing Belt",
+        "desc": "Processi operativi passo per passo durante l'intervento sulle cinghie interne o catene motore per una fasatura millimetrica."
+      },
+      {
+        "title": "Specifiche, Geometrie e Sensori",
+        "desc": "Informazione tecnica al top su calibrazione di angoli sterzo (assetto ruote), A/C, coppie bulloni o sensori."
+      },
+      {
+        "title": "Schemi Elettrici Chiari e Uniformi",
+        "desc": "Modello super accessibile e tradotto al meglio per rintracciare senza ostacoli una massa scollegata sul telaio e sui principali moduli dell'auto."
+      },
+      {
+        "title": "Localizzazione Centraline A/C",
+        "desc": "Individua facilmente i teleruttori e le porte connettori dietro il cruscotto riducendo del 90% i tempi di smontaggio plastiche."
+      },
+      {
+        "title": "Traduzione Codice Difetto DTC",
+        "desc": "Converte decine di migliaia di DTC grezzi in guasti di facile sintesi per agevolare il controllo dei sistemi attivi per l'officina."
+      }
+    ],
+    "whyBody": "AutoData domina l'informazione del mercato Fiat, PSA, gruppo VAG (VW, Audi, Seat), Ford. Tutte le informazioni chiave ed i bollettini del gruppo motore/telaio passano da quest'infrastruttura fondamentale in Europa ed America.",
+    "whyList": [
+      "Un leader tra le auto europee — livello concessionario OEM per tutti i brand",
+      "Standard approvato in UK, Germania ed Italia per il corretto iter d'officina e tagliando",
+      "Riepilogo attrezzaggio speciale fasature cinghie originali della casa",
+      "Banca dati completa R134A / R1234 YF per climatizzatori estivi",
+      "Incluso al 100% all'interno di Auto Fix Data per arricchire Mitchell1 e ALLDATA"
+    ],
+    "keyStatsHeading": "Informazioni di AutoData",
+    "keyStats": [
+      {
+        "label": "Decenni di successi",
+        "value": "35 anni"
+      },
+      {
+        "label": "Copertura veicoli UE",
+        "value": "100% Top Brands"
+      },
+      {
+        "label": "Valori e parametri tecnici",
+        "value": "Decine di migliaia"
+      },
+      {
+        "label": "Database",
+        "value": "AutoData Cardesk"
+      },
+      {
+        "label": "Nazioni che lo adottano",
+        "value": "Più di 50"
+      }
+    ],
+    "ctaCompare": "Esplora alternative sul mercato"
+  },
+  "haynesPro": {
+    "meta": {
+      "title": "Haynes Pro tramite Auto Fix Data | Manuali officina professionali",
+      "description": "Accedi ai manuali officina Haynes Pro e ai dati di riparazione via Auto Fix Data. Procedure di livello OEM per oltre 150 mln di veicoli."
+    },
+    "hero": {
+      "badge": "Rivenditore Haynes Pro autorizzato",
+      "heading": "Haynes Pro — Manuali officina professionali",
+      "subheading": "Haynes Pro combina dati OEM con manuali digitali intuitivi — schemi elettrici a colori, illustrazioni VESA, procedure guidate e diagnostica avanzata in un'unica piattaforma professionale."
+    },
+    "featuresHeading": "Haynes Pro WorkshopData — Per professionisti ed apprendisti",
+    "featuresSubheading": "Haynes Pro non è la controparte \"fai-da-te\" del libro al supermercato, ma il massimo dell'evoluzione software adatta al riparatore professionista basato unicamente su disegni interattivi formidabili.",
+    "ctaHeading": "Usa Haynes Pro Senza Intoppi",
+    "ctaBody": "Attiva a soli pochissimi click questo mostro di grafica ed assistenza con auto-riparazioni, insieme alle 4 principali reti di competenza.",
+    "statsBar": [
+      {
+        "value": "80+ Anni",
+        "label": "Marchio Storico"
+      },
+      {
+        "value": "Professionale",
+        "label": "Per autofficina"
+      },
+      {
+        "value": "Illustrato",
+        "label": "Ogni Spaccato"
+      },
+      {
+        "value": "Origine",
+        "label": "Database Costruttore"
+      }
+    ],
+    "features": [
+      {
+        "title": "Linee guida per l'officina",
+        "desc": "Smontaggio, rimontaggio per telai, differenziali, cambio manuale / automatico e motori."
+      },
+      {
+        "title": "Dati di regolazioni veicolo",
+        "desc": "Luce candele, tolleranza alberi a camme, pressioni iniettori per i veicoli benzina, diesel (Comon Rail) ed ibridi."
+      },
+      {
+        "title": "Schemi VESA (elettrici)",
+        "desc": "Ricercate facilmente le architetture complicate sfruttando la forza eccezionale di VESA sui pin di comando ed avariati."
+      },
+      {
+        "title": "Tempi stimati (Schedules)",
+        "desc": "Previsione di riparazione sulle automobili per garantire i margini operativi ad ogni officina aperta al pubblico."
+      },
+      {
+        "title": "Viste Esplose Formidabili",
+        "desc": "Le viste isometriche illustrano lo scorporamento degli apparati complessi (A/C, freno a disco) rivelandone ogni vite nascosta."
+      },
+      {
+        "title": "Smontaggio del blocco motore",
+        "desc": "Prevede tutti i piani di chiusura o rettifica della guarnizione di testa e gli accoppiamenti dell'imbiellaggio."
+      }
+    ],
+    "whyHeading": "Benefici chiari di usare Haynes Pro",
+    "whyBody": "Un grande vantaggio offerto dallo stile \"grafico\" di Haynes Pro per supportare ed accompagnare in modo agevolato anche i nuovi collaboratori di officina alle procedure lunghe di disconnessione dei componenti ostici o moderni su auto di lusso e standard europee.",
+    "whyList": [
+      "Meccanici provati, e neo diplomati",
+      "Ideale per chi sta iniziando nella professione e cerca sicurezza illustrativa",
+      "Revisioni stradali per garantire stabilità statali del veicolo europeo",
+      "Elettrauto di nuova modernità ed autoibrida multimarca"
+    ],
+    "keyStatsHeading": "Panoramica di Haynes Pro",
+    "keyStats": [
+      {
+        "label": "Storia e Affidabilità",
+        "value": "Oltre 80 Anni"
+      },
+      {
+        "label": "In Archivio",
+        "value": "Milioni di record"
+      },
+      {
+        "label": "Documenti e Disegni",
+        "value": "Tutti i veicoli in sede"
+      },
+      {
+        "label": "Sostegno Tecnico",
+        "value": "Esodo dal PDF, in formato digitale Mobile/PC"
+      }
+    ],
+    "faqHeading": "Domande Frequenti relative ad Haynes Pro",
+    "faqs": [
+      {
+        "q": "Posso scaricarlo o vederlo da cellulare al ponte auto?",
+        "a": "Sì. Le sue chiavi sono ottimizzate ed Auto Fix Data è integralmente digitale 24/7."
+      },
+      {
+        "q": "Ha gli Schemi ad Albero di Ricerca Diagnostica?",
+        "a": "Per questioni estreme su questo fattore consigliamo ALLDATA ed Identifix o Mitchell, che integrano con potenza enorme questo vuoto."
+      },
+      {
+        "q": "Si possono gestire le revisioni dei cambi?",
+        "a": "Certamente, le revisioni meccaniche hardware del motore e della trasmissione manuale sono ben protette."
+      },
+      {
+        "q": "Devo pagare per abilitarlo nell'offerta di Auto Fix Data?",
+        "a": "Verrà immediatamente caricato senza alcuna aggiunte nei pacchetti offerti da noi."
+      }
+    ],
+    "ctaCompare": "Guardare Moduli e Alternative"
+  },
+  "mitchell1": {
+    "meta": {
+      "title": "Mitchell1 ProDemand tramite Auto Fix Data | Rivenditore autorizzato",
+      "description": "Accedi ai dati di riparazione Mitchell1 ProDemand, schemi elettrici e TSB tramite Auto Fix Data. Prova gratuita disponibile."
+    },
+    "hero": {
+      "badge": "Rivenditore Mitchell1 autorizzato",
+      "heading": "Mitchell1 ProDemand — Dati diagnostici avanzati",
+      "subheading": "Mitchell1 ProDemand è la scelta del tecnico professionista per i dati di riparazione nel mondo reale — procedure OEM, soluzioni confermate SureTrack®, schemi elettrici a colori e diagnostica guidata in un'unica piattaforma."
+    },
+    "featuresHeading": "Mitchell1 ProDemand — Caratteristiche dell'Abonamento",
+    "featuresSubheading": "ProDemand (di Mitchell1) implementa la formula magica dell'unificazione tecnica OEM all'archivio storico impressionante dei fallimenti reali, riducendo esponenzialmente la ricerca su veicoli complessi tramite \"SureTrack\".",
+    "ctaHeading": "Raggiungi Mitchell1 ProDemand Velocemente",
+    "ctaBody": "Auto Fix Data fa il passo in avanti rendendo agilmente e simultaneamente disponibili per l'Europa Mitchell1, assieme ai classici noti Europei.",
+    "statsBar": [
+      {
+        "value": "ProDemand",
+        "label": "Sistema Base"
+      },
+      {
+        "value": "SureTrack",
+        "label": "Sinergia Esterna"
+      },
+      {
+        "value": "1983–2026",
+        "label": "Aree temporali auto"
+      },
+      {
+        "value": "Snap-on®",
+        "label": "Azienda Madre"
+      }
+    ],
+    "features": [
+      {
+        "title": "Meccanica ProDemand Originaria",
+        "desc": "Le vere metodiche per cambiare freni, testata o mozzi senza inventare e causando rotture. Procedure OEM di decenni."
+      },
+      {
+        "title": "SureTrack e Casi Veri (Community)",
+        "desc": "Identificazione dei problemi basata su oltre decine di milioni di veicoli reali che hanno lamentato e risolto il difetto nella pratica d'officina."
+      },
+      {
+        "title": "Wire Diagrams Interconnessi",
+        "desc": "Zoom fluidi nel colore ed intercettazione dinamica delle alimentazioni sensori in scala ridotta ed intuitiva."
+      },
+      {
+        "title": "Sistema Bollettini NHTSA",
+        "desc": "Integrazione della libreria richiami americana per intercettare i componenti del veicolo che presentano problemi conosciuti del brand automobilistico."
+      },
+      {
+        "title": "Bolla e Lista Tempi",
+        "desc": "Guida alle ore forfettarie richieste per evitare di rimetterci tempo non quantificato durante le transazioni commerciali post-intervento."
+      },
+      {
+        "title": "Consultazione dei Numeri Originali Parte",
+        "desc": "Accesso facilitato al magazzino di codici d'espediente del mercato dell'aftermarket / OEM dei costruttori originali."
+      }
+    ],
+    "whyHeading": "SureTrack dà una marcia in più ai Diagnostici moderni",
+    "whyBody": "Quanti tecnici hanno mai letto 2 errori differenti ma imparentati a causa di un cavo di massa spezzato in segreto? SureTrack ha registrato tutte queste avarie assurde rivelando a Mitchell1 probabilità chiare invece di un albero di ipotesi a vuoto.",
+    "whyList": [
+      "Raccolta di Oltre 70 milioni di conferme pratiche (\"Fisso!\") proveniente da tecnici globali lavorando per Mitchell1.",
+      "Spiegazioni delle cause innescanti con le associazioni DTC imparentate.",
+      "Aiuto immenso in diagnosi avanzate non logiche.",
+      "Aggiunta costante e frequente di migliaia di riparazioni corrette a settimana in server."
+    ],
+    "keyStatsHeading": "I Parametri Mitchell1 SureTrack",
+    "keyStats": [
+      {
+        "label": "Auto di ogni era e classe",
+        "value": "Annate 1983–2026"
+      },
+      {
+        "label": "Casistica Analizzata",
+        "value": "70M+ Interventi Veri"
+      },
+      {
+        "label": "Brands Automobilistici",
+        "value": "Più di 100 Case"
+      },
+      {
+        "label": "Bollettini Letti dal Modulo",
+        "value": "1.5M+ Archivi"
+      },
+      {
+        "label": "Ecosistema di Base Integrante",
+        "value": "ProDemand"
+      }
+    ],
+    "ctaCompare": "Scopri le offerte e le Comparazioni Mitchell"
+  },
+  "identifix": {
+    "meta": {
+      "title": "Identifix Direct-Hit tramite Auto Fix Data | Dati diagnostici",
+      "description": "Accedi ai dati diagnostici Identifix Direct-Hit tramite Auto Fix Data. Soluzioni confermate da oltre 70 mln di interventi reali."
+    },
+    "hero": {
+      "badge": "Rivenditore Identifix autorizzato",
+      "heading": "Identifix — Soluzioni reali confermate",
+      "subheading": "Identifix Direct-Hit ti dà accesso a 70M+ riparazioni reali confermate da tecnici professionisti — così conosci la soluzione più probabile prima ancora di iniziare i test."
+    },
+    "featuresHeading": "Identifix Direct-Hit — Informazione Analitica Totale",
+    "featuresSubheading": "Identifix capovolge la visuale: Se la spia è accesa cerca direttamente in milioni di schede \"GIA' risolte\" offrendovi le parti \"più quotate da cambiare\" dai tecnici di Solera che vi garantiscono un tasso del +90% di precisione d'intervento risolutore.",
+    "ctaHeading": "Prova a navigare su Identifix Identifix via Auto Fix Data",
+    "ctaBody": "Vi permette assieme al nostro server di sbloccare l'ultima chiave magistrale con Auto Fix Data, il reseller che sblocca ai tecnici moderni Direct Hit e altri marchi blasonati ad un unico livello accessibile ai liberi professionisti.",
+    "statsBar": [
+      {
+        "value": "Direct-Hit",
+        "label": "Servizio di Top Diagnosi"
+      },
+      {
+        "value": "70M+",
+        "label": "Casi di Fix Verificati"
+      },
+      {
+        "value": "Sintomi Visivi",
+        "label": "Senza Obbligo DTC"
+      },
+      {
+        "value": "Da Solera",
+        "label": "Mente Tecnologica"
+      }
+    ],
+    "features": [
+      {
+        "title": "Analisi dei Guasti e Componenti Danneggiati",
+        "desc": "Vi restituisce i grafici ed il report statistico della comunità per il medesimo problema presente dinanzi a voi. Viene evitato di controllare inutilmente parti sane."
+      },
+      {
+        "title": "Risoluzione tramite Sintomatologia",
+        "desc": "Usa Identifix per veicoli che semplicemente: vibrano in sterzata, perdono potenza a regime o singhiozzano, pur con scanner OBD vuoto e senza spie!"
+      },
+      {
+        "title": "Appoggio ai Manuali Tipici",
+        "desc": "Raccoglie in ogni caso tutti i manuali, gli strumenti, gli spaccati della vettura se il riparatore preferisce lavorare seguendo l'ABC delle procedure classiche."
+      },
+      {
+        "title": "Anomalie Segrete (Intermittenze)",
+        "desc": "Le falle elettroniche \"fantasma\" che colpiscono i moduli BCM per un giorno, riempiendo liste di TSB note ai master-diagnostici, sono qui ampiamente recensite."
+      },
+      {
+        "title": "Consiglio degli Assi e Master-Tech",
+        "desc": "Una solida base che conserva indicazioni e prove specifiche di super-ingegneri e formatori su veicoli moderni del ramo diagnostico post 2000 per agevolare il rientro e l'analisi sul campo del tecnico che si sente smarrito da difetti logici e software di rete introvabili."
+      },
+      {
+        "title": "Risolutore Campagne Auto e Garanzie",
+        "desc": "Fissa un piano d’arresto unendo l’intervento OEM prescritto a specifici DTC di campagna (Technical Service Board statunitensi) integrati con una facile barra di consultazione testuale diretta in modo unanime al difetto descritto nell’area di problema che avete rilevato."
+      }
+    ],
+    "whyHeading": "L'Esclusiva della pura diagnosi intelligente",
+    "whyBody": "Gli elettrauti moderni faticano contro componenti senza una vera diagnostica di base ma che impattano una catena intera; un quadro della rete multiplex fuso può creare 20 errori irreali ma Identifix identificherà le frequenze passate che correlano tutti e 20 direttamente al quadro elettrico reale facendovi cambiare il quadro con uno nuovo non alterando tutto il resto senza logica apparente.",
+    "whyList": [
+      "Risoluzione dei malfunzionamenti intermittenziali per abbattere le perdite temporali esose a banco fisso in officina che rubano margini ed attenzione e risorse ad altri veicoli facili e redditizi.",
+      "Troverete i guasti noti istantaneamente e con 0 sforzo mentale conoscitivo dei veicoli.",
+      "Ottimo ed eccezionale strumento per veicoli \"moderni e gravidi d'elettronica post-duemila\"."
+    ],
+    "keyStatsHeading": "Panoramica Assieme su Identifix",
+    "keyStats": [
+      {
+        "label": "Archiviazione Successi Veri",
+        "value": "70 Milioni confermati"
+      },
+      {
+        "label": "Archivio Consultabile per sintomatologia auto",
+        "value": "Vasto archivio milionario"
+      },
+      {
+        "label": "Tipologia del Prodotto Standard",
+        "value": "Identifix Direct Hit System"
+      }
+    ],
+    "ctaCompare": "Confronto rapido fra Solera ed Altri prodotti nel settore e alternative ad esso correlato per aiutarvi facilmente."
+  },
+  "pricingProps": {
+    "hero": {
+      "promo": "Prova gratuita 7 giorni — nessuna carta",
+      "heading1": "Prezzi per le Officine",
+      "heading2": "Semplici e Trasparenti",
+      "subheading": "Un solo abbonamento. Cinque banche dati professionali. Scegli il piano."
+    },
+    "billing": {
+      "monthly": "Mensile",
+      "yearly": "Annuale",
+      "save20": "Risparmia 20%",
+      "billedAnnually": "fatturato annualmente",
+      "mo": "/mese",
+      "yr": "/anno",
+      "custom": "Personalizzato",
+      "contactSales": "Prezzi per volumi — contatta le vendite"
+    },
+    "plansData": {
+      "starter": {
+        "name": "Tecnico Singolo",
+        "tagline": "Per meccanici individuali o mobili.",
+        "features": [
+          "1 Licenza",
+          "Tutte 5 Banche Dati",
+          "Procedure OEM e TSB",
+          "Schemi e DTC",
+          "Supporto Standard",
+          "Cloud"
+        ],
+        "cta": "Inizia Ora"
+      },
+      "pro": {
+        "name": "Officina Indipendente",
+        "tagline": "Fino a 5 tecnici.",
+        "badge": "Il più popolare",
+        "features": [
+          "Fino a 2 Licenze",
+          "Tutte 5 Banche Dati",
+          "Schemi Interattivi",
+          "Preventivi",
+          "Diagnosi Avanzata",
+          "Supporto Prioritario",
+          "Dati ADAS"
+        ],
+        "cta": "Inizia Ora"
+      },
+      "enterprise": {
+        "name": "Grandi Officine / Flotte",
+        "tagline": "Per grandi volumi.",
+        "features": [
+          "Licenze Illimitate",
+          "Tutte 5 Banche Dati",
+          "API",
+          "Export DMS",
+          "Manager Dedicato",
+          "Supporto SLA",
+          "Onboarding"
+        ],
+        "cta": "Contatta Vendite"
+      }
+    },
+    "table": {
+      "heading": "Cosa è incluso nei database",
+      "subheading": "Tutti e cinque presenti in ogni piano.",
+      "featureCol": "Caratteristica",
+      "rows": [
+        "Procedure Riparative OEM",
+        "Schemi Elettrici a Colori",
+        "Libreria Codici DTC",
+        "Bollettini (TSB) e Richiami",
+        "Tempistiche di Tagliando (Manutenzione)",
+        "Tempi di Manodopera",
+        "Integrazione Catalogo Ricambi",
+        "Casi e Fix Reali Confermati",
+        "Diagrammi Flusso di Diagnosi",
+        "Ubicazione Componenti",
+        "Coppie di Serraggio",
+        "Specifiche Liquidi",
+        "Dati Calibrazione ADAS",
+        "Copertura Veicoli Ibridi / Elettrici",
+        "Pinout Connettori ECU",
+        "Sostituzione Cinghie e Catene",
+        "Integrazioni API / DMS",
+        "Veicoli Commerciali Leggeri"
+      ]
+    },
+    "faqHeading": "FAQ sui Prezzi"
+  },
+  "alternatives": {
+    "template": {
+      "metaTitle": "Migliore Alternativa a {C} | Auto Fix Data",
+      "metaDesc": "Cerchi un'alternativa a {C}? Smetti di pagare troppo. Auto Fix Data offre la migliore copertura.",
+      "heroH1": "Smetti di Pagare Troppo per {C}",
+      "heroDesc": "Perché paghi {P} al mese per dati limitati? Auto Fix Data offre dati OEM, schemi elettrici, DTC e TSB per oltre 150 milioni di veicoli a una frazione del costo.",
+      "problemTitle": "Il Problema di {C}",
+      "problemDesc": "{C} si affida a database obsoleti e prezzi elevati. Le officine incontrano continuamente limiti o mancano completamente di {W}.",
+      "tryInstead": "Prova Invece Auto Fix Data",
+      "costLabel": "Costo {C}",
+      "afdCostLabel": "Costo Auto Fix Data",
+      "month": "/mese",
+      "nobrainer": "SENZA DUBBIO",
+      "allFeatures": "Tutte le funzioni. Nessun costo nascosto.",
+      "headToHead": "Confronto Diretto",
+      "seeMissing": "Scopri esattamente cosa ti stai perdendo.",
+      "featureCol": "Funzionalità",
+      "afdCol": "Auto Fix Data",
+      "archHeading": "Il Nostro Vantaggio Architetturale",
+      "archP1": "Mentre {C} è vincolato alle sue vecchie partnership OEM a singola fonte...",
+      "archP2": "Il vantaggio di Auto Fix Data è l'aggregazione intelligente. Unificando OEM europei, TSB e riparazioni verificate, i meccanici risolvono i problemi il 40% più velocemente.",
+      "switchHeading": "Passare è facilissimo.",
+      "step1Title": "01. Registrati Gratis",
+      "step1Desc": "Inizia la prova gratuita di 7 giorni. Senza carta di credito.",
+      "step2Title": "02. Confrontaci",
+      "step2Desc": "Prova Auto Fix Data in officina insieme a {C} per una settimana.",
+      "step3Title": "03. Risparmia",
+      "step3Desc": "Cancella il vecchio contratto e risparmia senza sacrificare dati.",
+      "ctaButton": "Inizia la Prova Gratuita"
+    },
+    "alldata": {
+      "weakness": "copertura europea completa, schemi elettrici interattivi a colori e riparazioni reali integrate",
+      "t1": {
+        "feature": "Copertura Completa Europea",
+        "missing": "Storicamente debole sui modelli UE specifici"
+      },
+      "t2": {
+        "feature": "Soluzioni Reali Integrate (Identifix)",
+        "missing": "Richiede un abbonamento separato a parte"
+      },
+      "t3": {
+        "feature": "Schemi Elettrici Colori Interattivi",
+        "missing": "Usa vecchi PDF statici non elaborati"
+      },
+      "t4": {
+        "feature": "Interfaccia Moderna e Pulita",
+        "missing": "Struttura antiquata"
+      },
+      "t5": {
+        "feature": "Dati di Riparazione OEM Non Filtrati"
+      },
+      "t6": {
+        "feature": "Bollettini Tecnici (TSB)"
+      }
+    },
+    "autodata": {
+      "weakness": "diagrammi di flusso diagnostici approfonditi, copertura import USA/Asia e riparazioni reali",
+      "t1": {
+        "feature": "Diagrammi Flusso OEM",
+        "missing": "Punta su valori generici"
+      },
+      "t2": {
+        "feature": "Casi Reali Identifix",
+        "missing": "Nessuna soluzione comunitaria"
+      },
+      "t3": {
+        "feature": "Copertura Veicoli Asiatici/USA",
+        "missing": "Fortemente orientata solo all'UE"
+      },
+      "t4": {
+        "feature": "Diagnosi VESA Interattiva",
+        "missing": "Richiede piani superiori"
+      },
+      "t5": {
+        "feature": "Piani di Manutenzione"
+      },
+      "t6": {
+        "feature": "Ricerca Componenti Interattiva"
+      }
+    },
+    "haynespro": {
+      "weakness": "manuali OEM diretti e un'interfaccia molto più moderna",
+      "t1": {
+        "feature": "Manuali Riparazione OEM Intatti",
+        "missing": "I dati sono spesso ridesegnati"
+      },
+      "t2": {
+        "feature": "Integrazione Identifix",
+        "missing": "Mancano i casi di riparazione verificati"
+      },
+      "t3": {
+        "feature": "Schemi Elettrici di Fabbrica",
+        "missing": "Fornisce solo le versioni VESA"
+      },
+      "t4": {
+        "feature": "Infrastruttura Cloud Moderna",
+        "missing": "Lenta su hardware di officina vecchio"
+      },
+      "t5": {
+        "feature": "Diagnosi Guidata"
+      },
+      "t6": {
+        "feature": "Schemi Interattivi a Colori"
+      }
+    },
+    "identifix": {
+      "weakness": "manuali completi europei OEM, manutenzione globale e schemi elettrici colorati",
+      "t1": {
+        "feature": "Manuali OEM Europei Approfonditi",
+        "missing": "Concentrato sul mercato USA"
+      },
+      "t2": {
+        "feature": "Visualizzatore Schemi Colorati",
+        "missing": "Basato su scansioni in bianco e nero"
+      },
+      "t3": {
+        "feature": "Programmi di Tagliando Europei",
+        "missing": "Carente sui modelli europei specifici"
+      },
+      "t4": {
+        "feature": "Motore di Ricerca Unificato",
+        "missing": "Moduli frammentati"
+      },
+      "t5": {
+        "feature": "Soluzioni Confermate Reali"
+      },
+      "t6": {
+        "feature": "Localizzatore Componenti e Masse"
+      }
+    },
+    "mitchell1": {
+      "weakness": "copertura europea specifica e piattaforma ultraveloce",
+      "t1": {
+        "feature": "Copertura Completa Europea",
+        "missing": "Troppo orientato sul ramo USA"
+      },
+      "t2": {
+        "feature": "Velocità dell'infrastruttura Cloud",
+        "missing": "I vecchi sistemi sono pesanti"
+      },
+      "t3": {
+        "feature": "Integrazione Dati Reali",
+        "missing": "Usa moduli a pagamento SureTrack"
+      },
+      "t4": {
+        "feature": "Prezzo Chiaro",
+        "missing": "Molti extra non inclusi"
+      },
+      "t5": {
+        "feature": "Schemi Interattivi Colori"
+      },
+      "t6": {
+        "feature": "Fix del mondo reale"
+      }
+    }
+  },
+  "dtc": {
+    "metaTitle": "Riparare {code}: {title}",
+    "metaDescription": "Scopri cosa significa il codice OBD2 {code}, i sintomi, le cause e come accedere allo schema elettrico OEM per risolverlo.",
+    "severityLevel": "Gravità",
+    "commonSymptoms": "Sintomi comuni di {code}",
+    "whatCauses": "Cosa causa il codice {code}?",
+    "howSerious": "Quanto è grave il codice {code}?",
+    "howSeriousDesc": "Poiché questo codice ha un livello di gravità {severity}, si consiglia vivamente di affrontarlo tempestivamente. Guidare con un guasto {code} attivo può portare a guasti secondari.",
+    "howToFix": "Come diagnosticare e riparare in modo definitivo {code}?",
+    "howToFixDesc": "Per diagnosticare con precisione il codice di guasto {code}, è necessario lo schema elettrico OEM esatto. Crea un account Auto Fix Data per estrarre istantaneamente gli schemi di fabbrica.",
+    "fixNow": "Risolvi {code} Ora",
+    "fixNowSub": "Accedi al manuale di riparazione OEM e allo schema elettrico interattivo.",
+    "benefits": [
+      "Schemi elettrici pin-to-pin",
+      "Passaggi di test dei componenti",
+      "Bollettini di servizio tecnico",
+      "Riparazioni confermate Identifix"
+    ],
+    "relatedCodes": "Codici Guasto Correlati"
+  },
+  "legal": {
+    "gdprTitle": "Conformità GDPR | Auto Fix Data",
+    "gdprDesc": "Leggi la nostra dichiarazione di conformità GDPR per capire come proteggiamo i tuoi dati e le informazioni della tua officina.",
+    "privacyTitle": "Informativa sulla Privacy | Auto Fix Data",
+    "privacyDesc": "Informativa sulla Privacy di Auto Fix Data. Scopri come raccogliamo, usiamo e proteggiamo i dati personali.",
+    "termsTitle": "Termini di Servizio | Auto Fix Data",
+    "termsDesc": "Termini d'uso di Auto Fix Data. Sottoscrivendo la nostra piattaforma, accetti questi termini."
+  },
+  "auth": {
+    "loginTitle": "Login Auto Fix Data | Portale Officina",
+    "loginDesc": "Accedi al tuo account per cercare manuali OEM, schemi elettrici e codici DTC."
+  },
+  "manuals": {
+    "makeTitle": "Manuali di Riparazione e Schemi Elettrici OEM {Ma}",
+    "modelTitle": "Manuale di Riparazione e Schemi Elettrici {Ma} {Mo}",
+    "yearTemplateTitle": "Manuale di Riparazione e Schemi Elettrici {Y} {Ma} {Mo}",
+    "yearTemplateDesc": "Accedi a dati di riparazione OEM completi, manuali di servizio e schemi elettrici interattivi per la {Y} {Ma} {Mo}."
+  }
+}

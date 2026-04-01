@@ -20,10 +20,34 @@ const CAR_MAKES = [
   { name: "Porsche", slug: "porsche" }, { name: "Subaru", slug: "subaru" },
 ];
 
-export default function Navigation() {
+const LANGUAGES = [
+  { code: 'en', flagCode: 'gb', name: 'English' },
+  { code: 'fr', flagCode: 'fr', name: 'Français' },
+  { code: 'es', flagCode: 'es', name: 'Español' },
+  { code: 'de', flagCode: 'de', name: 'Deutsch' },
+  { code: 'it', flagCode: 'it', name: 'Italiano' },
+  { code: 'ar', flagCode: 'sa', name: 'العربية' },
+  { code: 'he', flagCode: 'il', name: 'עברית' },
+];
+
+export default function Navigation({ dict, lang }: { dict: any, lang: string }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  
+  const currentLang = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
+  
   const pathname = usePathname();
+
+  const getLangUrl = (targetLang: string) => {
+    if (!pathname) return `/${targetLang}`;
+    const segments = pathname.split('/');
+    if (LANGUAGES.some(l => l.code === segments[1])) {
+      segments[1] = targetLang;
+      return segments.join('/') || '/';
+    }
+    return `/${targetLang}${pathname}`;
+  };
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -42,7 +66,7 @@ export default function Navigation() {
           <div className="marquee-container flex-1 overflow-hidden">
             <div className="marquee-content flex items-center gap-6">
               {[...CAR_MAKES, ...CAR_MAKES].map((make, i) => (
-                <Link key={i} href={`/manuals/${make.slug}`} className="flex items-center gap-1.5 cursor-pointer group whitespace-nowrap">
+                <Link key={i} href={`/${lang}/manuals/${make.slug}`} className="flex items-center gap-1.5 cursor-pointer group whitespace-nowrap">
                   <img src={`/images/logos/${make.slug}.png`} alt={make.name}
                     className="h-4 w-auto object-contain opacity-50 group-hover:opacity-100 transition-opacity"
                     onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
@@ -53,7 +77,7 @@ export default function Navigation() {
             </div>
           </div>
           <div className="flex-shrink-0 px-4 border-l border-white/10 h-9 flex items-center">
-            <Link href="/repair-manuals" className="text-[10px] text-afd-yellow font-bold tracking-wider hover:underline whitespace-nowrap">+ All 150 makes →</Link>
+            <Link href={`/${lang}/repair-manuals`} className="text-[10px] text-afd-yellow font-bold tracking-wider hover:underline whitespace-nowrap">+ All 150 makes →</Link>
           </div>
         </div>
       </div>
@@ -61,7 +85,7 @@ export default function Navigation() {
       {/* Main Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm h-16">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href={`/${lang}`} className="flex items-center gap-2 group">
             <div className="relative flex items-center justify-center w-8 h-8 bg-afd-navy rounded-lg overflow-hidden group-hover:bg-afd-blue transition-colors">
               <Wrench className="w-4 h-4 text-afd-yellow" />
             </div>
@@ -71,43 +95,70 @@ export default function Navigation() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
+            <Link href={`/${lang}/repair-manuals`} className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2">
+              {dict.nav.repairData}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-afd-yellow transition-all duration-300 group-hover:w-full" />
+            </Link>
+
+            <div className="relative py-2"
+              onMouseEnter={() => setIsProductsDropdownOpen(true)}
+              onMouseLeave={() => setIsProductsDropdownOpen(false)}>
+              <button className="flex items-center gap-1 text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors">
+                {dict.nav.products} <ChevronDown className="w-4 h-4" />
+              </button>
+              {isProductsDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-gray-100 shadow-xl rounded-xl py-2 mt-2 z-50">
+                  <Link href={`/${lang}/products`} className="block px-4 py-2 text-sm font-bold text-afd-navy hover:bg-afd-light hover:text-afd-blue">{dict.nav.viewAll}</Link>
+                  <div className="h-px bg-gray-100 my-1" />
+                  {[['alldata-alternative', 'ALLDATA'], ['autodata', 'AutoData'], ['haynes-pro', 'Haynes Pro'], ['mitchell1', 'Mitchell1'], ['identifix', 'Identifix']].map(([slug, name]) => (
+                    <Link key={slug} href={`/${lang}/${slug}`} className="block px-4 py-2 text-sm text-afd-text hover:bg-afd-light hover:text-afd-blue">{name}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {[
-              { href: '/repair-manuals', label: 'Repair Data' },
-              { href: '/diagnostics', label: 'Diagnostics' },
-              { href: '/wiring-diagrams', label: 'Wiring' },
-              { href: '/pricing', label: 'Pricing' },
-              { href: '/login', label: 'Login' },
+              { href: `/${lang}/diagnostics`, label: dict.nav.diagnostics },
+              { href: `/${lang}/wiring-diagrams`, label: dict.nav.wiring },
+              { href: `/${lang}/pricing`, label: dict.nav.pricing },
+              { href: `/${lang}/login`, label: dict.nav.login },
             ].map(({ href, label }) => (
               <Link key={href} href={href} className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2">
                 {label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-afd-yellow transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-4">
             <div className="relative py-2"
-              onMouseEnter={() => setIsProductsDropdownOpen(true)}
-              onMouseLeave={() => setIsProductsDropdownOpen(false)}>
-              <button className="flex items-center gap-1 text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors">
-                Products <ChevronDown className="w-4 h-4" />
+              onMouseEnter={() => setIsLangDropdownOpen(true)}
+              onMouseLeave={() => setIsLangDropdownOpen(false)}>
+              <button className="flex items-center gap-1.5 text-xs font-semibold text-afd-slate hover:text-afd-navy transition-colors uppercase tracking-wider">
+                <img src={`https://flagcdn.com/w20/${currentLang.flagCode}.png`} alt={currentLang.name} className="w-4 h-auto shadow-sm rounded-[1px]" aria-hidden="true" />
+                {currentLang.code}
+                <ChevronDown className="w-3 h-3 opacity-70" />
               </button>
-              {isProductsDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-gray-100 shadow-xl rounded-xl py-2 mt-2 z-50">
-                  <Link href="/products" className="block px-4 py-2 text-sm font-bold text-afd-navy hover:bg-afd-light hover:text-afd-blue">View All Products</Link>
-                  <div className="h-px bg-gray-100 my-1" />
-                  {[['alldata', 'ALLDATA'], ['autodata', 'AutoData'], ['haynes-pro', 'Haynes Pro'], ['mitchell1', 'Mitchell1'], ['identifix', 'Identifix']].map(([slug, name]) => (
-                    <Link key={slug} href={`/${slug}`} className="block px-4 py-2 text-sm text-afd-text hover:bg-afd-light hover:text-afd-blue">{name}</Link>
+              
+              {isLangDropdownOpen && (
+                <div className="absolute top-full right-0 w-36 bg-white border border-gray-100 shadow-xl rounded-xl py-2 mt-0 z-50">
+                  {LANGUAGES.map((l) => (
+                    <Link
+                      key={l.code}
+                      href={getLangUrl(l.code)}
+                      className={`flex items-center gap-3 px-4 py-2 text-sm font-medium transition-colors hover:bg-afd-light ${l.code === lang ? 'text-afd-blue bg-afd-light/50' : 'text-afd-text hover:text-afd-blue'}`}
+                    >
+                      <img src={`https://flagcdn.com/w20/${l.flagCode}.png`} alt={l.name} className="w-4 h-auto shadow-sm rounded-[1px]" />
+                      {l.name}
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <button className="flex items-center gap-1 text-xs font-semibold text-afd-slate hover:text-afd-navy transition-colors uppercase tracking-wider">
-              <Globe className="w-4 h-4" /> EN
-            </button>
+            
             <div className="w-px h-6 bg-gray-200" />
-            <Link href="/login" className="text-sm font-semibold text-afd-navy hover:text-afd-blue transition-colors px-2">Sign In</Link>
-            <Link href="/free-trial" className="bg-afd-yellow text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-afd-yellow-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">Start Free Trial</Link>
+            <Link href={`/${lang}/login`} className="text-sm font-semibold text-afd-navy hover:text-afd-blue transition-colors px-2">{dict.nav.signIn}</Link>
+            <Link href={`/${lang}/free-trial`} className="bg-afd-yellow text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-afd-yellow-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">{dict.nav.freeTrial}</Link>
           </div>
 
           <button className="lg:hidden p-2 text-afd-navy" onClick={() => setIsMobileMenuOpen(true)}>
@@ -125,13 +176,13 @@ export default function Navigation() {
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-afd-slate hover:text-afd-navy"><X className="w-6 h-6" /></button>
             </div>
             <div className="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-6">
-              {[['/', 'Home'], ['/repair-manuals', 'Repair Manuals'], ['/diagnostics', 'Diagnostics & DTC'], ['/wiring-diagrams', 'Wiring Diagrams'], ['/pricing', 'Pricing'], ['/about', 'About Us'], ['/contact', 'Contact']].map(([href, label]) => (
-                <Link key={href} href={href} className="text-lg font-bold text-afd-navy">{label}</Link>
+              {[[`/${lang}`, dict.nav.home], [`/${lang}/repair-manuals`, dict.nav.repairData], [`/${lang}/diagnostics`, dict.nav.diagnostics], [`/${lang}/wiring-diagrams`, dict.nav.wiring], [`/${lang}/pricing`, dict.nav.pricing], [`/${lang}/about`, dict.nav.about], [`/${lang}/contact`, dict.nav.contact]].map(([href, label]) => (
+                <Link key={href as string} href={href as string} className="text-lg font-bold text-afd-navy">{label as string}</Link>
               ))}
             </div>
             <div className="p-6 bg-afd-light border-t border-gray-200 space-y-4">
-              <Link href="/login" className="w-full block py-3 border-2 border-afd-navy text-afd-navy font-bold rounded-lg text-center">Sign In</Link>
-              <Link href="/free-trial" className="w-full block py-3 bg-afd-yellow text-black font-bold rounded-lg text-center">Start Free Trial</Link>
+              <Link href={`/${lang}/login`} className="w-full block py-3 border-2 border-afd-navy text-afd-navy font-bold rounded-lg text-center">{dict.nav.signIn}</Link>
+              <Link href={`/${lang}/free-trial`} className="w-full block py-3 bg-afd-yellow text-black font-bold rounded-lg text-center">{dict.nav.freeTrial}</Link>
             </div>
           </div>
         </>

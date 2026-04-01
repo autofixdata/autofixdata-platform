@@ -104,3 +104,48 @@ export function slugify(text: string): string {
   // Replace all non-alphanumeric chars with hyphens
   return base.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
+
+/**
+ * NEW: Programmatic SEO Database Interfaces
+ */
+import carDB from './largeCarDatabase.json';
+
+// Type assertion for our JSON structure
+const database = carDB as Record<string, Record<string, number[]>>;
+
+export function getModelsForMake(makeSlug: string): string[] {
+  if (!database[makeSlug]) return [];
+  return Object.keys(database[makeSlug]);
+}
+
+export function getYearsForModel(makeSlug: string, modelSlug: string): number[] {
+  if (!database[makeSlug] || !database[makeSlug][modelSlug]) return [];
+  return database[makeSlug][modelSlug];
+}
+
+/**
+ * Returns a small subset of the absolute most popular models and their most recent years
+ * to prerender at build time (keeps Next.js build time < 2 minutes).
+ * The remaining 9,900+ routes will be generated On-Demand (ISR).
+ */
+export function getTopModelsToPrerender(): { make: string, model: string, year: string }[] {
+  const topPaths: { make: string, model: string, year: string }[] = [];
+  
+  // Pick out some undeniably popular search terms to pre-build
+  const topMakes = ['ford', 'bmw', 'volkswagen', 'toyota', 'chevrolet'];
+  
+  for (const make of topMakes) {
+    const models = getModelsForMake(make);
+    // Take top 3 models for these makes
+    for (let i = 0; i < Math.min(3, models.length); i++) {
+      const model = models[i];
+      const years = getYearsForModel(make, model);
+      // Pre-build the 2 most recent years
+      for (let y = 0; y < Math.min(2, years.length); y++) {
+        topPaths.push({ make, model, year: years[y].toString() });
+      }
+    }
+  }
+  
+  return topPaths;
+}
