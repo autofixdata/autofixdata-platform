@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from '@/components/LocalizedLink';
 import { TOP_DTC_CODES } from "@/lib/dtcData";
 import { Search, AlertCircle, ChevronRight } from "lucide-react";
+import GlobalSearch from "@/components/GlobalSearch";
 
 import { getDictionary } from '@/dictionaries/getDictionary';
 
@@ -32,9 +33,12 @@ export default async function DtcDirectoryPage({ params }: { params: Promise<{ l
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
             Fault Code <span className="text-afd-yellow">Directory</span>
           </h1>
-          <p className="text-xl text-afd-slate max-w-2xl mx-auto">
+          <p className="text-xl text-afd-slate max-w-2xl mx-auto mb-8">
             Browse our comprehensive database of OBD-II Diagnostic Trouble Codes (DTCs). Find symptoms, causes, and the specific OEM diagrams required to fix them.
           </p>
+          <div className="flex justify-center relative z-20">
+            <GlobalSearch lang={lang} placeholder={dict.nav?.search || 'Search fault codes...'} />
+          </div>
         </div>
       </div>
 

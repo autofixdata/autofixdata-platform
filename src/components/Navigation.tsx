@@ -85,7 +85,7 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
 
       {/* Main Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm h-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
+        <div className="w-full px-4 lg:px-8 h-full flex items-center justify-between">
           <Link href={`/${lang}`} className="flex items-center gap-2 group">
             <div className="relative flex items-center justify-center w-8 h-8 bg-afd-navy rounded-lg overflow-hidden group-hover:bg-afd-blue transition-colors">
               <Wrench className="w-4 h-4 text-afd-yellow" />
@@ -123,7 +123,6 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
               { href: `/${lang}/blog`, label: dict.nav.blog },
               { href: `/${lang}/wiring-diagrams`, label: dict.nav.wiring },
               { href: `/${lang}/pricing`, label: dict.nav.pricing },
-              { href: `/${lang}/login`, label: dict.nav.login },
             ].map(({ href, label }) => (
               <Link key={href} href={href} className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2 whitespace-nowrap">
                 {label}
@@ -161,8 +160,8 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
             </div>
             
             <div className="w-px h-6 bg-gray-200" />
-            <Link href={`/${lang}/login`} className="text-sm font-semibold text-afd-navy hover:text-afd-blue transition-colors px-2">{dict.nav.signIn}</Link>
-            <Link href={`/${lang}/free-trial`} className="bg-afd-yellow text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-afd-yellow-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">{dict.nav.freeTrial}</Link>
+            <Link href={`/${lang}/login`} className="text-sm font-semibold text-afd-navy hover:text-afd-blue transition-colors px-2 whitespace-nowrap flex-shrink-0">{dict.nav.signIn}</Link>
+            <Link href={`/${lang}/free-trial`} className="bg-afd-yellow text-black px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-afd-yellow-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap flex-shrink-0">{dict.nav.freeTrial}</Link>
           </div>
 
           <button className="lg:hidden p-2 text-afd-navy" onClick={() => setIsMobileMenuOpen(true)}>
@@ -180,18 +179,42 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-afd-slate hover:text-afd-navy"><X className="w-6 h-6" /></button>
             </div>
             <div className="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-6">
-              {[
-                [`/${lang}`, dict.nav.home], 
-                [`/${lang}/repair-manuals`, dict.nav.repairData], 
-                [`/${lang}/diagnostics`, dict.nav.diagnostics], 
-                [`/${lang}/blog`, dict.nav.blog],
-                [`/${lang}/wiring-diagrams`, dict.nav.wiring], 
-                [`/${lang}/pricing`, dict.nav.pricing], 
-                [`/${lang}/about`, dict.nav.about], 
-                [`/${lang}/contact`, dict.nav.contact]
-              ].map(([href, label]) => (
-                <Link key={href as string} href={href as string} className="text-lg font-bold text-afd-navy">{label as string}</Link>
-              ))}
+              <Link href={`/${lang}`} className="text-lg font-bold text-afd-navy">{dict.nav.home}</Link>
+              <Link href={`/${lang}/repair-manuals`} className="text-lg font-bold text-afd-navy">{dict.nav.repairData}</Link>
+              
+              <div className="flex flex-col gap-4 py-2 border-y border-gray-100">
+                <span className="text-lg font-bold text-afd-navy">{dict.nav.products || 'Products'}</span>
+                <div className="flex flex-col gap-4 pl-4 border-l-2 border-gray-100">
+                  <Link href={`/${lang}/products`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">{dict.nav.viewAll || 'All Products'}</Link>
+                  <Link href={`/${lang}/alldata-alternative`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">ALLDATA</Link>
+                  <Link href={`/${lang}/autodata`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">AutoData</Link>
+                  <Link href={`/${lang}/haynes-pro`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">Haynes Pro</Link>
+                  <Link href={`/${lang}/mitchell1`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">Mitchell1</Link>
+                  <Link href={`/${lang}/identifix`} className="text-[17px] font-medium text-afd-slate hover:text-afd-blue">Identifix</Link>
+                </div>
+              </div>
+
+              <Link href={`/${lang}/diagnostics`} className="text-lg font-bold text-afd-navy">{dict.nav.diagnostics}</Link>
+              <Link href={`/${lang}/blog`} className="text-lg font-bold text-afd-navy">{dict.nav.blog}</Link>
+              <Link href={`/${lang}/wiring-diagrams`} className="text-lg font-bold text-afd-navy">{dict.nav.wiring}</Link>
+              <Link href={`/${lang}/pricing`} className="text-lg font-bold text-afd-navy">{dict.nav.pricing}</Link>
+              <Link href={`/${lang}/about`} className="text-lg font-bold text-afd-navy">{dict.nav.about}</Link>
+              <Link href={`/${lang}/contact`} className="text-lg font-bold text-afd-navy">{dict.nav.contact}</Link>
+            </div>
+            <div className="px-6 py-4 border-t border-gray-200">
+              <span className="text-xs font-bold text-afd-slate uppercase tracking-wider mb-3 block">Language</span>
+              <div className="flex flex-wrap gap-2">
+                {LANGUAGES.map((l) => (
+                  <Link
+                    key={l.code}
+                    href={getLangUrl(l.code)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded border ${l.code === lang ? 'border-afd-blue bg-afd-blue/5 text-afd-blue' : 'border-gray-200 bg-white text-afd-slate'}`}
+                  >
+                    <img src={`https://flagcdn.com/w20/${l.flagCode}.png`} alt={l.name} className="w-4 h-auto shadow-sm" />
+                    <span className="text-sm font-semibold uppercase">{l.code}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
             <div className="p-6 bg-afd-light border-t border-gray-200 space-y-4">
               <Link href={`/${lang}/login`} className="w-full block py-3 border-2 border-afd-navy text-afd-navy font-bold rounded-lg text-center">{dict.nav.signIn}</Link>
