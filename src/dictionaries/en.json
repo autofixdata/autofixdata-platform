@@ -11,7 +11,8 @@
     "freeTrial": "Start Free Trial",
     "home": "Home",
     "about": "About Us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog"
   },
   "footer": {
     "rights": "All rights reserved",
@@ -1350,5 +1351,41 @@
     "modelTitle": "{Ma} {Mo} Repair Manual & Wiring Diagrams",
     "yearTemplateTitle": "{Y} {Ma} {Mo} Repair Manual & Wiring Diagrams",
     "yearTemplateDesc": "Access complete OEM repair data, service manuals, and interactive wiring diagrams for the {Y} {Ma} {Mo}."
+  },
+  "login": {
+    "secureAccess": "Secure Platform Access",
+    "title": "Access Your Database",
+    "subtitle": "Select the platform you want to sign in to. All databases are included in your Auto Fix Data subscription.",
+    "openDatabase": "Open Database",
+    "signInTo": "Sign In to {db}",
+    "notSubscribed": "Not a subscriber yet?",
+    "notSubscribedDesc": "Get access to all 5 databases from £99/mo. 7-day free trial, no credit card needed.",
+    "viewPlans": "View Plans & Pricing",
+    "contactSales": "Or contact our sales team →",
+    "helpTitle": "Having trouble logging in?",
+    "helpDesc": "If you can't access your platform, check your credentials or contact our support team. Login issues are usually resolved within 2 hours.",
+    "getHelp": "Get Help",
+    "dbs": {
+      "alldata": {
+        "tagline": "Automotive Intelligence",
+        "desc": "OEM repair procedures, TSBs, wiring diagrams and DTC codes from AutoZone's flagship database."
+      },
+      "autodata": {
+        "tagline": "by Solera",
+        "desc": "European-leading database for service intervals, timing data, ADAS calibration and wiring diagrams."
+      },
+      "haynes": {
+        "tagline": "Workshop Data",
+        "desc": "Comprehensive step-by-step vehicle repair guides with professional technical data for workshops."
+      },
+      "mitchell": {
+        "tagline": "by Mitchell1",
+        "desc": "Mitchell1's ProDemand gives technicians repair procedures, diagnostic flowcharts and confirmed fixes."
+      },
+      "identifix": {
+        "tagline": "by Solera",
+        "desc": "Real-world confirmed fixes from a network of 70,000+ professional technicians. Direct-Hit™ included."
+      }
+    }
   }
 }

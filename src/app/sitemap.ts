@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { BLOG_POSTS } from '@/lib/blogData';
+import { getAllSlugs, getPostMeta } from '@/lib/blog';
 import { TOP_DTC_CODES } from '@/lib/dtcData';
 import { slugify } from '@/lib/carData';
 
@@ -38,9 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/gdpr', changeFrequency: 'yearly' as const, priority: 0.3 },
   ];
 
+  const blogSlugs = getAllSlugs();
+  const blogRoutes = blogSlugs.map(slug => {
+    const post = getPostMeta('en', slug);
+    return { path: `/blog/${slug}`, lastModified: post?.date || now, changeFrequency: 'yearly' as const, priority: 0.8 };
+  });
+
   const allRawRoutes = [
     ...rawStaticRoutes.map(r => ({ ...r, lastModified: now })),
-    ...BLOG_POSTS.map(post => ({ path: `/blog/${post.slug}`, lastModified: post.publishedAt, changeFrequency: 'yearly' as const, priority: 0.8 })),
+    ...blogRoutes,
     ...TOP_DTC_CODES.map(dtc => ({ path: `/dtc/${dtc.code}`, lastModified: now, changeFrequency: 'yearly' as const, priority: 0.8 })),
   ];
 

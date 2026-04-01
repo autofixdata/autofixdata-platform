@@ -119,11 +119,12 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
 
             {[
               { href: `/${lang}/diagnostics`, label: dict.nav.diagnostics },
+              { href: `/${lang}/blog`, label: dict.nav.blog },
               { href: `/${lang}/wiring-diagrams`, label: dict.nav.wiring },
               { href: `/${lang}/pricing`, label: dict.nav.pricing },
               { href: `/${lang}/login`, label: dict.nav.login },
             ].map(({ href, label }) => (
-              <Link key={href} href={href} className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2">
+              <Link key={href} href={href} className="text-sm font-semibold text-afd-text hover:text-afd-blue transition-colors relative group py-2 whitespace-nowrap">
                 {label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-afd-yellow transition-all duration-300 group-hover:w-full" />
               </Link>
@@ -176,7 +177,16 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-afd-slate hover:text-afd-navy"><X className="w-6 h-6" /></button>
             </div>
             <div className="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-6">
-              {[[`/${lang}`, dict.nav.home], [`/${lang}/repair-manuals`, dict.nav.repairData], [`/${lang}/diagnostics`, dict.nav.diagnostics], [`/${lang}/wiring-diagrams`, dict.nav.wiring], [`/${lang}/pricing`, dict.nav.pricing], [`/${lang}/about`, dict.nav.about], [`/${lang}/contact`, dict.nav.contact]].map(([href, label]) => (
+              {[
+                [`/${lang}`, dict.nav.home], 
+                [`/${lang}/repair-manuals`, dict.nav.repairData], 
+                [`/${lang}/diagnostics`, dict.nav.diagnostics], 
+                [`/${lang}/blog`, dict.nav.blog],
+                [`/${lang}/wiring-diagrams`, dict.nav.wiring], 
+                [`/${lang}/pricing`, dict.nav.pricing], 
+                [`/${lang}/about`, dict.nav.about], 
+                [`/${lang}/contact`, dict.nav.contact]
+              ].map(([href, label]) => (
                 <Link key={href as string} href={href as string} className="text-lg font-bold text-afd-navy">{label as string}</Link>
               ))}
             </div>

@@ -1,103 +1,151 @@
-import type { Metadata } from 'next';
-import Link from '@/components/LocalizedLink';
-import { BLOG_POSTS } from "@/lib/blogData";
-import { BookOpen, Clock, ArrowRight, TrendingUp } from "lucide-react";
+import Link from 'next/link';
+import { getAllPostsMeta } from '@/lib/blog';
 import { getDictionary } from '@/dictionaries/getDictionary';
+import { Clock, Calendar, ArrowRight, Tag } from 'lucide-react';
+import type { Metadata } from 'next';
 
-const LANGS = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
+const SITE = 'https://www.autofixdata.net';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(lang as any);
+  const dict = await getDictionary(lang as any) as any;
+  const b = dict.blog || {};
+  const canonical = `${SITE}/${lang}/blog`;
+  const title = b.indexTitle || 'Auto Fix Data Technical Blog — Mechanic Guides & Repair Tips';
+  const description = b.indexDesc || 'In-depth automotive repair guides, OEM wiring diagram tutorials, diagnostic deep-dives and software comparisons for professional mechanics.';
+  
   return {
-    title: dict.blog.meta.title,
-    description: dict.blog.meta.description,
+    title,
+    description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/blog`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/blog`])),
+      canonical,
+      languages: { en: '/en/blog', fr: '/fr/blog', es: '/es/blog', de: '/de/blog', it: '/it/blog', ar: '/ar/blog', he: '/he/blog' }
     },
+    openGraph: {
+      type: 'website',
+      url: canonical,
+      title,
+      description,
+      images: [{ url: `${SITE}/images/diagnostics-abstract.png`, width: 1200, height: 630, alt: title }],
+      siteName: 'AutoFixData',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${SITE}/images/diagnostics-abstract.png`],
+      site: '@autofixdata',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    }
   };
 }
 
 export default async function BlogIndexPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang as any);
-  const d = dict.blog;
-  const categories = ["Comparisons", "Platform Guides", "Technical Data"];
+  const dict = await getDictionary(lang as any) as any;
+  const b = dict.blog || {};
+  const posts = getAllPostsMeta(lang);
+  
+  const title = b.indexTitle || 'Auto Fix Data Technical Blog — Mechanic Guides & Repair Tips';
+  const description = b.indexDesc || 'In-depth automotive repair guides, OEM wiring diagram tutorials, diagnostic deep-dives and software comparisons for professional mechanics.';
+
+  // JSON-LD Collection schema
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: title,
+    description: description,
+    url: `${SITE}/${lang}/blog`,
+    publisher: {
+      "@type": "Organization",
+      name: "AutoFixData",
+      logo: { "@type": "ImageObject", url: `${SITE}/images/logo.png` }
+    },
+    blogPost: posts.map(post => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      image: post.image.startsWith('http') ? post.image : `${SITE}${post.image}`,
+      datePublished: post.date,
+      url: `${SITE}/${lang}/blog/${post.slug}`,
+      author: { "@type": "Organization", name: "AutoFixData" }
+    }))
+  };
 
   return (
     <>
-      <div className="bg-afd-navy py-20 px-6 relative overflow-hidden dark-section border-b border-white/10">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-afd-blue/5 rounded-full blur-3xl -mr-40 -mt-40 pointer-events-none"></div>
-        <div className="max-w-[1000px] mx-auto text-center relative z-10">
-          <TrendingUp className="w-12 h-12 text-afd-yellow mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
-            {d.hero.heading} <span className="text-afd-yellow">{d.hero.headingHighlight}</span>
-          </h1>
-          <p className="text-xl text-afd-slate max-w-2xl mx-auto">
-            {d.hero.subheading}
-          </p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-afd-navy pt-36 pb-20 px-6 text-center dark-section border-b border-white/5">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-afd-yellow/10 border border-afd-yellow/20 rounded-full text-afd-yellow text-xs font-bold tracking-wider mb-6">
+          {b.badge || 'Expert Automotive Guides'}
         </div>
-      </div>
-
-      <section className="py-20 bg-afd-light px-6">
-        <div className="max-w-[1200px] mx-auto space-y-24">
-          {categories.map((category) => {
-            const posts = BLOG_POSTS.filter(p => p.category === category);
-            if (posts.length === 0) return null;
-
-            return (
-              <div key={category}>
-                <h2 className="text-3xl font-extrabold text-afd-navy mb-10 flex items-center gap-4">
-                  <span className="bg-afd-yellow w-2 h-8 rounded-full inline-block"></span>
-                  {category}
-                </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {posts.map((post) => (
-                    <Link
-                      key={post.slug}
-                      href={`/blog/${post.slug}`}
-                      className="bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full shadow-sm"
-                    >
-                      <div className="p-8 flex flex-col flex-1">
-                        <div className="flex items-center gap-2 text-xs font-black text-afd-blue uppercase tracking-widest mb-4 bg-afd-blue/10 w-fit px-3 py-1 rounded-md">
-                          <BookOpen className="w-4 h-4" />
-                          {post.category}
-                        </div>
-                        <h3 className="text-2xl font-extrabold text-afd-navy mb-4 group-hover:text-afd-blue transition-colors leading-tight">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-600 mb-8 text-sm leading-relaxed flex-1 font-medium">
-                          {post.seoDescription}
-                        </p>
-
-                        <div className="pt-6 border-t border-gray-100 flex items-center justify-between mt-auto">
-                          <div className="flex items-center gap-2 text-xs text-gray-400 font-bold uppercase tracking-wider">
-                            <Clock className="w-4 h-4" /> {post.readTime}
-                          </div>
-                          <span className="text-afd-navy font-black text-sm flex items-center gap-1 group-hover:gap-2 transition-all underline decoration-afd-yellow decoration-2 underline-offset-4">
-                            {d.readPost} <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl mx-auto leading-tight">
+          {b.indexTitle || 'The Auto Fix Data Technical Blog'}
+        </h1>
+        <p className="text-xl text-afd-slate max-w-2xl mx-auto">
+          {b.indexDesc || 'In-depth guides, OEM data tutorials, and repair software comparisons for professional mechanics.'}
+        </p>
       </section>
 
-      {/* Bottom CTA Hook */}
-      <section className="bg-white py-20 px-6 border-t border-gray-100 text-center">
-        <div className="max-w-[800px] mx-auto">
-          <h2 className="text-3xl font-black text-afd-navy mb-6">{d.cta.heading}</h2>
-          <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">{d.cta.subheading}</p>
-          <Link href="/free-trial" className="inline-block bg-afd-yellow text-black px-8 py-4 rounded-xl font-bold hover:bg-afd-navy hover:text-white transition-colors shadow-lg">
-            {d.cta.button}
-          </Link>
+      {/* Grid */}
+      <section className="py-16 px-6 bg-[#f8fafc] min-h-[50vh]">
+        <div className="max-w-[1100px] mx-auto">
+          {posts.length === 0 ? (
+            <p className="text-center text-afd-slate py-20">Articles coming soon…</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <Link
+                  href={`/${lang}/blog/${post.slug}`}
+                  key={post.slug}
+                  className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all flex flex-col"
+                >
+                  <div className="h-48 bg-afd-navy relative overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-afd-navy shadow-sm flex items-center gap-1">
+                      <Calendar className="w-3 h-3" /> {post.date}
+                    </div>
+                  </div>
+
+                  <div className="p-6 flex-1 flex flex-col">
+                    {post.tags?.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {post.tags.slice(0, 2).map(tag => (
+                          <span key={tag} className="text-[10px] bg-afd-yellow/10 text-afd-navy font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <Tag className="w-2.5 h-2.5" /> {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <h2 className="text-xl font-bold text-afd-navy mb-3 group-hover:text-afd-blue transition-colors line-clamp-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-afd-text text-sm mb-6 line-clamp-3 flex-1">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs text-afd-slate mt-auto pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5" /> {post.readTime}
+                      </div>
+                      <span className="text-afd-yellow font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        {b.readMore || 'Read Article'} <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

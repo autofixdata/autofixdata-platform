@@ -11,7 +11,8 @@
     "freeTrial": "Prueba gratuita",
     "home": "Inicio",
     "about": "Sobre nosotros",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "blog": "Blog"
   },
   "footer": {
     "rights": "Todos los derechos reservados",
@@ -1289,5 +1290,41 @@
     "modelTitle": "Manual de Reparación y Diagramas de Cableado {Ma} {Mo}",
     "yearTemplateTitle": "Manual de Reparación y Diagramas de Cableado {Y} {Ma} {Mo}",
     "yearTemplateDesc": "Acceda a datos completos de reparación OEM, manuales de servicio y diagramas de cableado interactivos para el {Y} {Ma} {Mo}."
+  },
+  "login": {
+    "secureAccess": "Acceso Seguro a la Plataforma",
+    "title": "Acceda a su Base de Datos",
+    "subtitle": "Seleccione la plataforma a la que desea iniciar sesión. Todas las bases de datos están incluidas en su suscripción.",
+    "openDatabase": "Abrir Base de Datos",
+    "signInTo": "Iniciar sesión en {db}",
+    "notSubscribed": "¿Aún no estás suscrito?",
+    "notSubscribedDesc": "Accede a las 5 bases de datos desde 99€/mes. 7 días de prueba gratis, sin tarjeta de crédito.",
+    "viewPlans": "Ver Planes y Precios",
+    "contactSales": "O contacta con el equipo de ventas →",
+    "helpTitle": "¿Problemas para iniciar sesión?",
+    "helpDesc": "Si no puede acceder, verifique sus credenciales o contacte con soporte. Los problemas de inicio de sesión se resuelven normalmente en 2 horas.",
+    "getHelp": "Obtener Ayuda",
+    "dbs": {
+      "alldata": {
+        "tagline": "Inteligencia Automotriz",
+        "desc": "Procedimientos de reparación OEM, boletines técnicos, diagramas de cableado y códigos DTC de la base de datos principal de AutoZone."
+      },
+      "autodata": {
+        "tagline": "por Solera",
+        "desc": "Base de datos líder en Europa para intervalos de servicio, datos de sincronización, calibración de ADAS y diagramas."
+      },
+      "haynes": {
+        "tagline": "Datos de Taller",
+        "desc": "Guías de reparación de vehículos paso a paso con datos técnicos profesionales para talleres automotrices."
+      },
+      "mitchell": {
+        "tagline": "por Mitchell1",
+        "desc": "ProDemand de Mitchell1 ofrece a los técnicos procedimientos de reparación, diagramas de diagnóstico y soluciones confirmadas."
+      },
+      "identifix": {
+        "tagline": "por Solera",
+        "desc": "Reparaciones confirmadas en el mundo real por una red de más de 70,000 técnicos profesionales. Direct-Hit™ incluido."
+      }
+    }
   }
 }

@@ -11,7 +11,8 @@
     "freeTrial": "Prova gratuita",
     "home": "Home",
     "about": "Chi siamo",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "blog": "Blog"
   },
   "footer": {
     "rights": "Tutti i diritti riservati",
@@ -1284,5 +1285,41 @@
     "modelTitle": "Manuale di Riparazione e Schemi Elettrici {Ma} {Mo}",
     "yearTemplateTitle": "Manuale di Riparazione e Schemi Elettrici {Y} {Ma} {Mo}",
     "yearTemplateDesc": "Accedi a dati di riparazione OEM completi, manuali di servizio e schemi elettrici interattivi per la {Y} {Ma} {Mo}."
+  },
+  "login": {
+    "secureAccess": "Accesso Sicuro alla Piattaforma",
+    "title": "Accedi al tuo Database",
+    "subtitle": "Seleziona la piattaforma a cui desideri accedere. Tutti i database sono inclusi nel tuo abbonamento.",
+    "openDatabase": "Apri Database",
+    "signInTo": "Accedi a {db}",
+    "notSubscribed": "Non sei ancora abbonato?",
+    "notSubscribedDesc": "Accedi a tutti e 5 i database a partire da £99/mese. Prova gratuita di 7 giorni, non è richiesta alcuna carta di credito.",
+    "viewPlans": "Vedi piani e prezzi",
+    "contactSales": "O contatta il nostro team di vendita →",
+    "helpTitle": "Hai problemi ad accedere?",
+    "helpDesc": "Se non riesci ad accedere, controlla le tue credenziali o contatta il nostro supporto. I problemi di accesso vengono solitamente risolti entro 2 ore.",
+    "getHelp": "Richiedi Aiuto",
+    "dbs": {
+      "alldata": {
+        "tagline": "Intelligenza Automobilistica",
+        "desc": "Procedure di riparazione OEM, bollettini tecnici, schemi elettrici e codici DTC dal database di punta di AutoZone."
+      },
+      "autodata": {
+        "tagline": "da Solera",
+        "desc": "Database leader in Europa per intervalli di manutenzione, dati di fasatura, calibrazione ADAS e schemi elettrici."
+      },
+      "haynes": {
+        "tagline": "Dati d'Officina",
+        "desc": "Guide complete alla riparazione dei veicoli passo dopo passo con dati tecnici professionali per le officine."
+      },
+      "mitchell": {
+        "tagline": "da Mitchell1",
+        "desc": "ProDemand di Mitchell1 fornisce ai tecnici procedure di riparazione, diagrammi diagnostici e correzioni confermate."
+      },
+      "identifix": {
+        "tagline": "da Solera",
+        "desc": "Riparazioni confermate nel mondo reale da una rete di oltre 70.000 tecnici professionisti. Direct-Hit™ incluso."
+      }
+    }
   }
 }

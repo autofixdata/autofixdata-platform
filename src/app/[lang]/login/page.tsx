@@ -85,13 +85,13 @@ const DATABASES = [
 export default async function LoginPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang as any) as any;
-  const m = dict.auth || {};
+  const l = dict.login || {};
   
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": m.loginTitle || "Database Login | Auto Fix Data",
-    "description": m.loginDesc || "Access your automotive workshop database.",
+    "name": l.title || "Database Login | Auto Fix Data",
+    "description": l.subtitle || "Access your automotive workshop database.",
     "url": `https://autofixdata.net/${lang}/login`
   });
 
@@ -102,13 +102,13 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
       {/* Hero */}
       <section className="bg-afd-navy py-16 px-6 text-center dark-section border-b border-white/5">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-afd-yellow/10 border border-afd-yellow/20 rounded-full text-afd-yellow text-xs font-bold tracking-wider mb-6">
-          <Lock className="w-3.5 h-3.5" /> Secure Platform Access
+          <Lock className="w-3.5 h-3.5" /> {l.secureAccess}
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-          Access Your Database
+          {l.title}
         </h1>
         <p className="text-xl text-afd-slate max-w-2xl mx-auto">
-          Select the platform you want to sign in to. All databases are included in your Auto Fix Data subscription.
+          {l.subtitle}
         </p>
       </section>
 
@@ -116,7 +116,15 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
       <section className="py-16 px-6 bg-afd-light">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {DATABASES.map((db) => (
+            {DATABASES.map((db) => {
+              const dbKey = db.name === 'ALLDATA' ? 'alldata' 
+                          : db.name === 'AutoData' ? 'autodata'
+                          : db.name === 'Haynes Pro' ? 'haynes'
+                          : db.name === 'ProDemand' ? 'mitchell'
+                          : 'identifix';
+              const localizedDb = l.dbs?.[dbKey] || { tagline: db.tagline, desc: db.description };
+              
+              return (
               <a
                 key={db.name}
                 href={db.url}
@@ -139,21 +147,21 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
                   )}
                   <div>
                     <div className={`text-xl font-extrabold ${db.textColor}`}>{db.name}</div>
-                    <div className="text-white/60 text-sm">{db.tagline}</div>
+                    <div className="text-white/60 text-sm">{localizedDb.tagline}</div>
                   </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="px-6 py-5">
-                  <p className="text-afd-text text-sm leading-relaxed mb-5">{db.description}</p>
+                  <p className="text-afd-text text-sm leading-relaxed mb-5">{localizedDb.desc}</p>
                   <div className={`${db.btnClass} border w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all group-hover:shadow-md`}
                     style={{ borderColor: db.accent + '30' }}>
-                    Sign In to {db.name}
+                    {l.signInTo.replace('{db}', db.name)}
                     <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
               </a>
-            ))}
+            )})}
 
             {/* Not subscribed card */}
             <div className="bg-afd-navy rounded-2xl shadow-md border border-afd-yellow/20 p-6 flex flex-col items-center text-center justify-center gap-4 sm:col-span-2 lg:col-span-1">
@@ -161,16 +169,16 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
                 <Lock className="w-8 h-8 text-afd-yellow" />
               </div>
               <div>
-                <h3 className="text-white font-extrabold text-lg mb-1">Not a subscriber yet?</h3>
+                <h3 className="text-white font-extrabold text-lg mb-1">{l.notSubscribed}</h3>
                 <p className="text-afd-slate text-sm leading-relaxed">
-                  Get access to all 5 databases from £99/mo. 7-day free trial, no credit card needed.
+                  {l.notSubscribedDesc}
                 </p>
               </div>
-              <Link href="/pricing" className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-afd-yellow text-black font-bold rounded-xl hover:bg-afd-yellow-hover transition-all text-sm shadow-lg shadow-afd-yellow/20">
-                View Plans & Pricing <ArrowRight className="w-4 h-4" />
+              <Link href={`/${lang}/pricing`} className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-afd-yellow text-black font-bold rounded-xl hover:bg-afd-yellow-hover transition-all text-sm shadow-lg shadow-afd-yellow/20">
+                {l.viewPlans} <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/contact" className="text-afd-slate text-xs hover:text-afd-yellow transition-colors">
-                Or contact our sales team →
+              <Link href={`/${lang}/contact`} className="text-afd-slate text-xs hover:text-afd-yellow transition-colors">
+                {l.contactSales}
               </Link>
             </div>
           </div>
@@ -181,13 +189,13 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
               <span className="text-xl">💬</span>
             </div>
             <div className="flex-1">
-              <h4 className="font-bold text-afd-navy mb-1">Having trouble logging in?</h4>
+              <h4 className="font-bold text-afd-navy mb-1">{l.helpTitle}</h4>
               <p className="text-afd-text text-sm">
-                If you can't access your platform, check your credentials or contact our support team. Login issues are usually resolved within 2 hours.
+                {l.helpDesc}
               </p>
             </div>
-            <Link href="/contact" className="shrink-0 px-5 py-2.5 bg-afd-navy text-white font-bold rounded-xl text-sm hover:bg-afd-blue transition-colors">
-              Get Help
+            <Link href={`/${lang}/contact`} className="shrink-0 px-5 py-2.5 bg-afd-navy text-white font-bold rounded-xl text-sm hover:bg-afd-blue transition-colors">
+              {l.getHelp}
             </Link>
           </div>
         </div>

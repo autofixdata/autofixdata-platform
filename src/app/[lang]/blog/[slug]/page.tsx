@@ -1,155 +1,324 @@
-import type { Metadata } from 'next';
-import Link from '@/components/LocalizedLink';
+import { getPost, getAllSlugs } from '@/lib/blog';
+import { getDictionary } from '@/dictionaries/getDictionary';
 import { notFound } from 'next/navigation';
-import { Calendar, Clock, ArrowLeft, ArrowRight, FileText, CheckCircle2 } from "lucide-react";
-import { BLOG_POSTS, getBlogPostBySlug } from "@/lib/blogData";
+import { Calendar, User, Clock, ChevronRight, Home, Tag } from 'lucide-react';
+import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import type { Metadata } from 'next';
 
-const SUPPORTED_LANGS = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
+const LANGS = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
+const SITE = 'https://www.autofixdata.net';
 
-export function generateStaticParams() {
-  return SUPPORTED_LANGS.flatMap((lang) =>
-    BLOG_POSTS.map((post) => ({ lang, slug: post.slug }))
-  );
+export async function generateStaticParams() {
+  const slugs = getAllSlugs();
+  return LANGS.flatMap(lang => slugs.map(slug => ({ lang, slug })));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const post = getBlogPostBySlug(slug);
-  if (!post) {
-    return { title: 'Post Not Found | Auto Fix Data' };
-  }
+  const post = getPost(lang, slug);
+  if (!post) return { title: 'Not Found' };
+
+  const canonical = `${SITE}/${lang}/blog/${slug}`;
+  const ogImage = post.image?.startsWith('http') ? post.image : `${SITE}${post.image}`;
+
   return {
-    title: post.seoTitle,
-    description: post.seoDescription,
-    alternates: { canonical: `https://autofixdata.net/${lang}/blog/${slug}` }
+    title: `${post.title} | AutoFixData Blog`,
+    description: post.excerpt,
+    authors: [{ name: post.author }],
+    keywords: post.tags?.join(', '),
+    alternates: {
+      canonical,
+      languages: Object.fromEntries(LANGS.map(l => [l, `${SITE}/${l}/blog/${slug}`]))
+    },
+    openGraph: {
+      type: 'article',
+      url: canonical,
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      siteName: 'AutoFixData',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
+      site: '@autofixdata',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' }
+    }
   };
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
-  const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
-  if (!post) {
-    notFound();
-  }
+// Custom MDX components
+const mdxComponents = {
+  h2: (props: any) => <h2 className="text-2xl md:text-3xl font-extrabold text-afd-navy mt-12 mb-5 pb-3 border-b border-gray-100" {...props} />,
+  h3: (props: any) => <h3 className="text-xl font-bold text-afd-navy mt-8 mb-4" {...props} />,
+  h4: (props: any) => <h4 className="text-lg font-bold text-afd-navy mt-6 mb-3" {...props} />,
+  p: (props: any) => <p className="text-afd-text leading-[1.9] mb-5 text-[17px]" {...props} />,
+  ul: (props: any) => <ul className="list-none mb-6 space-y-2" {...props} />,
+  ol: (props: any) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-afd-text" {...props} />,
+  li: (props: any) => (
+    <li className="flex items-start gap-2.5 text-afd-text text-[17px] leading-relaxed">
+      <span className="mt-1.5 w-2 h-2 rounded-full bg-afd-yellow flex-shrink-0" />
+      <span>{props.children}</span>
+    </li>
+  ),
+  a: ({ href, children, ...props }: any) => {
+    const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+    const className = "text-afd-blue font-semibold underline underline-offset-2 hover:text-afd-navy transition-colors";
+    if (isInternal) {
+      return <Link href={href} className={className} {...props}>{children}</Link>;
+    }
+    return <a href={href} className={className} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
+  },
+  blockquote: (props: any) => (
+    <blockquote className="border-l-4 border-afd-yellow bg-afd-yellow/5 px-6 py-4 my-8 rounded-r-xl">
+      <p className="italic text-afd-navy font-medium mb-0" {...props} />
+    </blockquote>
+  ),
+  table: (props: any) => (
+    <div className="overflow-x-auto my-8 rounded-xl border border-gray-200 shadow-sm">
+      <table className="w-full text-sm" {...props} />
+    </div>
+  ),
+  thead: (props: any) => <thead className="bg-afd-navy text-white" {...props} />,
+  th: (props: any) => <th className="px-4 py-3 text-left font-bold text-sm tracking-wide" {...props} />,
+  td: (props: any) => <td className="px-4 py-3 border-t border-gray-100" {...props} />,
+  tr: (props: any) => <tr className="even:bg-gray-50 hover:bg-afd-yellow/5 transition-colors" {...props} />,
+  strong: (props: any) => <strong className="font-bold text-afd-navy" {...props} />,
+  em: (props: any) => <em className="italic text-afd-slate" {...props} />,
+};
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.seoTitle,
-    "description": post.seoDescription,
-    "author": { "@type": "Organization", "name": post.author },
-    "datePublished": post.publishedAt,
-    "publisher": { "@type": "Organization", "name": "Auto Fix Data" },
-    "url": `https://autofixdata.net/blog/${post.slug}`
-  });
+/** Extract FAQ pairs (h3 + following p text) from raw MDX source for JSON-LD */
+function extractFAQs(source: string) {
+  const faqs: { question: string; answer: string }[] = [];
+  const h3Regex = /<h3>(.*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
+  let m: RegExpExecArray | null;
+  while ((m = h3Regex.exec(source)) !== null) {
+    const question = m[1].replace(/<[^>]+>/g, '').trim();
+    const answer = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (question && answer && answer.length > 20) {
+      faqs.push({ question, answer });
+    }
+  }
+  return faqs.slice(0, 8);
+}
+
+export default async function BlogPostPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang, slug } = await params;
+  const post = getPost(lang, slug);
+  if (!post) notFound();
+
+  const dict = await getDictionary(lang as any) as any;
+  const cta = dict.cta || {};
+  const isRtl = lang === 'ar' || lang === 'he';
+
+  const canonical = `${SITE}/${lang}/blog/${slug}`;
+  const ogImage = post.image?.startsWith('http') ? post.image : `${SITE}${post.image}`;
+  const wordCount = post.content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    headline: post.title,
+    description: post.excerpt,
+    image: [ogImage],
+    datePublished: post.date,
+    dateModified: post.date,
+    wordCount,
+    author: [{ '@type': 'Organization', name: 'AutoFixData', url: SITE }],
+    publisher: {
+      '@type': 'Organization',
+      name: 'AutoFixData',
+      logo: { '@type': 'ImageObject', url: `${SITE}/images/logo.png`, width: 200, height: 60 }
+    },
+    inLanguage: lang,
+    isAccessibleForFree: true,
+    keywords: post.tags?.join(', '),
+  };
+
+  const faqs = extractFAQs(post.content);
+  const faqSchema = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer }
+    }))
+  } : null;
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/${lang}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+    ]
+  };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <div className="bg-afd-navy border-b border-black/20 pt-10 pb-20 px-6 relative overflow-hidden dark-section">
-        <div className="absolute inset-0 bg-[url('/images/diagnostics-abstract.png')] opacity-5 mix-blend-overlay"></div>
-        <div className="max-w-[1000px] mx-auto relative z-10">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-afd-yellow hover:text-white transition-colors text-sm font-bold tracking-wider mb-8 uppercase">
-            <ArrowLeft className="w-4 h-4" /> Back to Intelligence Index
-          </Link>
+      <article className="bg-[#f8fafc] min-h-screen pt-28 pb-16">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
-          <div className="flex flex-wrap items-center gap-4 text-xs font-bold text-afd-slate uppercase tracking-widest mb-6">
-            <span className="bg-afd-blue/20 text-afd-blue px-3 py-1.5 rounded-md border border-afd-blue/30">{post.category}</span>
-            <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-gray-500" /> {post.publishedAt}</span>
-            <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-gray-500" /> {post.readTime}</span>
-          </div>
+          {/* Breadcrumbs */}
+          <nav aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2 text-sm text-afd-slate mb-8 flex-wrap">
+              <li>
+                <Link href={`/${lang}`} className="hover:text-afd-blue transition-colors flex items-center gap-1">
+                  <Home className="w-4 h-4" />
+                </Link>
+              </li>
+              <li><ChevronRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} /></li>
+              <li><Link href={`/${lang}/blog`} className="hover:text-afd-blue transition-colors font-medium">Blog</Link></li>
+              <li><ChevronRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} /></li>
+              <li><span className="text-afd-navy font-medium truncate max-w-[300px]">{post.title}</span></li>
+            </ol>
+          </nav>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
-            {post.title}
-          </h1>
+          <div className="flex flex-col lg:flex-row gap-10 items-start">
 
-          <div className="flex items-center gap-4 border-t border-white/10 pt-8 mt-4">
-            <div className="w-12 h-12 bg-afd-yellow rounded-xl flex items-center justify-center text-black font-black text-lg">
-              AF
-            </div>
-            <div>
-              <div className="text-white font-bold">{post.author}</div>
-              <div className="text-afd-slate text-xs uppercase tracking-wider font-semibold mt-1">Diagnostic Intelligence Group</div>
-            </div>
-          </div>
-        </div>
-      </div>
+            {/* ===== Main Article ===== */}
+            <div className="w-full lg:w-[68%] bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
 
-      <section className="py-16 bg-afd-light px-6">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 xl:grid-cols-3 gap-12 items-start">
-
-          {/* Main Article Content */}
-          <article className="xl:col-span-2">
-            <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 md:p-14 mb-10">
-              <div
-                className="prose prose-lg max-w-none text-gray-700
-                           prose-headings:text-afd-navy prose-headings:font-extrabold
-                           prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-4 prose-h2:border-b prose-h2:border-gray-100
-                           prose-h3:text-2xl prose-h3:mt-8
-                           prose-p:leading-relaxed prose-p:mb-6 prose-p:font-medium
-                           prose-a:text-afd-blue hover:prose-a:text-afd-navy prose-a:font-bold prose-a:underline prose-a:decoration-afd-yellow prose-a:decoration-2 prose-a:underline-offset-2
-                           prose-ul:list-none prose-ul:pl-0 prose-li:mb-3 prose-li:flex prose-li:items-start prose-li:gap-3
-                           prose-li:before:content-[''] prose-li:before:w-2 prose-li:before:h-2 prose-li:before:bg-afd-yellow prose-li:before:rounded-full prose-li:before:mt-2.5 prose-li:before:shrink-0
-                           prose-strong:text-afd-navy prose-strong:font-black"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-            </div>
-
-            {/* Inline CTA Hook */}
-            <div className="bg-afd-navy rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden border-b-4 border-afd-yellow">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-              <h3 className="text-3xl font-black mb-4 relative z-10">Ready to Upgrade Your Data?</h3>
-              <p className="text-lg text-afd-slate mb-8 max-w-2xl mx-auto relative z-10">Stop relying on fragmented legacy software or outdated manuals. Access verified OEM coverage and colour wiring directly in the cloud.</p>
-              <Link href="/free-trial" className="inline-flex items-center gap-3 bg-afd-yellow text-black px-8 py-4 rounded-xl font-black text-lg hover:bg-white transition-all shadow-xl shadow-afd-yellow/20 relative z-10">
-                Start Your Free Trial Now <ArrowRight className="w-6 h-6" />
-              </Link>
-            </div>
-          </article>
-
-          {/* CRM Lead Capture Sidebar - Sticky */}
-          <aside className="xl:col-span-1 sticky top-24">
-            <div className="bg-white rounded-3xl border-2 border-gray-100 shadow-2xl overflow-hidden relative group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-afd-yellow"></div>
-              <div className="bg-afd-navy p-8 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-afd-blue/20 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none"></div>
-                <FileText className="w-12 h-12 text-white mx-auto mb-4 relative z-10" />
-                <h3 className="text-2xl font-black text-white mb-2 relative z-10">Access The Platform</h3>
-                <p className="text-afd-yellow text-xs font-bold uppercase tracking-widest relative z-10">Immediate Direct Access</p>
+              {/* Hero image */}
+              <div className="h-[300px] md:h-[420px] relative overflow-hidden">
+                <img src={post.image} alt={post.title} className="w-full h-full object-cover" width={900} height={420} />
+                <div className="absolute inset-0 bg-gradient-to-t from-afd-navy/80 via-transparent to-transparent" />
+                {post.tags?.length > 0 && (
+                  <div className="absolute bottom-6 left-6 flex gap-2 flex-wrap" aria-label="Article tags">
+                    {post.tags.map(tag => (
+                      <span key={tag} className="bg-afd-yellow text-black text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                        <Tag className="w-3 h-3" />{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              <div className="p-8 bg-gray-50/80">
-                <ul className="space-y-4 mb-8">
-                  {[
-                    "Pin-to-pin wiring diagrams",
-                    "Real-World Identifix Solutions",
-                    "Technical Service Bulletins",
-                    "No enterprise contracts required"
-                  ].map(benefit => (
-                    <li key={benefit} className="flex items-center gap-3 text-sm text-afd-navy font-bold">
-                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+              <div className="p-6 md:p-12">
+                {/* Meta row */}
+                <div className="flex flex-wrap gap-5 text-xs font-bold text-afd-slate uppercase tracking-wider mb-6 pb-6 border-b border-gray-100">
+                  <div className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-afd-yellow" />{post.date}</div>
+                  <div className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-afd-yellow" />{post.readTime}</div>
+                  <div className="flex items-center gap-1.5"><User className="w-4 h-4 text-afd-yellow" />{post.author}</div>
+                </div>
 
-                <div className="w-full mx-auto overflow-hidden bg-white rounded-xl border border-gray-200 shadow-inner p-1">
-                  <iframe
-                    src="https://link.autodatalogin.com/widget/form/4tQbweI60VyYW02nlcVf"
-                    style={{ width: "100%", height: "100%", border: "none", borderRadius: "12px" }}
-                    className="min-h-[550px] w-full"
-                    title="Start Free Trial Form"
-                  />
+                <h1 className="text-3xl md:text-5xl font-extrabold text-afd-navy leading-tight mb-8">
+                  {post.title}
+                </h1>
+
+                {/* Excerpt lead */}
+                <p className="text-xl text-afd-slate leading-relaxed mb-8 border-l-4 border-afd-yellow pl-5">
+                  {post.excerpt}
+                </p>
+
+                {/* YouTube Embed */}
+                {post.youtubeId && (
+                  <div className="mb-10 rounded-2xl overflow-hidden shadow-xl border border-gray-100 aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${post.youtubeId}?rel=0&modestbranding=1`}
+                      title={post.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                )}
+
+                {/* MDX Prose Body */}
+                <div className="prose-container">
+                  <MDXRemote source={post.content} components={mdxComponents} />
                 </div>
-                <div className="mt-4 text-center">
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">No Credit Card Required</span>
+
+                {/* Bottom CTA */}
+                <div className="mt-14 p-8 bg-afd-navy rounded-2xl text-center border border-afd-yellow/20">
+                  <h3 className="text-2xl font-extrabold text-white mb-3">
+                    {cta.title || 'Access All 5 Repair Databases Now'}
+                  </h3>
+                  <p className="text-afd-slate mb-6">
+                    {cta.desc || 'Get ALLDATA, AutoData, HaynesPro, Mitchell1 & Identifix in one subscription. 7-day free trial.'}
+                  </p>
+                  <Link href={`/${lang}/free-trial`}
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-afd-yellow text-black font-extrabold rounded-xl hover:bg-afd-yellow-hover hover:scale-105 transition-all shadow-xl shadow-afd-yellow/20 text-base">
+                    Start Free Trial — No Credit Card
+                  </Link>
                 </div>
+
+                {/* Tags footer */}
+                {post.tags?.length > 0 && (
+                  <div className="mt-10 pt-8 border-t border-gray-100 flex flex-wrap gap-2">
+                    <span className="text-xs font-bold text-afd-slate uppercase tracking-wider self-center mr-2">Tags:</span>
+                    {post.tags.map(tag => (
+                      <span key={tag} className="bg-gray-100 text-afd-navy text-xs font-semibold px-3 py-1.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
-          </aside>
 
+            {/* ===== Sidebar ===== */}
+            <aside className="w-full lg:w-[32%] lg:sticky lg:top-28 flex flex-col gap-6">
+              <div className="bg-afd-navy rounded-2xl p-6 text-center border border-afd-yellow/20">
+                <div className="text-3xl mb-3">🔧</div>
+                <h2 className="text-xl font-extrabold text-white mb-2">{cta.title || 'Get Full Access'}</h2>
+                <p className="text-afd-slate text-sm mb-5">{cta.desc || 'Unlock 5 OEM databases. £99/mo. 7-day free trial.'}</p>
+                <Link href={`/${lang}/free-trial`}
+                  className="w-full block py-3 px-4 bg-afd-yellow text-black font-extrabold rounded-xl hover:bg-afd-yellow-hover transition-all text-sm shadow-lg shadow-afd-yellow/20">
+                  Start Free Trial
+                </Link>
+                <Link href={`/${lang}/pricing`} className="block mt-3 text-xs text-afd-slate hover:text-afd-yellow transition-colors">
+                  View all plans →
+                </Link>
+              </div>
+
+              {/* Quick facts card */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h2 className="text-base font-bold text-afd-navy mb-4">Article Info</h2>
+                <dl className="space-y-3 text-sm text-afd-slate">
+                  <div className="flex justify-between">
+                    <dt className="font-semibold">Reading time</dt>
+                    <dd>{post.readTime}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="font-semibold">Word count</dt>
+                    <dd>~{wordCount.toLocaleString()} words</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="font-semibold">Published</dt>
+                    <dd>{post.date}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="font-semibold">Author</dt>
+                    <dd>{post.author}</dd>
+                  </div>
+                </dl>
+              </div>
+            </aside>
+
+          </div>
         </div>
-      </section>
+      </article>
     </>
   );
 }

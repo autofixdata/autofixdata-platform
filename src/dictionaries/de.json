@@ -11,7 +11,8 @@
     "freeTrial": "Kostenlos testen",
     "home": "Home",
     "about": "Über uns",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "blog": "Blog"
   },
   "footer": {
     "rights": "Alle Rechte vorbehalten",
@@ -1289,5 +1290,41 @@
     "modelTitle": "{Ma} {Mo} Reparaturanleitung & Schaltpläne",
     "yearTemplateTitle": "{Y} {Ma} {Mo} Reparaturanleitung & Schaltpläne",
     "yearTemplateDesc": "Greifen Sie auf vollständige OEM-Reparaturdaten, Servicehandbücher und interaktive Schaltpläne für den {Y} {Ma} {Mo} zu."
+  },
+  "login": {
+    "secureAccess": "Sicherer Plattformzugang",
+    "title": "Greifen Sie auf Ihre Datenbank zu",
+    "subtitle": "Wählen Sie die Plattform aus, auf der Sie sich anmelden möchten. Alle Datenbanken sind in Ihrem Abonnement enthalten.",
+    "openDatabase": "Datenbank Öffnen",
+    "signInTo": "Anmelden bei {db}",
+    "notSubscribed": "Noch nicht abonniert?",
+    "notSubscribedDesc": "Erhalten Sie ab 99 £/Monat Zugriff auf alle 5 Datenbanken. 7-tägige kostenlose Testversion, keine Kreditkarte erforderlich.",
+    "viewPlans": "Pläne & Preise ansehen",
+    "contactSales": "Oder kontaktieren Sie den Vertrieb →",
+    "helpTitle": "Probleme bei der Anmeldung?",
+    "helpDesc": "Wenn Sie nicht zugreifen können, überprüfen Sie Ihre Daten oder wenden Sie sich an unseren Support. Probleme werden normalerweise innerhalb von 2 Stunden gelöst.",
+    "getHelp": "Hilfe erhalten",
+    "dbs": {
+      "alldata": {
+        "tagline": "Automotive Intelligence",
+        "desc": "OEM-Reparaturverfahren, Service-Bulletins, Schaltpläne und Fehlercodes aus der Flaggschiff-Datenbank von AutoZone."
+      },
+      "autodata": {
+        "tagline": "von Solera",
+        "desc": "Europas führende Datenbank für Serviceintervalle, Einstelldaten, ADAS-Kalibrierung und Schaltpläne."
+      },
+      "haynes": {
+        "tagline": "Werkstattdaten",
+        "desc": "Umfassende Schritt-für-Schritt Reparaturanleitungen für Fahrzeuge mit professionellen technischen Daten für Werkstätten."
+      },
+      "mitchell": {
+        "tagline": "von Mitchell1",
+        "desc": "Mitchell1s ProDemand bietet Technikern Reparaturverfahren, Diagnose-Flussdiagramme und bestätigte Reparaturen."
+      },
+      "identifix": {
+        "tagline": "von Solera",
+        "desc": "Von über 70.000 professionellen Technikern bestätigte Reparaturen aus der Praxis. Inklusive Direct-Hit™."
+      }
+    }
   }
 }
