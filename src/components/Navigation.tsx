@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Wrench, Globe, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import GlobalSearch from './GlobalSearch';
 
 const CAR_MAKES = [
   { name: "BMW", slug: "bmw" }, { name: "Ford", slug: "ford" },
@@ -132,6 +133,8 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <GlobalSearch lang={lang} placeholder={dict.nav?.search || 'Search cars, fault codes...'} />
+            
             <div className="relative py-2"
               onMouseEnter={() => setIsLangDropdownOpen(true)}
               onMouseLeave={() => setIsLangDropdownOpen(false)}>

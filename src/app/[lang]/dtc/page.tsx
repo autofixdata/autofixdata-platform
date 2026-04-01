@@ -65,7 +65,7 @@ export default async function DtcDirectoryPage({ params }: { params: Promise<{ l
                         {dtc.severity} Severity
                       </span>
                     </div>
-                    <h3 className="text-sm font-semibold text-gray-700 mb-2">{dtc.title}</h3>
+                    <h3 className="text-sm font-semibold text-gray-700 mb-2">{dtc.description}</h3>
                   </div>
                   <div className="mt-4 flex items-center text-afd-blue text-sm font-bold group-hover:underline">
                     View Diagnosis & Diagrams <ChevronRight className="w-4 h-4 ml-1" />

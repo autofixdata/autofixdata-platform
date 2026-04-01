@@ -5,8 +5,10 @@ import { TOP_DTC_CODES, getDtcByCode } from '@/lib/dtcData';
 import { AlertTriangle, Settings, Zap, ShieldAlert, CheckCircle2, FileText, ChevronRight } from 'lucide-react';
 import { getDictionary } from '@/dictionaries/getDictionary';
 
+export const dynamicParams = true; // Use ISR for the other 3,000+ codes
 export async function generateStaticParams() {
-  return TOP_DTC_CODES.map((dtc) => ({ code: dtc.code }));
+  // Pre-build only top 50 codes to prevent Vercel build timeout on 21,000 pages
+  return TOP_DTC_CODES.slice(0, 50).map((dtc) => ({ code: dtc.code }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string, code: string }> }): Promise<Metadata> {
@@ -14,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as any);
   const dtc = getDtcByCode(code.toUpperCase());
   
-  const title = dict.dtc.metaTitle.replace('{code}', code.toUpperCase()).replace('{title}', dtc?.title || "Diagnostic Trouble Code");
+  const title = dict.dtc.metaTitle.replace('{code}', code.toUpperCase()).replace('{title}', dtc?.description || "Diagnostic Trouble Code");
   const description = dict.dtc.metaDescription.replace('{code}', code.toUpperCase());
   
   return {
@@ -33,17 +35,17 @@ export default async function DtcDetailPage({ params }: { params: Promise<{ lang
 
   const dtc = getDtcByCode(codeParam) || {
     code: codeParam,
-    title: "Diagnostic Trouble Code (Generic)",
     description: "The Engine Control Module (ECM) has detected a malfunction related to this generic OBD-II fault code.",
     symptoms: ["Check Engine Light ON", "Possible decrease in fuel economy", "Engine performance issues"],
     causes: ["Defective sensor or switch", "Wiring or connector issue", "Mechanical failure in associated system"],
-    severity: "Medium" as const,
+    severity: "Medium" as "High" | "Medium" | "Low",
+    fixNow: "Perform a diagnostic scan to retrieve freeze-frame data."
   };
 
   const schema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: d.metaTitle.replace('{code}', dtc.code).replace('{title}', dtc.title),
+    headline: d.metaTitle.replace('{code}', dtc.code).replace('{title}', dtc.description || dtc.code),
     description: d.metaDescription.replace('{code}', dtc.code),
     image: "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     author: { '@type': 'Organization', name: 'Auto Fix Data' },
@@ -84,8 +86,8 @@ export default async function DtcDetailPage({ params }: { params: Promise<{ lang
                 "bg-yellow-500/20 text-yellow-200"
               }`}>{dtc.severity} {d.severityLevel}</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">{dtc.title}</h1>
-            <p className="text-lg text-afd-slate max-w-3xl leading-relaxed">{dtc.description}</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">{dtc.description || dtc.code}</h1>
+            <p className="text-lg text-afd-slate max-w-3xl leading-relaxed">This diagnostic trouble code indicates a malfunction in the associated component circuit.</p>
           </div>
         </div>
       </div>
@@ -159,7 +161,7 @@ export default async function DtcDetailPage({ params }: { params: Promise<{ lang
             {TOP_DTC_CODES.filter(c => c.code !== dtc.code).slice(0, 6).map(related => (
               <Link key={related.code} href={`/${lang}/dtc/${related.code}`} className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-afd-yellow hover:shadow-md transition-all group">
                 <div className="text-lg font-black text-afd-navy group-hover:text-afd-yellow transition-colors mb-1">{related.code}</div>
-                <div className="text-[10px] text-gray-500 line-clamp-2 leading-tight">{related.title}</div>
+                <div className="text-[10px] text-gray-500 line-clamp-2 leading-tight">{related.description}</div>
               </Link>
             ))}
           </div>

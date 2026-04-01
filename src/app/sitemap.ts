@@ -6,7 +6,12 @@ import { slugify } from '@/lib/carData';
 const LOCALES = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
 const BASE_URL = 'https://autofixdata.net';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export async function generateSitemaps() {
+  // We have ~74,000 routes. Split at 40,000 per sitemap to be safely under Google's 50k limit.
+  return [{ id: 0 }, { id: 1 }];
+}
+
+export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   // Define raw paths without language prefix
@@ -62,9 +67,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // For every single route, define the English version as the canonical root, 
+  // Calculate strict chunk limits (40,000 per sitemap)
+  const LIMIT = 40000;
+  const start = id * LIMIT;
+  const end = start + LIMIT;
+  const paginatedRoutes = allRawRoutes.slice(start, end);
+
+  // For every single route in the paginated subset, define the English version as the canonical root, 
   // but explicitly map 'alternates' so Google knows where the translated versions live.
-  return allRawRoutes.map(route => {
+  return paginatedRoutes.map(route => {
     const alternates: Record<string, string> = {};
     
     LOCALES.forEach(locale => {
