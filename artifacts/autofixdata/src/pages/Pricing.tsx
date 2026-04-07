@@ -222,7 +222,7 @@ export default function Pricing() {
               )}
               {billing === "monthly" && <div className="mb-4 text-xs text-afd-slate">{sym}{Math.round(prices.garage * discount * 12)}/yr billed annually (save 20%)</div>}
               <ul className="space-y-3 mb-8 flex-1">
-                {["Up to 5 User Licenses", "All 5 Databases Included", "Full Interactive Wiring Diagrams", "Estimating & Quoting Tools", "Advanced Diagnostics (Identifix)", "Priority Phone & Email Support", "ADAS Calibration Data"].map(i => (
+                {["Up to 2 User Licenses", "All 5 Databases Included", "Full Interactive Wiring Diagrams", "Estimating & Quoting Tools", "Advanced Diagnostics (Identifix)", "Priority Phone & Email Support", "ADAS Calibration Data"].map(i => (
                   <li key={i} className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-afd-yellow shrink-0 mt-0.5" /><span className="text-sm text-white font-medium">{i}</span></li>
                 ))}
               </ul>

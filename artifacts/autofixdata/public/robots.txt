@@ -1,16 +1,28 @@
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /login
-
-# Social media crawlers
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
 
 Sitemap: https://autofixdata.net/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Baidu
+User-agent: Baidu
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckGo
+Allow: /
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /

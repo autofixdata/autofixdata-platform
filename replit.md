@@ -38,7 +38,7 @@ artifacts-monorepo/
 
 ## Auto Fix Data Website (artifacts/autofixdata)
 
-Professional automotive workshop repair data marketing site for autofixdata.com.
+Professional automotive workshop repair data marketing site for autofixdata.net.
 
 ### Pages (25 total)
 - `/` — Homepage with hero, products, features, testimonials, FAQ; makes grid clickable → /model-detail
