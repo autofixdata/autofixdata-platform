@@ -175,7 +175,15 @@ export default function Navigation({ dict, lang }: { dict: any, lang: string }) 
         <>
           <div className="fixed inset-0 bg-afd-navy/60 backdrop-blur-sm z-[100] lg:hidden" onClick={() => setIsMobileMenuOpen(false)} />
           <div className="fixed top-0 right-0 h-full w-[300px] bg-white z-[101] shadow-2xl flex flex-col lg:hidden">
-            <div className="p-4 flex justify-end border-b border-gray-100">
+            <div className="p-4 flex items-center justify-between border-b border-gray-100">
+              <Link href={`/${lang}`} className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                <div className="relative flex items-center justify-center w-8 h-8 bg-[#0a1628] rounded-lg overflow-hidden">
+                  <span className="text-[#f4b400] font-black text-xs tracking-tighter">AFD</span>
+                </div>
+                <span className="text-lg font-extrabold tracking-tight text-afd-navy">
+                  Auto<span className="text-afd-yellow">Fix</span>Data
+                </span>
+              </Link>
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-afd-slate hover:text-afd-navy"><X className="w-6 h-6" /></button>
             </div>
             <div className="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-6">
