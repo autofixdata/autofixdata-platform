@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { getDictionary } from '@/dictionaries/getDictionary';
 import Script from 'next/script';
+import { Analytics } from "@vercel/analytics/next";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -133,6 +134,7 @@ export default async function RootLayout({
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="696d618100a5f01fbad814c4"
         />
+        <Analytics />
       </body>
     </html>
   );
