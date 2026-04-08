@@ -1,4 +1,4 @@
-import { getPost, getAllSlugs } from '@/lib/blog';
+import { getPost, getAllSlugs, getAllPostsMeta } from '@/lib/blog';
 import { getDictionary } from '@/dictionaries/getDictionary';
 import { notFound } from 'next/navigation';
 import { Calendar, User, Clock, ChevronRight, Home, Tag } from 'lucide-react';
@@ -117,6 +117,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ lang:
   const { lang, slug } = await params;
   const post = getPost(lang, slug);
   if (!post) notFound();
+
+  // Pick 3 random related articles for internal linking
+  const allPosts = getAllPostsMeta(lang).filter(p => p.slug !== slug).sort(() => Math.random() - 0.5).slice(0, 3);
 
   const dict = await getDictionary(lang as any) as any;
   const cta = dict.cta || {};
@@ -317,6 +320,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ lang:
             </aside>
 
           </div>
+
+          {/* ===== Related Articles (Internal Linking) ===== */}
+          {allPosts.length > 0 && (
+            <div className="mt-16 border-t border-gray-200 pt-12">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-afd-navy mb-8 text-center">{dict.blog?.related || 'Related Articles'}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {allPosts.map((p: any) => (
+                  <Link key={p.slug} href={`/${lang}/blog/${p.slug}`} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div className="aspect-[16/9] overflow-hidden relative bg-gray-100">
+                      {p.image && <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 text-[11px] font-bold text-afd-yellow uppercase tracking-wider mb-3">
+                        <span>{p.date}</span>
+                        <span className="w-1 h-1 rounded-full bg-gray-300" />
+                        <span>{p.readTime}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-afd-navy mb-3 line-clamp-2 leading-snug group-hover:text-afd-blue transition-colors">{p.title}</h3>
+                      <p className="text-sm text-afd-slate line-clamp-2 leading-relaxed mb-4 flex-1">{p.excerpt}</p>
+                      <div className="text-sm font-bold text-afd-blue mt-auto flex items-center gap-1 group-hover:gap-2 transition-all">
+                        {dict.blog?.readMore || 'Read More'} <ChevronRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </article>
     </>
