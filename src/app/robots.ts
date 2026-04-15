@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Twitterbot', allow: '/' },
       { userAgent: 'LinkedInBot', allow: '/' },
     ],
-    sitemap: 'https://autofixdata.net/sitemap.xml',
+    sitemap: 'https://workshopdata.us/sitemap.xml',
   };
 }
