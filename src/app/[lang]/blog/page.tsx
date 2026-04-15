@@ -4,7 +4,7 @@ import { getDictionary } from '@/dictionaries/getDictionary';
 import { Clock, Calendar, ArrowRight, Tag } from 'lucide-react';
 import type { Metadata } from 'next';
 
-const SITE = 'https://www.autofixdata.net';
+const SITE = 'https://www.workshopdata.us';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const canonical = `${SITE}/${lang}/blog`;
   const title = b.indexTitle || 'Auto Fix Data Technical Blog — Mechanic Guides & Repair Tips';
   const description = b.indexDesc || 'In-depth automotive repair guides, OEM wiring diagram tutorials, diagnostic deep-dives and software comparisons for professional mechanics.';
-  
+
   return {
     title,
     description,
@@ -48,7 +48,7 @@ export default async function BlogIndexPage({ params }: { params: Promise<{ lang
   const dict = await getDictionary(lang as any) as any;
   const b = dict.blog || {};
   const posts = getAllPostsMeta(lang);
-  
+
   const title = b.indexTitle || 'Auto Fix Data Technical Blog — Mechanic Guides & Repair Tips';
   const description = b.indexDesc || 'In-depth automotive repair guides, OEM wiring diagram tutorials, diagnostic deep-dives and software comparisons for professional mechanics.';
 

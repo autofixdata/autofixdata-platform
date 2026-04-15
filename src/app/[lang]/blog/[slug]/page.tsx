@@ -7,7 +7,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import type { Metadata } from 'next';
 
 const LANGS = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
-const SITE = 'https://www.autofixdata.net';
+const SITE = 'https://www.workshopdata.us';
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();

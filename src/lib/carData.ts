@@ -28,7 +28,7 @@ export const POPULAR_MAKES: CarMake[] = [
   { slug: "mercedes-benz", name: "Mercedes-Benz", popularModels: ["C-Class", "E-Class", "Sprinter", "S-Class", "GLC", "A-Class", "GLE", "G-Class", "Vito"] },
   { slug: "porsche", name: "Porsche", popularModels: ["911", "Cayenne", "Macan", "Panamera", "Taycan", "718 Cayman"] },
   { slug: "opel", name: "Opel", popularModels: ["Corsa", "Astra", "Insignia", "Mokka", "Crossland", "Grandland"] },
-  
+
   // European (British)
   { slug: "vauxhall", name: "Vauxhall", popularModels: ["Corsa", "Astra", "Mokka", "Vivaro", "Crossland", "Grandland"] },
   { slug: "land-rover", name: "Land Rover", popularModels: ["Range Rover", "Defender", "Discovery", "Range Rover Sport", "Evoque", "Velar"] },
@@ -114,8 +114,11 @@ import carDB from './largeCarDatabase.json';
 const database = carDB as Record<string, Record<string, number[]>>;
 
 export function getModelsForMake(makeSlug: string): string[] {
-  if (!database[makeSlug]) return [];
-  return Object.keys(database[makeSlug]);
+  if (database[makeSlug]) {
+    return Object.keys(database[makeSlug]);
+  }
+  const fallback = POPULAR_MAKES.find(m => m.slug === makeSlug);
+  return fallback ? fallback.popularModels.map(slugify) : [];
 }
 
 export function getYearsForModel(makeSlug: string, modelSlug: string): number[] {
@@ -130,10 +133,10 @@ export function getYearsForModel(makeSlug: string, modelSlug: string): number[] 
  */
 export function getTopModelsToPrerender(): { make: string, model: string, year: string }[] {
   const topPaths: { make: string, model: string, year: string }[] = [];
-  
+
   // Pick out some undeniably popular search terms to pre-build
   const topMakes = ['ford', 'bmw', 'volkswagen', 'toyota', 'chevrolet'];
-  
+
   for (const make of topMakes) {
     const models = getModelsForMake(make);
     // Take top 3 models for these makes
@@ -146,6 +149,6 @@ export function getTopModelsToPrerender(): { make: string, model: string, year: 
       }
     }
   }
-  
+
   return topPaths;
 }

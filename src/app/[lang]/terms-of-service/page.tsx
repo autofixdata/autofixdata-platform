@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: m.termsTitle || 'Terms of Service | Auto Fix Data',
     description: m.termsDesc || 'Auto Fix Data terms of service.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/terms-of-service`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/terms-of-service`])),
+      canonical: `https://workshopdata.us/${lang}/terms-of-service`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/terms-of-service`])),
     }
   };
 }
@@ -40,7 +40,7 @@ export default async function TermsOfServicePage({ params }: { params: Promise<{
       <section className="py-16 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <Section title="1. Agreement to Terms">
-            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", "your") and Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our"). By accessing or using our website (autofixdata.net) or subscribing to our services, you agree to be bound by these Terms.</p>
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", "your") and Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our"). By accessing or using our website (workshopdata.us) or subscribing to our services, you agree to be bound by these Terms.</p>
             <p>If you are accessing the service on behalf of an organisation, you represent that you have authority to bind that organisation to these Terms.</p>
           </Section>
 
@@ -112,7 +112,7 @@ export default async function TermsOfServicePage({ params }: { params: Promise<{
           </Section>
 
           <Section title="12. Contact">
-            <p>For questions regarding these Terms, contact us at <a href="mailto:legal@autofixdata.net" className="text-afd-blue underline">legal@autofixdata.net</a> or via our <a href="/contact" className="text-afd-blue underline">contact page</a>.</p>
+            <p>For questions regarding these Terms, contact us at <a href="mailto:legal@workshopdata.us" className="text-afd-blue underline">legal@workshopdata.us</a> or via our <a href="/contact" className="text-afd-blue underline">contact page</a>.</p>
           </Section>
         </div>
       </section>

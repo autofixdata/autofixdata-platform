@@ -9,13 +9,13 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "Contact Auto Fix Data",
-  "url": "https://autofixdata.net/contact",
+  "url": "https://workshopdata.us/contact",
   "description": "Contact Auto Fix Data for sales, support or technical assistance.",
   "mainEntity": {
     "@type": "Organization",
     "name": "Auto Fix Data",
     "telephone": "+19707171871",
-    "email": "support@autofixdata.net",
+    "email": "support@workshopdata.us",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "228 Park Ave S",
@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.contact.meta.title,
     description: dict.contact.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/contact`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/contact`])),
+      canonical: `https://workshopdata.us/${lang}/contact`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/contact`])),
     },
   };
 }
@@ -62,8 +62,8 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { icon: <Phone className="w-5 h-5" />, label: "Phone / WhatsApp", value: "+1 970-717-1871", sub: "Mon–Fri 9am–6pm ET", href: "tel:+19707171871", color: "text-afd-blue" },
-            { icon: <Mail className="w-5 h-5" />, label: d.info.supportHeading, value: "support@autofixdata.net", sub: "Response within 4 hours", href: "mailto:support@autofixdata.net", color: "text-afd-blue" },
-            { icon: <Mail className="w-5 h-5" />, label: d.info.salesHeading, value: "sales@autofixdata.net", sub: "New subscriptions & pricing", href: "mailto:sales@autofixdata.net", color: "text-afd-blue" },
+            { icon: <Mail className="w-5 h-5" />, label: d.info.supportHeading, value: "support@workshopdata.us", sub: "Response within 4 hours", href: "mailto:support@workshopdata.us", color: "text-afd-blue" },
+            { icon: <Mail className="w-5 h-5" />, label: d.info.salesHeading, value: "sales@workshopdata.us", sub: "New subscriptions & pricing", href: "mailto:sales@workshopdata.us", color: "text-afd-blue" },
             { icon: <MessageCircle className="w-5 h-5" />, label: "WhatsApp Chat", value: "Message us now →", sub: "Fastest response channel", href: "https://api.whatsapp.com/send/?phone=447367064215", color: "text-[#25D366]" },
           ].map(({ icon, label, value, sub, href, color }) => (
             <a
@@ -88,7 +88,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           {/* Form — 3 cols */}
-          <div className="lg:col-span-3 w-[121%] max-w-[664px] mx-auto overflow-hidden">
+          <div className="lg:col-span-3 w-full lg:w-[121%] max-w-[664px] mx-auto overflow-hidden">
             <iframe
               src="https://link.autodatalogin.com/widget/form/6NpjPI8xOHFO7PUOg1Ad"
               style={{ width: "100%", height: "100%", border: "none", borderRadius: "12px" }}

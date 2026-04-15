@@ -14,27 +14,27 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as any);
   const makeName = unslugify(make);
 
-  const title = dict.manuals?.makeTitle 
+  const title = dict.manuals?.makeTitle
     ? dict.manuals.makeTitle.replace('{Ma}', makeName)
     : `${makeName} OEM Repair Manuals & Wiring Diagrams | Auto Fix Data`;
-    
+
   return {
     title,
     description: `Access complete factory repair manuals, torque specifications, and wiring diagrams for all ${makeName} models. Download professional ${makeName} workshop manuals.`,
-    alternates: { canonical: `https://autofixdata.net/${lang}/manuals/${make}` },
+    alternates: { canonical: `https://workshopdata.us/${lang}/manuals/${make}` },
   };
 }
 
 export default async function MakeDirectoryPage({ params }: { params: Promise<{ lang: string; make: string }> }) {
   const { lang, make } = await params;
   const dict = await getDictionary(lang as any);
-  
+
   // Validate make exists in our config
   const makeData = POPULAR_MAKES.find(m => m.slug === make.toLowerCase());
   if (!makeData) notFound();
 
   const makeName = makeData.name;
-  
+
   // Read models precisely from our massive JSON database
   const models = getModelsForMake(make.toLowerCase());
   if (models.length === 0) notFound();
@@ -43,9 +43,9 @@ export default async function MakeDirectoryPage({ params }: { params: Promise<{ 
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://autofixdata.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://autofixdata.net/${lang}/repair-manuals` },
-      { '@type': 'ListItem', position: 3, name: makeName, item: `https://autofixdata.net/${lang}/manuals/${make}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://workshopdata.us/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://workshopdata.us/${lang}/repair-manuals` },
+      { '@type': 'ListItem', position: 3, name: makeName, item: `https://workshopdata.us/${lang}/manuals/${make}` },
     ],
   });
 

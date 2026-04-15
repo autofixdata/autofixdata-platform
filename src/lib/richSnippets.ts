@@ -1,10 +1,10 @@
 /**
- * Shared JSON-LD rich snippet helpers for autofixdata.net
+ * Shared JSON-LD rich snippet helpers for workshopdata.us
  * Used across product pages, feature pages, pricing, and SEO alternative pages
  * to enable Google rich results: star ratings, pricing, return policy, availability.
  */
 
-export const SITE_URL = "https://autofixdata.net";
+export const SITE_URL = "https://workshopdata.us";
 
 export const AGGREGATE_RATING = {
   "@type": "AggregateRating",

@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.repairManuals.meta.title,
     description: dict.repairManuals.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/repair-manuals`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/repair-manuals`])),
+      canonical: `https://workshopdata.us/${lang}/repair-manuals`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/repair-manuals`])),
     },
   };
 }
@@ -29,7 +29,7 @@ export default async function RepairManualsPage({ params }: { params: Promise<{ 
     "name": `${d.hero?.heading1 || "OEM Repair Manuals"} — Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d.meta?.description || "Access OEM-level repair manuals for 150M+ vehicles.",
-    "url": `https://autofixdata.net/${lang}/repair-manuals`,
+    "url": `https://workshopdata.us/${lang}/repair-manuals`,
     "brand": {
       "@type": "Brand",
       "name": "Auto Fix Data"
@@ -46,7 +46,7 @@ export default async function RepairManualsPage({ params }: { params: Promise<{ 
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 
@@ -66,7 +66,7 @@ export default async function RepairManualsPage({ params }: { params: Promise<{ 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: productSchema }} />
-      
+
       <section className="bg-afd-navy py-20 px-6 dark-section">
         <div className="max-w-[1000px] mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 text-afd-yellow text-sm font-bold px-4 py-2 rounded-full mb-6">

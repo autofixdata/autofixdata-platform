@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.products.meta.title,
     description: dict.products.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/products`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/products`])),
+      canonical: `https://workshopdata.us/${lang}/products`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/products`])),
     },
   };
 }
@@ -29,7 +29,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     <>
       <section className="bg-afd-navy pt-20 pb-16 px-6 text-center dark-section">
         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-          {d.hero.heading1}<br/><span className="text-afd-yellow">{d.hero.heading2}</span>
+          {d.hero.heading1}<br /><span className="text-afd-yellow">{d.hero.heading2}</span>
         </h1>
         <p className="text-xl text-afd-slate max-w-3xl mx-auto mb-10">
           {d.hero.subheading}
@@ -39,32 +39,32 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       <section className="py-20 bg-afd-light px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            <ProductCard 
-              brand="ALLDATA" color="bg-orange-500 text-white" 
+            <ProductCard
+              brand="ALLDATA" color="bg-orange-500 text-white"
               tagline={h.alldata.tagline}
               description={h.alldata.desc}
               link="/alldata"
             />
-            <ProductCard 
-              brand="AutoData" color="bg-blue-600 text-white" 
+            <ProductCard
+              brand="AutoData" color="bg-blue-600 text-white"
               tagline={h.autodata.tagline}
               description={h.autodata.desc}
               link="/autodata"
             />
-            <ProductCard 
-              brand="Haynes Pro" color="bg-red-600 text-white" 
+            <ProductCard
+              brand="Haynes Pro" color="bg-red-600 text-white"
               tagline={h.haynesPro.tagline}
               description={h.haynesPro.desc}
               link="/haynes-pro"
             />
-            <ProductCard 
-              brand="Mitchell1" color="bg-blue-800 text-white" 
+            <ProductCard
+              brand="Mitchell1" color="bg-blue-800 text-white"
               tagline={h.mitchell1.tagline}
               description={h.mitchell1.desc}
               link="/mitchell1"
             />
-            <ProductCard 
-              brand="Identifix" color="bg-purple-600 text-white" 
+            <ProductCard
+              brand="Identifix" color="bg-purple-600 text-white"
               tagline={h.identifix.tagline}
               description={h.identifix.desc}
               link="/identifix"

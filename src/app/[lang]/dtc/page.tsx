@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: m.title || 'OBD-II Fault Codes (DTC) Directory & Symptoms | Auto Fix Data',
     description: m.description || 'Search our massive database of OBD2 engine fault codes.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/dtc`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/dtc`])),
+      canonical: `https://workshopdata.us/${lang}/dtc`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/dtc`])),
     }
   };
 }
@@ -60,12 +60,11 @@ export default async function DtcDirectoryPage({ params }: { params: Promise<{ l
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-lg font-black text-afd-navy">{dtc.code}</span>
-                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${
-                        dtc.severity === "Critical" ? "bg-red-100 text-red-700" :
-                        dtc.severity === "High" ? "bg-orange-100 text-orange-700" :
-                        dtc.severity === "Medium" ? "bg-yellow-100 text-yellow-800" :
-                        "bg-gray-100 text-gray-700"
-                      }`}>
+                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${dtc.severity === "Critical" ? "bg-red-100 text-red-700" :
+                          dtc.severity === "High" ? "bg-orange-100 text-orange-700" :
+                            dtc.severity === "Medium" ? "bg-yellow-100 text-yellow-800" :
+                              "bg-gray-100 text-gray-700"
+                        }`}>
                         {dtc.severity} Severity
                       </span>
                     </div>

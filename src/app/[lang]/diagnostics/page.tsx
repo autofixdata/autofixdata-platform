@@ -26,7 +26,7 @@ const productSchema = JSON.stringify({
   "@type": "Product",
   "name": "DTC Code Library & Diagnostic Data — Auto Fix Data",
   "description": "Access the complete OBD2 and OEM-specific DTC library — P, B, C and U codes with diagnostic flowcharts, freeze frame data and real-world confirmed fixes.",
-  "url": "https://autofixdata.net/diagnostics",
+  "url": "https://workshopdata.us/diagnostics",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
 });
 
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.diagnostics.meta.title,
     description: dict.diagnostics.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/diagnostics`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/diagnostics`])),
+      canonical: `https://workshopdata.us/${lang}/diagnostics`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/diagnostics`])),
     },
   };
 }

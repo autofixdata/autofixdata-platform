@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.mitchell1?.meta?.title ?? 'Mitchell1 ProDemand Repair Data | Auto Fix Data Reseller',
     description: dict.mitchell1?.meta?.description ?? 'Access Mitchell1 ProDemand repair data, wiring diagrams and TSBs through Auto Fix Data. Authorised Mitchell1 reseller. Full OEM data. Start free today.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/mitchell1`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/mitchell1`])),
+      canonical: `https://workshopdata.us/${lang}/mitchell1`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/mitchell1`])),
     },
   };
 }
@@ -33,7 +33,7 @@ export default async function Mitchell1ProductPage({ params }: { params: Promise
     "name": `${d?.hero?.heading || "Mitchell1 ProDemand Repair Data"} — via Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d?.meta?.description || "Access Mitchell1 ProDemand repair data.",
-    "url": `https://autofixdata.net/${lang}/mitchell1`,
+    "url": `https://workshopdata.us/${lang}/mitchell1`,
     "brand": {
       "@type": "Brand",
       "name": "Mitchell1"
@@ -50,7 +50,7 @@ export default async function Mitchell1ProductPage({ params }: { params: Promise
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 

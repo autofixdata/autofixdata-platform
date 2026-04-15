@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.identifix?.meta?.title ?? 'Identifix Direct-Hit Repair Data | Auto Fix Data Reseller',
     description: dict.identifix?.meta?.description ?? 'Access Identifix Direct-Hit diagnostic data through Auto Fix Data. Real-world fix data from 70M+ repairs. Authorised reseller. Free trial available.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/identifix`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/identifix`])),
+      canonical: `https://workshopdata.us/${lang}/identifix`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/identifix`])),
     },
   };
 }
@@ -33,7 +33,7 @@ export default async function IdentifixProductPage({ params }: { params: Promise
     "name": `${d?.hero?.heading || "Identifix Direct-Hit Repair Data"} — via Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d?.meta?.description || "Access Identifix Direct-Hit diagnostic data through Auto Fix Data.",
-    "url": `https://autofixdata.net/${lang}/identifix`,
+    "url": `https://workshopdata.us/${lang}/identifix`,
     "brand": {
       "@type": "Brand",
       "name": "Identifix"
@@ -50,7 +50,7 @@ export default async function IdentifixProductPage({ params }: { params: Promise
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 

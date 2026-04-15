@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang, code } = await params;
   const dict = await getDictionary(lang as any);
   const dtc = getDtcByCode(code.toUpperCase());
-  
+
   const title = dict.dtc.metaTitle.replace('{code}', code.toUpperCase()).replace('{title}', dtc?.description || "Diagnostic Trouble Code");
   const description = dict.dtc.metaDescription.replace('{code}', code.toUpperCase());
-  
+
   return {
     title,
     description,
-    alternates: { canonical: `https://autofixdata.net/${lang}/dtc/${code.toUpperCase()}` },
+    alternates: { canonical: `https://workshopdata.us/${lang}/dtc/${code.toUpperCase()}` },
     openGraph: { title, description }
   };
 }
@@ -60,9 +60,9 @@ export default async function DtcDetailPage({ params }: { params: Promise<{ lang
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: `https://autofixdata.net/${lang}` },
-        { '@type': 'ListItem', position: 2, name: 'DTC Codes', item: `https://autofixdata.net/${lang}/dtc` },
-        { '@type': 'ListItem', position: 3, name: dtc.code, item: `https://autofixdata.net/${lang}/dtc/${dtc.code}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `https://workshopdata.us/${lang}` },
+        { '@type': 'ListItem', position: 2, name: 'DTC Codes', item: `https://workshopdata.us/${lang}/dtc` },
+        { '@type': 'ListItem', position: 3, name: dtc.code, item: `https://workshopdata.us/${lang}/dtc/${dtc.code}` },
       ],
     },
   });
@@ -80,11 +80,10 @@ export default async function DtcDetailPage({ params }: { params: Promise<{ lang
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="bg-afd-yellow text-black font-black px-3 py-1.5 rounded-md text-sm tracking-widest">{dtc.code}</span>
-              <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${
-                dtc.severity === "Critical" ? "bg-red-500/20 text-red-200" :
-                dtc.severity === "High" ? "bg-orange-500/20 text-orange-200" :
-                "bg-yellow-500/20 text-yellow-200"
-              }`}>{dtc.severity} {d.severityLevel}</span>
+              <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${dtc.severity === "Critical" ? "bg-red-500/20 text-red-200" :
+                  dtc.severity === "High" ? "bg-orange-500/20 text-orange-200" :
+                    "bg-yellow-500/20 text-yellow-200"
+                }`}>{dtc.severity} {d.severityLevel}</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">{dtc.description || dtc.code}</h1>
             <p className="text-lg text-afd-slate max-w-3xl leading-relaxed">This diagnostic trouble code indicates a malfunction in the associated component circuit.</p>

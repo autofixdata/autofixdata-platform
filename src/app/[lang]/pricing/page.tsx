@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.pricing.meta.title,
     description: dict.pricing.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/pricing`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/pricing`])),
+      canonical: `https://workshopdata.us/${lang}/pricing`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/pricing`])),
     },
   };
 }
@@ -21,14 +21,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function PricingPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang as any);
-  
+
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": `${dict.pricing.hero.heading} — Auto Fix Data`,
     "description": dict.pricing.meta.description,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
-    "url": `https://autofixdata.net/${lang}/pricing`,
+    "url": `https://workshopdata.us/${lang}/pricing`,
     "brand": {
       "@type": "Brand",
       "name": "Auto Fix Data"
@@ -46,7 +46,7 @@ export default async function PricingPage({ params }: { params: Promise<{ lang: 
       "priceCurrency": "GBP",
       "offerCount": "2",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/pricing`
+      "url": `https://workshopdata.us/${lang}/pricing`
     }
   });
 

@@ -21,25 +21,25 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; make: string; model: string }> }): Promise<Metadata> {
   const { lang, make, model } = await params;
   const dict = await getDictionary(lang as any);
-  
+
   const makeName = unslugify(make);
   const modelName = unslugify(model);
 
-  const title = dict.manuals?.modelTitle 
+  const title = dict.manuals?.modelTitle
     ? dict.manuals.modelTitle.replace('{Ma}', makeName).replace('{Mo}', modelName)
     : `${makeName} ${modelName} Repair Manual & Wiring Diagrams`;
-    
+
   return {
     title,
     description: `Complete list of ${makeName} ${modelName} repair manuals by year. Select your vehicle's exact year to view OEM wiring diagrams, specifications, and service procedures.`,
-    alternates: { canonical: `https://autofixdata.net/${lang}/manuals/${make}/${model}` },
+    alternates: { canonical: `https://workshopdata.us/${lang}/manuals/${make}/${model}` },
   };
 }
 
 export default async function ModelDetailPage({ params }: { params: Promise<{ lang: string; make: string; model: string }> }) {
   const { lang, make, model } = await params;
   const dict = await getDictionary(lang as any);
-  
+
   const makeName = unslugify(make);
   const modelName = unslugify(model);
   const years = getYearsForModel(make, model);
@@ -48,10 +48,10 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://autofixdata.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://autofixdata.net/${lang}/repair-manuals` },
-      { '@type': 'ListItem', position: 3, name: makeName, item: `https://autofixdata.net/${lang}/manuals/${make}` },
-      { '@type': 'ListItem', position: 4, name: modelName, item: `https://autofixdata.net/${lang}/manuals/${make}/${model}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://workshopdata.us/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://workshopdata.us/${lang}/repair-manuals` },
+      { '@type': 'ListItem', position: 3, name: makeName, item: `https://workshopdata.us/${lang}/manuals/${make}` },
+      { '@type': 'ListItem', position: 4, name: modelName, item: `https://workshopdata.us/${lang}/manuals/${make}/${model}` },
     ],
   });
 
@@ -77,7 +77,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
 
       <div className="min-h-[calc(100vh-100px)] bg-gray-50 py-12 px-6">
         <div className="max-w-[1200px] mx-auto">
-          
+
           <div className="flex flex-col md:flex-row gap-6 justify-between items-start md:items-end mb-10">
             <div>
               <div className="flex items-center gap-3 mb-4">
@@ -86,7 +86,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
               <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">{makeName} {modelName}</h1>
               <p className="text-xl text-gray-500">Select your production year to view specific OEM repair data.</p>
             </div>
-            
+
             <div className="shrink-0 bg-afd-navy rounded-2xl p-5 text-white flex gap-4 items-center shadow-lg border border-black/10">
               <div className="w-12 h-12 bg-afd-yellow/20 rounded-full flex items-center justify-center">
                 <Key className="w-6 h-6 text-afd-yellow drop-shadow-sm" />
@@ -103,12 +103,12 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
               <CalendarDays className="w-8 h-8 text-afd-yellow" />
               <h2 className="text-2xl font-bold text-afd-navy">Select Production Year</h2>
             </div>
-            
+
             {years && years.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {years.map(yr => (
-                  <Link 
-                    key={yr} 
+                  <Link
+                    key={yr}
                     href={`/manuals/${make}/${model}/${yr}`}
                     className="group flex flex-col items-center justify-center py-5 px-4 rounded-2xl border-2 border-gray-100 hover:border-afd-yellow hover:bg-gray-50 transition-all shadow-sm hover:shadow"
                   >
@@ -127,7 +127,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
               </div>
             )}
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-afd-navy text-white rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden">
               <div className="relative z-10">
@@ -147,7 +147,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ la
               <Settings className="absolute -top-10 -right-10 w-64 h-64 text-gray-50" />
             </div>
           </div>
-          
+
         </div>
       </div>
     </>

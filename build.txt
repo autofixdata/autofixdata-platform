@@ -19,8 +19,8 @@ Unexpected closing tag `</div>`, expected corresponding closing tag for `<ul>` (
   118 | <strong>📚 Related Articles on AutoFixData</strong>
 > 119 | <ul>
       | ^
-  120 | <li><a href="https://www.autofixdata.net/wiring-diagrams">Access interactive wiring diagrams for EVs and ICE</a></li>
-  121 | <li><a href="https://www.autofixdata.net/alldata">AllData repair data — comprehensive EV coverage</a></li>
+  120 | <li><a href="https://www.workshopdata.us/wiring-diagrams">Access interactive wiring diagrams for EVs and ICE</a></li>
+  121 | <li><a href="https://www.workshopdata.us/alldata">AllData repair data — comprehensive EV coverage</a></li>
 
 More information: https://mdxjs.com/docs/troubleshooting-mdx] {
   digest: '4078582295'

@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: m.gdprTitle || 'GDPR & Cookie Policy | Auto Fix Data',
     description: m.gdprDesc || 'Information regarding Auto Fix Data GDPR compliance.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/gdpr`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/gdpr`])),
+      canonical: `https://workshopdata.us/${lang}/gdpr`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/gdpr`])),
     }
   };
 }
@@ -53,7 +53,7 @@ export default async function GDPRPage({ params }: { params: Promise<{ lang: str
             <Shield className="w-10 h-10 text-afd-yellow" />
             <h1 className="text-4xl font-extrabold text-white">GDPR & Cookie Policy</h1>
           </div>
-          <p className="text-afd-slate text-lg max-w-2xl">Our commitment to data protection, your rights, and how we use cookies on autofixdata.net.</p>
+          <p className="text-afd-slate text-lg max-w-2xl">Our commitment to data protection, your rights, and how we use cookies on workshopdata.us.</p>
           <p className="text-afd-slate/60 text-sm mt-2">Last updated: 1 January 2025</p>
         </div>
       </section>
@@ -63,7 +63,7 @@ export default async function GDPRPage({ params }: { params: Promise<{ lang: str
 
           <Section title="Our GDPR Commitment">
             <p>Auto Fix Data Ltd is committed to protecting your privacy and handling personal data in compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. We take a "privacy by design" approach, collecting only what we need and keeping it secure.</p>
-            <p>Our Data Protection Officer can be reached at <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a>.</p>
+            <p>Our Data Protection Officer can be reached at <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a>.</p>
           </Section>
 
           <Section title="Legal Bases for Processing">
@@ -83,7 +83,7 @@ export default async function GDPRPage({ params }: { params: Promise<{ lang: str
           </Section>
 
           <Section title="Your Rights Under UK GDPR">
-            <p className="mb-6">You have the following rights regarding your personal data. To exercise any of these rights, email us at <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a>. We will respond within 30 calendar days.</p>
+            <p className="mb-6">You have the following rights regarding your personal data. To exercise any of these rights, email us at <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a>. We will respond within 30 calendar days.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 not-prose">
               {rights.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="bg-afd-light p-5 rounded-xl border border-gray-200">
@@ -97,7 +97,7 @@ export default async function GDPRPage({ params }: { params: Promise<{ lang: str
           </Section>
 
           <Section title="Cookie Policy">
-            <p>We use cookies and similar tracking technologies on autofixdata.net. A cookie is a small text file stored on your device by your browser. We use cookies to make our website function correctly, to understand how it is used, and to personalise your experience.</p>
+            <p>We use cookies and similar tracking technologies on workshopdata.us. A cookie is a small text file stored on your device by your browser. We use cookies to make our website function correctly, to understand how it is used, and to personalise your experience.</p>
             <p>When you first visit our site, you will be asked to consent to non-essential cookies. You can change your preferences at any time.</p>
           </Section>
 
@@ -157,7 +157,7 @@ export default async function GDPRPage({ params }: { params: Promise<{ lang: str
             <div className="bg-afd-light p-6 rounded-xl border border-gray-200 not-prose">
               <p className="font-bold text-afd-navy mb-2">Data Protection Contact</p>
               <p className="text-afd-text text-sm">Auto Fix Data Ltd</p>
-              <p className="text-afd-text text-sm">Email: <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a></p>
+              <p className="text-afd-text text-sm">Email: <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a></p>
               <p className="text-afd-text text-sm mt-3 pt-3 border-t border-gray-200">If you are not satisfied with our response, you may contact the ICO:</p>
               <p className="text-afd-text text-sm">Information Commissioner's Office: <a href="https://ico.org.uk" className="text-afd-blue underline" target="_blank" rel="noopener noreferrer">ico.org.uk</a> | Helpline: 0303 123 1113</p>
             </div>

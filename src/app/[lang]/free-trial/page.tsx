@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.freeTrial.meta.title,
     description: dict.freeTrial.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/free-trial`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/free-trial`])),
+      canonical: `https://workshopdata.us/${lang}/free-trial`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/free-trial`])),
     },
   };
 }
@@ -29,7 +29,7 @@ export default async function FreeTrialPage({ params }: { params: Promise<{ lang
     "name": `${d.hero.heading} — Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d.meta.description,
-    "url": `https://autofixdata.net/${lang}/free-trial`,
+    "url": `https://workshopdata.us/${lang}/free-trial`,
     "brand": {
       "@type": "Brand",
       "name": "Auto Fix Data"
@@ -46,7 +46,7 @@ export default async function FreeTrialPage({ params }: { params: Promise<{ lang
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 
@@ -57,7 +57,7 @@ export default async function FreeTrialPage({ params }: { params: Promise<{ lang
 
       <div className="bg-afd-light min-h-[calc(100vh-200px)] py-16">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left: Value Prop */}
           <div>
             <span className="text-afd-blue font-bold tracking-wider uppercase text-sm mb-4 block">Professional Access</span>
@@ -87,23 +87,23 @@ export default async function FreeTrialPage({ params }: { params: Promise<{ lang
           </div>
 
           {/* Right: Form */}
-          <div className="w-[121%] max-w-[664px] mx-auto overflow-hidden">
+          <div className="w-full lg:w-[121%] max-w-[664px] mx-auto overflow-hidden">
             <iframe
-                src="https://link.autodatalogin.com/widget/form/4tQbweI60VyYW02nlcVf"
-                style={{width:"100%",height:"100%",border:"none",borderRadius:"12px"}}
-                id="inline-4tQbweI60VyYW02nlcVf" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Start Your Free 7-Day Trial"
-                data-height="671"
-                data-layout-iframe-id="inline-4tQbweI60VyYW02nlcVf"
-                data-form-id="4tQbweI60VyYW02nlcVf"
-                title={d.hero.heading}
+              src="https://link.autodatalogin.com/widget/form/4tQbweI60VyYW02nlcVf"
+              style={{ width: "100%", height: "100%", border: "none", borderRadius: "12px" }}
+              id="inline-4tQbweI60VyYW02nlcVf"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Start Your Free 7-Day Trial"
+              data-height="671"
+              data-layout-iframe-id="inline-4tQbweI60VyYW02nlcVf"
+              data-form-id="4tQbweI60VyYW02nlcVf"
+              title={d.hero.heading}
             />
           </div>
         </div>

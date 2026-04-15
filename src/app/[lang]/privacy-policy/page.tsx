@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: m.privacyTitle || 'Privacy Policy | Auto Fix Data',
     description: m.privacyDesc || 'Auto Fix Data privacy policy.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/privacy-policy`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/privacy-policy`])),
+      canonical: `https://workshopdata.us/${lang}/privacy-policy`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/privacy-policy`])),
     }
   };
 }
@@ -40,8 +40,8 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
       <section className="py-16 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <Section title="1. Who We Are">
-            <p>Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our") is a professional automotive repair database platform headquartered in the United Kingdom. We are the data controller for all personal data collected through this website (autofixdata.net) and our subscription services.</p>
-            <p>If you have any questions about this Privacy Policy or how we handle your personal data, please contact us at: <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a></p>
+            <p>Auto Fix Data Ltd ("Auto Fix Data", "we", "us", "our") is a professional automotive repair database platform headquartered in the United Kingdom. We are the data controller for all personal data collected through this website (workshopdata.us) and our subscription services.</p>
+            <p>If you have any questions about this Privacy Policy or how we handle your personal data, please contact us at: <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a></p>
           </Section>
 
           <Section title="2. Data We Collect">
@@ -116,7 +116,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               <li><strong>Right to object:</strong> object to processing based on legitimate interests or for direct marketing.</li>
               <li><strong>Rights related to automated decision-making:</strong> we do not make solely automated decisions that significantly affect you.</li>
             </ul>
-            <p>To exercise any of these rights, contact us at <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a>. We will respond within 30 days. If you are not satisfied with our response, you have the right to lodge a complaint with the ICO at <a href="https://ico.org.uk" className="text-afd-blue underline" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.</p>
+            <p>To exercise any of these rights, contact us at <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a>. We will respond within 30 days. If you are not satisfied with our response, you have the right to lodge a complaint with the ICO at <a href="https://ico.org.uk" className="text-afd-blue underline" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.</p>
           </Section>
 
           <Section title="9. Cookies">
@@ -139,8 +139,8 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
             <p>For any questions, concerns or requests relating to this Privacy Policy or your personal data:</p>
             <div className="bg-afd-light p-6 rounded-xl border border-gray-200 not-prose">
               <p className="font-bold text-afd-navy">Auto Fix Data Ltd</p>
-              <p>Email: <a href="mailto:privacy@autofixdata.net" className="text-afd-blue underline">privacy@autofixdata.net</a></p>
-              <p>Website: <a href="/contact" className="text-afd-blue underline">autofixdata.net/contact</a></p>
+              <p>Email: <a href="mailto:privacy@workshopdata.us" className="text-afd-blue underline">privacy@workshopdata.us</a></p>
+              <p>Website: <a href="/contact" className="text-afd-blue underline">workshopdata.us/contact</a></p>
             </div>
           </Section>
         </div>

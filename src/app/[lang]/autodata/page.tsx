@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.autodata?.meta?.title ?? 'AutoData Workshop Database via Auto Fix Data | Authorised Reseller',
     description: dict.autodata?.meta?.description ?? "Access AutoData's technical specifications, service intervals, wiring diagrams and DTC codes through Auto Fix Data. Trusted by European workshops. Free trial available.",
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/autodata`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/autodata`])),
+      canonical: `https://workshopdata.us/${lang}/autodata`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/autodata`])),
     },
   };
 }
@@ -33,7 +33,7 @@ export default async function AutodataProductPage({ params }: { params: Promise<
     "name": `${d?.hero?.heading || "AutoData Workshop Database"} — via Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d?.meta?.description || "Access AutoData's technical specifications.",
-    "url": `https://autofixdata.net/${lang}/autodata`,
+    "url": `https://workshopdata.us/${lang}/autodata`,
     "brand": {
       "@type": "Brand",
       "name": "AutoData"
@@ -50,7 +50,7 @@ export default async function AutodataProductPage({ params }: { params: Promise<
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const m = dict.common.meta;
 
   return {
-    metadataBase: new URL('https://autofixdata.net'),
+    metadataBase: new URL('https://workshopdata.us'),
     title: {
       default: m.defaultTitle,
       template: '%s | Auto Fix Data',
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     openGraph: {
       type: 'website',
       locale: lang === 'en' ? 'en_GB' : lang,
-      url: `https://autofixdata.net/${lang}`,
+      url: `https://workshopdata.us/${lang}`,
       siteName: 'Auto Fix Data',
       title: m.defaultTitle,
       description: m.defaultDesc,
@@ -71,7 +71,7 @@ export default async function RootLayout({
 }) {
   const { lang } = await params;
   const dir = lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr';
-  const dictionary = await getDictionary(lang as 'en'|'fr'|'es'|'de'|'it'|'ar'|'he');
+  const dictionary = await getDictionary(lang as 'en' | 'fr' | 'es' | 'de' | 'it' | 'ar' | 'he');
 
   return (
     <html lang={lang} dir={dir}>
@@ -82,37 +82,41 @@ export default async function RootLayout({
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T6MPMMT7');`
         }} />
         {/* Global Organization JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Auto Fix Data",
-          "url": "https://autofixdata.net",
-          "logo": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/678a6476a12015eea3a7c3b1.png",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "email": "support@autofixdata.net",
-            "availableLanguage": ["English", "French", "German", "Spanish", "Italian"]
-          },
-          "sameAs": [
-            "https://twitter.com/autofixdata",
-            "https://www.linkedin.com/company/autofixdata",
-            "https://www.facebook.com/autofixdata"
-          ]
-        })}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Auto Fix Data",
+            "url": "https://workshopdata.us",
+            "logo": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/678a6476a12015eea3a7c3b1.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "support@workshopdata.us",
+              "availableLanguage": ["English", "French", "German", "Spanish", "Italian"]
+            },
+            "sameAs": [
+              "https://twitter.com/autofixdata",
+              "https://www.linkedin.com/company/autofixdata",
+              "https://www.facebook.com/autofixdata"
+            ]
+          })
+        }} />
         {/* SoftwareApplication JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "Auto Fix Data",
-          "operatingSystem": "Web browser, iOS, Android",
-          "applicationCategory": "BusinessApplication",
-          "url": "https://autofixdata.net",
-          "developer": { "@type": "Organization", "name": "Auto Fix Data Team" },
-          "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/678a6476a12015eea3a7c3b1.png",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "342" },
-          "offers": { "@type": "Offer", "price": "99.00", "priceCurrency": "GBP" }
-        })}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Auto Fix Data",
+            "operatingSystem": "Web browser, iOS, Android",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://workshopdata.us",
+            "developer": { "@type": "Organization", "name": "Auto Fix Data Team" },
+            "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/678a6476a12015eea3a7c3b1.png",
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "342" },
+            "offers": { "@type": "Offer", "price": "99.00", "priceCurrency": "GBP" }
+          })
+        }} />
       </head>
       <body>
         {/* GTM noscript */}

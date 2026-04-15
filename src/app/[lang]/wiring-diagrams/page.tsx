@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.wiring.meta.title,
     description: dict.wiring.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/wiring-diagrams`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/wiring-diagrams`])),
+      canonical: `https://workshopdata.us/${lang}/wiring-diagrams`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/wiring-diagrams`])),
     },
   };
 }
@@ -49,7 +49,7 @@ export default async function WiringDiagramsPage({ params }: { params: Promise<{
     "name": `${d.hero.heading1 || "Wiring Diagrams"} — Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d.meta.description || "Full-colour interactive wiring diagrams, ECU pinouts and component locators.",
-    "url": `https://autofixdata.net/${lang}/wiring-diagrams`,
+    "url": `https://workshopdata.us/${lang}/wiring-diagrams`,
     "brand": {
       "@type": "Brand",
       "name": "Auto Fix Data"
@@ -66,7 +66,7 @@ export default async function WiringDiagramsPage({ params }: { params: Promise<{
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 
@@ -84,7 +84,7 @@ export default async function WiringDiagramsPage({ params }: { params: Promise<{
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: productSchema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />
-      
+
       {/* HERO */}
       <section className="bg-afd-dark py-24 px-6 border-b border-afd-border relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-l from-afd-dark via-afd-dark/90 to-afd-dark z-0"></div>

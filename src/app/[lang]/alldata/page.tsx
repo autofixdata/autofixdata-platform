@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.alldata?.meta?.title ?? 'ALLDATA Repair Data via Auto Fix Data | OEM Service Manuals & TSBs',
     description: dict.alldata?.meta?.description ?? "Access ALLDATA's complete library of unedited OEM repair procedures, Technical Service Bulletins, wiring diagrams and diagnostic data through Auto Fix Data. Free 7-day trial.",
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/alldata`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/alldata`])),
+      canonical: `https://workshopdata.us/${lang}/alldata`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/alldata`])),
     },
   };
 }
@@ -33,7 +33,7 @@ export default async function AlldataProductPage({ params }: { params: Promise<{
     "name": `${d?.hero?.heading || "ALLDATA Repair Data"} — via Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d?.meta?.description || "Access ALLDATA's complete OEM repair procedures.",
-    "url": `https://autofixdata.net/${lang}/alldata`,
+    "url": `https://workshopdata.us/${lang}/alldata`,
     "brand": {
       "@type": "Brand",
       "name": "ALLDATA"
@@ -50,7 +50,7 @@ export default async function AlldataProductPage({ params }: { params: Promise<{
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 

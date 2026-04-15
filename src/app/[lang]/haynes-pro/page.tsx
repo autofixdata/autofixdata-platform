@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.haynesPro?.meta?.title ?? 'Haynes Pro Workshop Manuals via Auto Fix Data | Reseller',
     description: dict.haynesPro?.meta?.description ?? "Access Haynes Pro's professional workshop manuals and repair data through Auto Fix Data. OEM-level procedures for 150M+ vehicles. Start your free trial.",
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/haynes-pro`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/haynes-pro`])),
+      canonical: `https://workshopdata.us/${lang}/haynes-pro`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/haynes-pro`])),
     },
   };
 }
@@ -33,7 +33,7 @@ export default async function HaynesProProductPage({ params }: { params: Promise
     "name": `${d?.hero?.heading || "Haynes Pro Workshop Manuals"} — via Auto Fix Data`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
     "description": d?.meta?.description || "Access Haynes Pro's professional workshop manuals.",
-    "url": `https://autofixdata.net/${lang}/haynes-pro`,
+    "url": `https://workshopdata.us/${lang}/haynes-pro`,
     "brand": {
       "@type": "Brand",
       "name": "Haynes Pro"
@@ -50,7 +50,7 @@ export default async function HaynesProProductPage({ params }: { params: Promise
       "price": "0.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/free-trial`
+      "url": `https://workshopdata.us/${lang}/free-trial`
     }
   });
 

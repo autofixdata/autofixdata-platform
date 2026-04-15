@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: m.loginTitle || 'Database Login | Auto Fix Data',
     description: m.loginDesc || 'Sign in to your automotive workshop database.',
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/login`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/login`])),
+      canonical: `https://workshopdata.us/${lang}/login`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/login`])),
     }
   };
 }
@@ -86,13 +86,13 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
   const { lang } = await params;
   const dict = await getDictionary(lang as any) as any;
   const l = dict.login || {};
-  
+
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": l.title || "Database Login | Auto Fix Data",
     "description": l.subtitle || "Access your automotive workshop database.",
-    "url": `https://autofixdata.net/${lang}/login`
+    "url": `https://workshopdata.us/${lang}/login`
   });
 
   return (
@@ -117,51 +117,52 @@ export default async function LoginPage({ params }: { params: Promise<{ lang: st
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {DATABASES.map((db) => {
-              const dbKey = db.name === 'ALLDATA' ? 'alldata' 
-                          : db.name === 'AutoData' ? 'autodata'
-                          : db.name === 'Haynes Pro' ? 'haynes'
-                          : db.name === 'ProDemand' ? 'mitchell'
-                          : 'identifix';
+              const dbKey = db.name === 'ALLDATA' ? 'alldata'
+                : db.name === 'AutoData' ? 'autodata'
+                  : db.name === 'Haynes Pro' ? 'haynes'
+                    : db.name === 'ProDemand' ? 'mitchell'
+                      : 'identifix';
               const localizedDb = l.dbs?.[dbKey] || { tagline: db.tagline, desc: db.description };
-              
-              return (
-              <a
-                key={db.name}
-                href={db.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 hover:border-transparent transition-all duration-300 overflow-hidden"
-              >
-                {/* Card Header */}
-                <div className={`${db.bg} px-6 py-8 flex flex-col items-center text-center gap-3`}>
-                  {db.logo ? (
-                    <img
-                      src={db.logo}
-                      alt={db.name}
-                      className="h-14 max-w-[180px] object-contain filter brightness-0 invert"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                      <span className="text-white font-extrabold text-2xl tracking-tight">{db.initials}</span>
-                    </div>
-                  )}
-                  <div>
-                    <div className={`text-xl font-extrabold ${db.textColor}`}>{db.name}</div>
-                    <div className="text-white/60 text-sm">{localizedDb.tagline}</div>
-                  </div>
-                </div>
 
-                {/* Card Body */}
-                <div className="px-6 py-5">
-                  <p className="text-afd-text text-sm leading-relaxed mb-5">{localizedDb.desc}</p>
-                  <div className={`${db.btnClass} border w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all group-hover:shadow-md`}
-                    style={{ borderColor: db.accent + '30' }}>
-                    {l.signInTo.replace('{db}', db.name)}
-                    <ExternalLink className="w-4 h-4" />
+              return (
+                <a
+                  key={db.name}
+                  href={db.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 hover:border-transparent transition-all duration-300 overflow-hidden"
+                >
+                  {/* Card Header */}
+                  <div className={`${db.bg} px-6 py-8 flex flex-col items-center text-center gap-3`}>
+                    {db.logo ? (
+                      <img
+                        src={db.logo}
+                        alt={db.name}
+                        className="h-14 max-w-[180px] object-contain filter brightness-0 invert"
+                      />
+                    ) : (
+                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <span className="text-white font-extrabold text-2xl tracking-tight">{db.initials}</span>
+                      </div>
+                    )}
+                    <div>
+                      <div className={`text-xl font-extrabold ${db.textColor}`}>{db.name}</div>
+                      <div className="text-white/60 text-sm">{localizedDb.tagline}</div>
+                    </div>
                   </div>
-                </div>
-              </a>
-            )})}
+
+                  {/* Card Body */}
+                  <div className="px-6 py-5">
+                    <p className="text-afd-text text-sm leading-relaxed mb-5">{localizedDb.desc}</p>
+                    <div className={`${db.btnClass} border w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all group-hover:shadow-md`}
+                      style={{ borderColor: db.accent + '30' }}>
+                      {l.signInTo.replace('{db}', db.name)}
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
+                  </div>
+                </a>
+              )
+            })}
 
             {/* Not subscribed card */}
             <div className="bg-afd-navy rounded-2xl shadow-md border border-afd-yellow/20 p-6 flex flex-col items-center text-center justify-center gap-4 sm:col-span-2 lg:col-span-1">

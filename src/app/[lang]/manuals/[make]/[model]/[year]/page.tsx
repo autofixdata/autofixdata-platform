@@ -15,21 +15,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; make: string; model: string; year: string }> }): Promise<Metadata> {
   const { lang, make, model, year } = await params;
   const dict = await getDictionary(lang as any);
-  
+
   const makeName = unslugify(make);
   const modelName = unslugify(model);
-  const title = dict.manuals?.yearTemplateTitle 
+  const title = dict.manuals?.yearTemplateTitle
     ? dict.manuals.yearTemplateTitle.replace('{Y}', year).replace('{Ma}', makeName).replace('{Mo}', modelName)
     : `${year} ${makeName} ${modelName} Repair Manual & Wiring Diagrams`;
-    
-  const description = dict.manuals?.yearTemplateDesc 
+
+  const description = dict.manuals?.yearTemplateDesc
     ? dict.manuals.yearTemplateDesc.replace('{Y}', year).replace('{Ma}', makeName).replace('{Mo}', modelName)
     : `Access complete OEM repair data, service manuals, and interactive wiring diagrams for the ${year} ${makeName} ${modelName}.`;
 
   return {
     title,
     description,
-    alternates: { canonical: `https://autofixdata.net/${lang}/manuals/${make}/${model}/${year}` },
+    alternates: { canonical: `https://workshopdata.us/${lang}/manuals/${make}/${model}/${year}` },
     openGraph: { title, description },
   };
 }
@@ -55,7 +55,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
     "name": `${title} Repair Manual Data`,
     "description": `OEM diagnostic and repair database for ${title}.`,
     "image": "https://assets.cdn.filesafe.space/Ojp9CgccP9bDnBtQ25kU/media/670c1a958a10046187933a85.png",
-    "url": `https://autofixdata.net/${lang}/manuals/${make}/${model}/${year}`,
+    "url": `https://workshopdata.us/${lang}/manuals/${make}/${model}/${year}`,
     "brand": { "@type": "Brand", "name": makeName },
     "sku": `AFD-${make}-${model}-${year}`,
     "offers": {
@@ -64,7 +64,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
       "price": "99.00",
       "priceCurrency": "GBP",
       "availability": "https://schema.org/InStock",
-      "url": `https://autofixdata.net/${lang}/pricing`
+      "url": `https://workshopdata.us/${lang}/pricing`
     }
   });
 
@@ -72,11 +72,11 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://autofixdata.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://autofixdata.net/${lang}/repair-manuals` },
-      { '@type': 'ListItem', position: 3, name: makeName, item: `https://autofixdata.net/${lang}/manuals/${make}` },
-      { '@type': 'ListItem', position: 4, name: modelName, item: `https://autofixdata.net/${lang}/manuals/${make}/${model}` },
-      { '@type': 'ListItem', position: 5, name: year, item: `https://autofixdata.net/${lang}/manuals/${make}/${model}/${year}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://workshopdata.us/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Repair Manuals', item: `https://workshopdata.us/${lang}/repair-manuals` },
+      { '@type': 'ListItem', position: 3, name: makeName, item: `https://workshopdata.us/${lang}/manuals/${make}` },
+      { '@type': 'ListItem', position: 4, name: modelName, item: `https://workshopdata.us/${lang}/manuals/${make}/${model}` },
+      { '@type': 'ListItem', position: 5, name: year, item: `https://workshopdata.us/${lang}/manuals/${make}/${model}/${year}` },
     ],
   });
 
@@ -85,7 +85,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
   const availableYears = db[make]?.[model] || [];
   const sortedYears = [...availableYears].sort((a, b) => Number(a) - Number(b));
   const currentIndex = sortedYears.findIndex(y => String(y) === String(year));
-  
+
   const relatedLinks = [];
   if (currentIndex > 0) {
     const prev = sortedYears[currentIndex - 1];
@@ -133,9 +133,9 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
         {/* Left Sidebar Menu */}
         <aside className="hidden md:flex flex-col w-[260px] bg-[#2d2d2d] border-r border-[#1a1a1a] shadow-xl relative z-10 shrink-0">
           <div className="p-6 border-b border-[#1f1f1f] flex flex-col items-center justify-center text-center">
-            <img 
-              src={`/images/logos/${make}.png`} 
-              alt={makeName} 
+            <img
+              src={`/images/logos/${make}.png`}
+              alt={makeName}
               className="h-10 w-auto object-contain filter brightness-0 invert opacity-70 mb-3"
             />
             <h3 className="text-white font-bold text-sm tracking-wide">{modelName}</h3>
@@ -175,7 +175,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
           {/* Grid Area */}
           <div className="flex-1 p-4 lg:p-8">
             <div className="max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-[1fr_400px] gap-6 items-start">
-              
+
               {/* Left Column (Wider) */}
               <div className="flex flex-col gap-6">
                 {/* Maintenance Programs */}
@@ -202,12 +202,12 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
                   <div className="p-4 space-y-2.5">
                     <Link href="/pricing" className="w-full flex items-center justify-between px-5 py-3.5 bg-red-50/50 border border-red-100 rounded-lg hover:border-red-300 hover:bg-red-50 transition-all group">
                       <span className="text-sm text-red-700 font-semibold flex items-center gap-2.5">
-                        <AlertTriangle className="w-4 h-4 text-red-500" /> 
+                        <AlertTriangle className="w-4 h-4 text-red-500" />
                         Important! Read before working on this vehicle — Electrical Safety
                       </span>
                       <Lock className="w-3.5 h-3.5 text-red-400/70 shrink-0 group-hover:text-red-500 transition-colors" />
                     </Link>
-                    
+
                     {[
                       { label: "Flat-rate labour times", icon: Clock },
                       { label: "Adjustment & settings data", icon: Settings },
@@ -254,7 +254,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
 
               {/* Right Column (Narrower) */}
               <div className="flex flex-col gap-6">
-                
+
                 {/* Fault Code Search */}
                 <div className="bg-white rounded-xl border border-gray-200 shadow-[0_1px_3px_rgba(0,0,0,0.02)] overflow-hidden">
                   <div className="px-5 py-4 border-b border-gray-100">
@@ -265,10 +265,10 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Search className="h-4 w-4 text-gray-400" />
                       </div>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         disabled
-                        className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:outline-none cursor-not-allowed" 
+                        className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:outline-none cursor-not-allowed"
                         placeholder="Search one or more fault codes (e.g. P0300, P0420)"
                       />
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -295,7 +295,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
                     </div>
                     <div>
                       <span className="block text-[10px] font-bold text-gray-400 tracking-wider mb-1">YEAR RANGE</span>
-                      <span className="block text-sm font-bold text-gray-800">{year}-{parseInt(year)+3}</span>
+                      <span className="block text-sm font-bold text-gray-800">{year}-{parseInt(year) + 3}</span>
                     </div>
                     <div>
                       <span className="block text-[10px] font-bold text-gray-400 tracking-wider mb-1">MAKE</span>
@@ -339,7 +339,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
 
               </div>
             </div>
-            
+
             {/* Start Free Trial CTA directly integrated to push conversion */}
             <div className="max-w-[1400px] mx-auto mt-8 mb-8 bg-afd-navy rounded-xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border-l-4 border-afd-yellow">
               <div>
@@ -365,7 +365,7 @@ export default async function YearDetailPage({ params }: { params: Promise<{ lan
                 </div>
               </div>
             )}
-            
+
           </div>
         </main>
       </div>

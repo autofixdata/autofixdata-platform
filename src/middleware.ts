@@ -27,6 +27,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/public/') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
+    pathname === '/sitemap-index' ||
+    pathname.startsWith('/sitemap/') ||
     pathname.includes('.')
   ) {
     return NextResponse.next()

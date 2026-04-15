@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.home.meta.title,
     description: dict.home.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}`])),
+      canonical: `https://workshopdata.us/${lang}`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}`])),
     },
   };
 }

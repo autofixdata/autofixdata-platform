@@ -138,8 +138,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: dict.glossary.meta.title,
     description: dict.glossary.meta.description,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/glossary`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/glossary`])),
+      canonical: `https://workshopdata.us/${lang}/glossary`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/glossary`])),
     },
     keywords: ['automotive diagnostics glossary', 'OBD2 terminology', 'DTC definition', 'scan tool terms', 'automotive acronyms', 'CAN bus explained', 'ECU diagnostic terms'],
   };

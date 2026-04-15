@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as any) as any;
   const tpl = dict.alternatives?.template || {};
   const cName = "AutoData";
-  
+
   return {
     title: tpl.metaTitle ? tpl.metaTitle.replace(/\{C\}/g, cName) : `Best ${cName} Alternative | Auto Fix Data`,
     description: tpl.metaDesc ? tpl.metaDesc.replace(/\{C\}/g, cName) : `Searching for a better ${cName} alternative? Stop overpaying.`,
     alternates: {
-      canonical: `https://autofixdata.net/${lang}/autodata-alternative`,
-      languages: Object.fromEntries(LANGS.map(l => [l, `https://autofixdata.net/${l}/autodata-alternative`])),
+      canonical: `https://workshopdata.us/${lang}/autodata-alternative`,
+      languages: Object.fromEntries(LANGS.map(l => [l, `https://workshopdata.us/${l}/autodata-alternative`])),
     },
   };
 }
