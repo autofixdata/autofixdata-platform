@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
-import { getAllSitemapPaths, CHUNK_SIZE, BASE_URL } from '@/lib/sitemap';
+import { getAllSitemapPaths, CHUNK_SIZE, BASE_URL, LOCALES } from '@/lib/sitemap';
 
 export async function GET() {
   const allPaths = getAllSitemapPaths();
-  const totalUrls = allPaths.length;
+  // We expand to all locales so every language version is a primary URL
+  const totalUrls = allPaths.length * LOCALES.length;
   const numChunks = Math.ceil(totalUrls / CHUNK_SIZE);
   
   const now = new Date().toISOString();

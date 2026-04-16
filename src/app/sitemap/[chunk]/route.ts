@@ -1,6 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllSitemapPaths, CHUNK_SIZE, BASE_URL, LOCALES } from '@/lib/sitemap';
 
+function escapeXml(unsafe: string) {
+  return unsafe.replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '&': return '&amp;';
+      case '\'': return '&apos;';
+      case '"': return '&quot;';
+      default: return c;
+    }
+  });
+}
+
+function fullEncodeUrl(url: string) {
+  // encodeURI handles spaces and most characters, but we also escape for XML safety
+  return escapeXml(encodeURI(url));
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ chunk: string }> }
@@ -9,33 +27,42 @@ export async function GET(
   const chunkId = parseInt(chunkSlug.replace('.xml', ''));
   const now = new Date().toISOString();
 
-  const allPaths = getAllSitemapPaths();
+  const allLogicalPaths = getAllSitemapPaths();
+  
+  // Flatten combinations of paths and locales
+  const allEntries: { path: string, lang: string }[] = [];
+  allLogicalPaths.forEach(path => {
+    LOCALES.forEach(lang => {
+      allEntries.push({ path, lang });
+    });
+  });
   
   const start = chunkId * CHUNK_SIZE;
   const end = start + CHUNK_SIZE;
-  const targetPaths = allPaths.slice(start, end);
+  const targetEntries = allEntries.slice(start, end);
 
-  if (targetPaths.length === 0) {
+  if (targetEntries.length === 0) {
     return new NextResponse('Not Found', { status: 404 });
   }
 
-  const xmlContent = targetPaths.map(path => {
-    const alternates = LOCALES.map(lang => 
-      `<xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}/${lang}${path}" />`
-    ).join('');
+  const xmlContent = targetEntries.map(({ path, lang }) => {
+    const loc = fullEncodeUrl(`${BASE_URL}/${lang}${path}`);
+    const alternates = LOCALES.map(alternateLang => {
+      const altHref = fullEncodeUrl(`${BASE_URL}/${alternateLang}${path}`);
+      return `<xhtml:link rel="alternate" hreflang="${alternateLang}" href="${altHref}" />`;
+    }).join('\n    ');
     
-    // We use the first locale (en) as the canonical loc
-    return `<url>
-    <loc>${BASE_URL}/en${path}</loc>
+    return `  <url>
+    <loc>${loc}</loc>
     ${alternates}
     <lastmod>${now}</lastmod>
     <changefreq>weekly</changefreq>
-    </url>`;
-  }).join('');
+  </url>`;
+  }).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  ${xmlContent}
+${xmlContent}
 </urlset>`;
 
   return new NextResponse(xml, {
