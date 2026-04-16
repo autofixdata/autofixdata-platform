@@ -9,7 +9,7 @@ export const defaultLocale = 'en'
 function getLocale(request: NextRequest): string {
   const negotiatorHeaders: Record<string, string> = {}
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
-  
+
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
   try {
     return matchLocale(languages, locales, defaultLocale)
@@ -20,7 +20,7 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  
+
   // Skip public files, sitemaps, robots.txt, dynamic assets by extension (.png, .css, etc)
   if (
     pathname.startsWith('/images/') ||
