@@ -3,7 +3,7 @@ import { TOP_DTC_CODES } from './dtcData';
 
 export const LOCALES = ['en', 'fr', 'es', 'de', 'it', 'ar', 'he'];
 export const BASE_URL = 'https://workshopdata.us';
-export const CHUNK_SIZE = 40000;
+export const CHUNK_SIZE = 15000;
 
 export const STATIC_PATHS = [
   '', '/pricing', '/products', '/repair-manuals', '/diagnostics', 
