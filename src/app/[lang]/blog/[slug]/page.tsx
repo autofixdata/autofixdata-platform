@@ -69,7 +69,7 @@ const mdxComponents = {
   li: (props: any) => (
     <li className="flex items-start gap-2.5 text-afd-text text-[17px] leading-relaxed">
       <span className="mt-1.5 w-2 h-2 rounded-full bg-afd-yellow flex-shrink-0" />
-      <span>{props.children}</span>
+      <div className="flex-1">{props.children}</div>
     </li>
   ),
   a: ({ href, children, ...props }: any) => {
@@ -81,9 +81,7 @@ const mdxComponents = {
     return <a href={href} className={className} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
   },
   blockquote: (props: any) => (
-    <blockquote className="border-l-4 border-afd-yellow bg-afd-yellow/5 px-6 py-4 my-8 rounded-r-xl">
-      <p className="italic text-afd-navy font-medium mb-0" {...props} />
-    </blockquote>
+    <blockquote className="border-l-4 border-afd-yellow bg-afd-yellow/5 px-6 py-4 my-8 rounded-r-xl [&>p]:italic [&>p]:text-afd-navy [&>p]:font-medium [&>p]:mb-0" {...props} />
   ),
   table: (props: any) => (
     <div className="overflow-x-auto my-8 rounded-xl border border-gray-200 shadow-sm">
