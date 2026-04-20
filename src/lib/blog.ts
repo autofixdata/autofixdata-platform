@@ -27,12 +27,34 @@ function getPostDir(lang: string) {
   return path.join(CONTENT_DIR, lang);
 }
 
-export function getAllSlugs(): string[] {
-  const enDir = getPostDir('en');
-  if (!fs.existsSync(enDir)) return [];
-  return fs.readdirSync(enDir)
-    .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
-    .map(f => f.replace(/\.mdx?$/, ''));
+export function getAllSlugs(lang?: string): string[] {
+  let slugs = new Set<string>();
+
+  if (lang) {
+    const langDir = getPostDir(lang);
+    if (fs.existsSync(langDir)) {
+      fs.readdirSync(langDir)
+        .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+        .forEach(f => slugs.add(f.replace(/\.mdx?$/, '')));
+    }
+    const enDir = getPostDir('en');
+    if (fs.existsSync(enDir)) {
+      fs.readdirSync(enDir)
+        .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+        .forEach(f => slugs.add(f.replace(/\.mdx?$/, '')));
+    }
+  } else {
+    LANGS.forEach(l => {
+      const d = getPostDir(l);
+      if (fs.existsSync(d)) {
+        fs.readdirSync(d)
+          .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+          .forEach(f => slugs.add(f.replace(/\.mdx?$/, '')));
+      }
+    });
+  }
+
+  return Array.from(slugs);
 }
 
 export function getPostMeta(lang: string, slug: string): PostMeta | null {
@@ -54,7 +76,7 @@ export function getPost(lang: string, slug: string): Post | null {
 }
 
 export function getAllPostsMeta(lang: string): PostMeta[] {
-  return getAllSlugs()
+  return getAllSlugs(lang)
     .map(slug => getPostMeta(lang, slug))
     .filter(Boolean) as PostMeta[];
 }
